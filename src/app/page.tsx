@@ -1,11 +1,18 @@
+import FeaturedSection from "@/components/HomePage/FeaturedSection";
+import HeroSection from "@/components/HomePage/HeroSection";
+import NewsUpdateSection from "@/components/HomePage/NewsUpdateSection";
+import TourmentsSection from "@/components/HomePage/TourmentsSection";
 
 
 export default function Home() {
   return (
     <>
-    <section className="h-screen w-scren grid place-content-center">
-      <h1>Sport Site</h1>
-    </section>
+    <main className="container mx-auto px-4">
+      <HeroSection/>
+      <FeaturedSection/>
+      <TourmentsSection/>
+      <NewsUpdateSection/>
+    </main>
     </>
   );
 }
