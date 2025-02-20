@@ -7,8 +7,8 @@ import TourmentsSection from "@/components/HomePage/TourmentsSection";
 export default function Home() {
   return (
     <>
-    <main className="container mx-auto px-4">
-      <HeroSection/>
+    <main className="">
+      <HeroSection />
       <FeaturedSection/>
       <TourmentsSection/>
       <NewsUpdateSection/>
