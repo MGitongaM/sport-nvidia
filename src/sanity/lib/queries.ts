@@ -24,3 +24,12 @@ export const TOURNAMENT_QUERY = defineQuery(`*[_type=="tournaments"]{
       tournamentDate,
       tournamentDetails,
     }`);
+export const GOLFCOURSE_QUERY = defineQuery(`*[_type=="golfCourse"]{
+      golfCourseFeatureImage{asset->},
+      golfCourseTitle,
+      golfCourseSlug,
+      golfCourseExcerpt,
+      golfCourseAuthor,
+      golfCourseDate,
+      golfCourseDetails,
+    }`);
