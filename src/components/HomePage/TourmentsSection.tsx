@@ -1,71 +1,60 @@
 import React from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../ui/accordion";
 
-export default function TourmentsSection() {
+import { ScrollArea, ScrollBar } from "../ui/scroll-area";
+import Image from "next/image";
+import { sanityFetch } from "@/sanity/lib/live";
+import { TOURNAMENT_QUERY } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
+import { Button } from "../ui/button";
+
+export default async function TourmentsSection() {
+  const { data } = await sanityFetch({
+    query: TOURNAMENT_QUERY,
+  });
   return (
     <>
       <section className="min-h-[80vh] my-20">
         <div className="flex gap-4 justify-between">
-          <div className="text-center max-w-lg mx-auto">
+          <div className="text-start max-w-lg mx-auto">
             <h2 className="text-2xl">Upcoming Events</h2>
             <p className="">
               Mark your calendars for our upcoming tournaments and events.
               Compete, connect, and enjoy the thrill of the game
             </p>
           </div>
-          <div className="w-[40vw]">
-            <Accordion type="single" collapsible className="">
-              <AccordionItem value="1">
-                <AccordionTrigger>Tournment One</AccordionTrigger>
-                <AccordionContent className="space-y-4">
-                  <p className="text-xl">Lorem ipsum dolor sit amet.</p>
-                  <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Eos placeat illo cumque, a quidem vel magnam. Distinctio
-                    mollitia magnam rerum!
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="2">
-                <AccordionTrigger>Tournment Two</AccordionTrigger>
-                <AccordionContent className="space-y-4">
-                  <p className="text-xl">Lorem ipsum dolor sit amet.</p>
-                  <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Eos placeat illo cumque, a quidem vel magnam. Distinctio
-                    mollitia magnam rerum!
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="3">
-                <AccordionTrigger>Tournment Three</AccordionTrigger>
-                <AccordionContent className="space-y-4">
-                  <p className="text-xl">Lorem ipsum dolor sit amet.</p>
-                  <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Eos placeat illo cumque, a quidem vel magnam. Distinctio
-                    mollitia magnam rerum!
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="4">
-                <AccordionTrigger>Tournment Four</AccordionTrigger>
-                <AccordionContent className="space-y-4">
-                  <p className="text-xl">Lorem ipsum dolor sit amet.</p>
-                  <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Eos placeat illo cumque, a quidem vel magnam. Distinctio
-                    mollitia magnam rerum!
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
+          <ScrollArea className="w-[60vw] min-h-[70vh]  py-4">
+            <div className="flex gap-12 justify-center">
+              {data.map((tournament, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col  justify-between w-[22rem] rounded-lg min-h-72 border "
+                >
+                  {tournament.tournamentFeatureImage ? (
+                    <Image
+                      src={urlFor(tournament.tournamentFeatureImage)
+                        .width(800)
+                        .height(800)
+                        .quality(80)
+                        .auto("format")
+                        .url()}
+                      height={800}
+                      width={800}
+                      alt={tournament.tournamentTitle || ""}
+                      className="object-cover rounded-t-md"
+                    />
+                  ) : null}
+                  <div className="px-4 py-4 flex flex-col gap-4 justify-between h-full bg-green-300">
+                    <p className="text-lg font-semibold">
+                      {tournament.tournamentTitle}
+                    </p>
+                    <p>{tournament.tournamentExcerpt}</p>
+                    <Button className="w-48 my-4">View Tournament</Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
         </div>
       </section>
     </>

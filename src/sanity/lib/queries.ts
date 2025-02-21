@@ -15,3 +15,12 @@ export const NEWSANDUPDATETYPE_QUERY = defineQuery(`*[_type=="newsAndUpdates"]{
       newsUpdateDate,
       newsUpdateDetails,
     }`);
+export const TOURNAMENT_QUERY = defineQuery(`*[_type=="tournaments"]{
+      tournamentFeatureImage{asset->},
+      tournamentTitle,
+      tournamentSlug,
+      tournamentExcerpt,
+      tournamentAuthor,
+      tournamentDate,
+      tournamentDetails,
+    }`);
