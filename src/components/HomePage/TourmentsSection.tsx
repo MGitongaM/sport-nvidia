@@ -14,8 +14,8 @@ export default async function TourmentsSection() {
   return (
     <>
       <section className="min-h-[80vh] my-20">
-        <div className="flex gap-4 justify-between">
-          <div className="text-start max-w-lg mx-auto">
+        <div className="flex gap-4 justify-center">
+          <div className="text-start max-w-md mx-auto space-y-4">
             <h2 className="text-2xl">Upcoming Events</h2>
             <p className="">
               Mark your calendars for our upcoming tournaments and events.

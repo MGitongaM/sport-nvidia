@@ -15,7 +15,7 @@ export default async function FeaturedSection() {
       <section className="min-h-[80vh] my-20">
 
         <div className="flex gap-2 justify-center">
-          <div className="text-start max-w-md mx-auto">
+          <div className="text-start max-w-md mx-auto space-y-4">
             <h2 className="text-2xl">Explore Our Golf Courses</h2>
             <p className="">
               From scenic fairways to challenging greens, discover our premier

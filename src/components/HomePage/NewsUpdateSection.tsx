@@ -14,7 +14,7 @@ export default async function NewsUpdateSection() {
     <>
       <section className="min-h-[80vh] my-20">
         <div className="flex gap-2 justify-center">
-          <div className="text-start max-w-lg mx-auto">
+          <div className="text-start max-w-md mx-auto">
             <h2 className="text-2xl">Golf News & Insights</h2>
             <p className="">
               Stay updated with the latest in golf, including tournament
