@@ -1,14 +1,14 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { sanityFetch } from "@/sanity/lib/live";
-import { NEWSANDUPDATETYPE_QUERY } from "@/sanity/lib/queries";
+import { GOLFCOURSE_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 
 export default async function FeaturedSection() {
   const { data } = await sanityFetch({
-    query: NEWSANDUPDATETYPE_QUERY,
+    query: GOLFCOURSE_QUERY,
   });
   return (
     <>
@@ -30,9 +30,9 @@ export default async function FeaturedSection() {
                   key={index}
                   className="flex flex-col  justify-between w-[22rem] rounded-lg min-h-72 border "
                 >
-                  {course.newsUpdateFeatureImage ? (
+                  {course.golfCourseFeatureImage ? (
                     <Image
-                      src={urlFor(course.newsUpdateFeatureImage)
+                      src={urlFor(course.golfCourseFeatureImage)
                         .width(800)
                         .height(800)
                         .quality(80)
@@ -40,14 +40,14 @@ export default async function FeaturedSection() {
                         .url()}
                       height={800}
                       width={800}
-                      alt={course.newsUpdateTitle || ""}
+                      alt={course.golfCourseTitle || ""}
                       className="object-cover rounded-t-md"
                     />
                   ) : null}
-                  <div className="px-4 py-4 flex flex-col gap-4 justify-between h-full bg-green-100">
-                    <p className="text-lg font-semibold">{course.newsUpdateTitle}</p>
-                    <p>{course.newsUpdateExcerpt}</p>
-                    <Button className="w-48 my-4">View Details</Button>
+                  <div className="px-4 py-4 flex flex-col gap-4 justify-between h-full bg-green-50">
+                    <p className="text-lg font-semibold">{course.golfCourseTitle}</p>
+                    <p>{course.golfCourseExcerpt}</p>
+                    <Button className="w-48 my-4">View Course Details</Button>
                   </div>
                 </div>
               ))}
