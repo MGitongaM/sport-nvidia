@@ -68,6 +68,62 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type BlockContent = Array<{
+  children?: Array<{
+    marks?: Array<string>;
+    text?: string;
+    _type: "span";
+    _key: string;
+  }>;
+  style?: "normal" | "Normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+  listItem?: "bullet";
+  markDefs?: Array<{
+    href?: string;
+    _type: "link";
+    _key: string;
+  }>;
+  level?: number;
+  _type: "block";
+  _key: string;
+} | {
+  asset?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+  };
+  hotspot?: SanityImageHotspot;
+  crop?: SanityImageCrop;
+  alt?: string;
+  _type: "image";
+  _key: string;
+}>;
+
+export type NewsAndUpdates = {
+  _id: string;
+  _type: "newsAndUpdates";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  newsUpdateFeatureImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  newsUpdateTitle?: string;
+  newsUpdateSlug?: Slug;
+  newsUpdateExcerpt?: string;
+  newsUpdateAuthor?: string;
+  newsUpdateDate?: string;
+  newsUpdateDetails?: BlockContent;
+};
+
 export type Slug = {
   _type: "slug";
   current?: string;
@@ -154,7 +210,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | Banner | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | BlockContent | NewsAndUpdates | Slug | Banner | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: BANNER_QUERY
@@ -188,11 +244,46 @@ export type BANNER_QUERYResult = Array<{
     } | null;
   } | null;
 }>;
+// Variable: NEWSANDUPDATETYPE_QUERY
+// Query: *[_type=="newsAndUpdates"]{      newsUpdateFeatureImage{asset->},      newsUpdateTitle,      newsUpdateSlug,      newsUpdateExcerpt,      newsUpdateAuthor,      newsUpdateDate,      newsUpdateDetails,    }
+export type NEWSANDUPDATETYPE_QUERYResult = Array<{
+  newsUpdateFeatureImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+  } | null;
+  newsUpdateTitle: string | null;
+  newsUpdateSlug: Slug | null;
+  newsUpdateExcerpt: string | null;
+  newsUpdateAuthor: string | null;
+  newsUpdateDate: string | null;
+  newsUpdateDetails: BlockContent | null;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type==\"banner\"]{\n  bannerTitle,\n  bannerSubTitle,\n  bannerText,\n  bannerImage{asset->}}": BANNER_QUERYResult;
+    "*[_type==\"newsAndUpdates\"]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": NEWSANDUPDATETYPE_QUERYResult;
   }
 }
