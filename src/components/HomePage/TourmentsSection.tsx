@@ -14,15 +14,16 @@ export default async function TourmentsSection() {
   return (
     <>
       <section className="min-h-[80vh] my-20" id="tournaments">
-        <div className="flex gap-4 justify-center">
-          <div className="text-start max-w-md mx-auto space-y-4">
+        {/* <div className="flex gap-4 justify-center"> */}
+        <div className="flex flex-wrap md:flex-nowrap gap-2 justify-center px-4 md:px-0">
+          <div className="text-start w-full lg:max-w-md mx-auto space-y-4 pl-0 md:pl-4">
             <h2 className="text-2xl">Upcoming Events</h2>
             <p className="">
               Mark your calendars for our upcoming tournaments and events.
               Compete, connect, and enjoy the thrill of the game
             </p>
           </div>
-          <ScrollArea className="w-[60vw] min-h-[70vh]  py-4">
+          <ScrollArea className="w-full lg:w-[60vw] min-h-[70vh] py-4">
             <div className="flex gap-12 justify-center">
               {data.map((tournament, index) => (
                 <div

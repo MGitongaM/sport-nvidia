@@ -14,16 +14,16 @@ export default async function FeaturedSection() {
     <>
       <section className="min-h-[80vh] my-20" id="golf-courses">
 
-        <div className="flex gap-2 justify-center">
-          <div className="text-start max-w-md mx-auto space-y-4">
-            <h2 className="text-2xl">Explore Our Golf Courses</h2>
+        <div className="flex flex-wrap md:flex-nowrap gap-2 justify-center px-4 md:px-0">
+          <div className="text-start w-full lg:max-w-md mx-auto space-y-4 pl-0 md:pl-4">
+            <h2 className="text-2xl ">Explore Our Golf Courses</h2>
             <p className="">
               From scenic fairways to challenging greens, discover our premier
               golf courses designed for every level of golfer. Play where
               champions train.
             </p>
           </div>
-          <ScrollArea className=" w-[60vw] min-h-[70vh] overflow-y-visible py-4">
+          <ScrollArea className=" w-full lg:w-[60vw] min-h-[70vh] overflow-y-visible py-4">
             <div className="flex w-max gap-12 justify-center">
               {data.map((course, index) => (
                 <div
