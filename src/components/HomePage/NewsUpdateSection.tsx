@@ -12,7 +12,7 @@ export default async function NewsUpdateSection() {
   });
   return (
     <>
-      <section className="min-h-[80vh] my-20">
+      <section className="min-h-[80vh] my-20" id="news-&-updates">
         <div className="flex gap-2 justify-center">
           <div className="text-start max-w-md mx-auto">
             <h2 className="text-2xl">Golf News & Insights</h2>

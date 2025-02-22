@@ -12,7 +12,7 @@ export default async function FeaturedSection() {
   });
   return (
     <>
-      <section className="min-h-[80vh] my-20">
+      <section className="min-h-[80vh] my-20" id="golf-courses">
 
         <div className="flex gap-2 justify-center">
           <div className="text-start max-w-md mx-auto space-y-4">
