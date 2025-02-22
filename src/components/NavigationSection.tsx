@@ -32,7 +32,7 @@ export default function NavigationSection() {
   return (
     <NavigationMenu className="bg-green-50 ">
       <NavigationMenuList>
-        <div className="flex w-screen justify-between items-center px-16">
+        <div className="flex flex-wrap md:flex-nowrap w-screen justify-between items-center px-16">
           <NavigationMenuItem>
             <Link href="/">
               <Image
@@ -44,7 +44,7 @@ export default function NavigationSection() {
               />
             </Link>
           </NavigationMenuItem>
-          <div className="flex gap-5 items-center justify-end w-full">
+          <div className="flex flex-wrap md:flex-nowrap gap-5 items-center justify-end w-full">
             {navLinks.map((link) => (
               <NavigationMenuItem key={link.id}>
                 <ul>
