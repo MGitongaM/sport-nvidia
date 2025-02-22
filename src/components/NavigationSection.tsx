@@ -6,24 +6,24 @@ import {
 } from "./ui/navigation-menu";
 import Image from "next/image";
 import logo from "../../public/images/transparent-logo.png"
-const navLinks = [
+export const navLinks = [
   {
     id: 1,
     hrefLink: "/",
     text: "Home",
   },
   {
-    id: 1,
+    id: 2,
     hrefLink: "/#golf-courses",
     text: "Golf Courses",
   },
   {
-    id: 1,
+    id: 3,
     hrefLink: "/#tournaments",
     text: "Tournaments",
   },
   {
-    id: 1,
+    id: 4,
     hrefLink: "/#news-&-updates",
     text: "News & Updates",
   },
@@ -49,7 +49,8 @@ export default function NavigationSection() {
               <NavigationMenuItem key={link.id}>
                 <ul>
                   <Link href={link.hrefLink}>
-                    <li className="hover:border-b-4 hover:border-b-green-300">{link.text}</li>
+                    {/* <li className="hover:border-b-4 hover:border-b-green-300">{link.text}</li> */}
+                    <li className="hover:text-green-500">{link.text}</li>
                   </Link>
                 </ul>
               </NavigationMenuItem>
