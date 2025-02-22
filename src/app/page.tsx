@@ -6,7 +6,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { BANNER_QUERY } from "@/sanity/lib/queries";
 import type { Metadata } from "next";
 
-export async function generateMetaData():Promise<Metadata>{
+export async function generateMetadata():Promise<Metadata>{
   const{data}=await sanityFetch({
     query:BANNER_QUERY
   })
