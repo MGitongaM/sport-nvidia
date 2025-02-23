@@ -49,7 +49,7 @@ export default async function TourmentsSection() {
                       {tournament.tournamentTitle}
                     </p>
                     <p>{tournament.tournamentExcerpt}</p>
-                    <Button className="w-48 my-4">View Tournament</Button>
+                    <Button className="w-48 my-4 bg-white hover:bg-green-200 text-black">View Tournament</Button>
                   </div>
                 </div>
               ))}

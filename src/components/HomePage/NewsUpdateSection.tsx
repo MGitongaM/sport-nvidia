@@ -48,7 +48,7 @@ export default async function NewsUpdateSection() {
                       {newsAndUpdate.newsUpdateTitle}
                     </p>
                     <p>{newsAndUpdate.newsUpdateExcerpt}</p>
-                    <Button className="w-48 my-4">View Details</Button>
+                    <Button className="w-48 my-4 bg-white hover:bg-green-200 text-black">View Details</Button>
                   </div>
                 </div>
               ))}
