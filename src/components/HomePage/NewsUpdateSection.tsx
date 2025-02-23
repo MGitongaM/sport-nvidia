@@ -5,6 +5,7 @@ import { NEWSANDUPDATETYPE_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
+import GolfClubs from "../../../public/images/golf-clubs.png"
 
 export default async function NewsUpdateSection() {
   const { data } = await sanityFetch({
@@ -21,6 +22,13 @@ export default async function NewsUpdateSection() {
               Stay updated with the latest in golf, including tournament
               results, player interviews, and expert tips
             </p>
+            <Image
+              src={GolfClubs}
+              height={400}
+              width={400}
+              alt=""
+              className="object-cover  hidden md:block"
+            />
           </div>
           <ScrollArea className=" w-full lg:w-[60vw] min-h-[70vh] overflow-y-visible py-4">
             <div className="flex w-max gap-12 justify-center">
