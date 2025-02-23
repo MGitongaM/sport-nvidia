@@ -1,7 +1,7 @@
-import FeaturedSection from "@/components/HomePage/FeaturedSection";
+import FeaturedSection from "@/components/HomePage/GolfCoursesSection";
 import HeroSection from "@/components/HomePage/HeroSection";
 import NewsUpdateSection from "@/components/HomePage/NewsUpdateSection";
-import TourmentsSection from "@/components/HomePage/TourmentsSection";
+import TourmentsSection from "@/components/HomePage/EventsSection";
 import { sanityFetch } from "@/sanity/lib/live";
 import { BANNER_QUERY } from "@/sanity/lib/queries";
 import type { Metadata } from "next";

@@ -19,14 +19,14 @@ export default async function HeroSection(
     <>
       <section className="min-h-[90vh] ">
         <div className="relative flex flex-col h-[90vh]  items-start justify-center px-4 ">
-          <div className="container mx-auto ">
-            <div className="max-w-md space-y-6 bg-slate-500/10 backdrop-blur-md px-4 py-4 rounded-lg">
-              <h1 className="text-4xl font-bold">{banner?.[0].bannerTitle}</h1>
-              <p className="c">
+          <div className="container mx-auto -mt-36">
+            <div className="max-w-lg space-y-6 bg-white/40 backdrop-blur-lg px-4 py-10 rounded-lg">
+              <h1 className="text-3xl md:text-5xl font-bold text-green-900">{banner?.[0].bannerTitle}</h1>
+              <p className="text-lg">
                 Join a community of passionate golfers dedicated to mastering the
                 art of golf
               </p>
-              <Button className="">Join Us Today</Button>
+              <Button className="bg-white hover:bg-green-200 text-black">Join Us Today</Button>
 
             </div>
           </div>

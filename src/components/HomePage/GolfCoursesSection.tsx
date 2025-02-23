@@ -16,7 +16,7 @@ export default async function FeaturedSection() {
 
         <div className="flex flex-wrap md:flex-nowrap gap-2 justify-center px-4 md:px-0">
           <div className="text-start w-full lg:max-w-md mx-auto space-y-4 pl-0 md:pl-4">
-            <h2 className="text-2xl ">Explore Our Golf Courses</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-green-900 ">Explore Our Golf Courses</h2>
             <p className="">
               From scenic fairways to challenging greens, discover our premier
               golf courses designed for every level of golfer. Play where

@@ -49,8 +49,7 @@ export default function NavigationSection() {
               <NavigationMenuItem key={link.id}>
                 <ul>
                   <Link href={link.hrefLink}>
-                    {/* <li className="hover:border-b-4 hover:border-b-green-300">{link.text}</li> */}
-                    <li className="hover:text-green-500">{link.text}</li>
+                    <li className="hover:text-green-500 font-semibold text-sm">{link.text}</li>
                   </Link>
                 </ul>
               </NavigationMenuItem>

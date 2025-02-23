@@ -17,7 +17,7 @@ export default async function TourmentsSection() {
         {/* <div className="flex gap-4 justify-center"> */}
         <div className="flex flex-wrap md:flex-nowrap gap-2 justify-center px-4 md:px-0">
           <div className="text-start w-full lg:max-w-md mx-auto space-y-4 pl-0 md:pl-4">
-            <h2 className="text-2xl">Upcoming Events</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-green-900">Upcoming Events</h2>
             <p className="">
               Mark your calendars for our upcoming tournaments and events.
               Compete, connect, and enjoy the thrill of the game
