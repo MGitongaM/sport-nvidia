@@ -6,6 +6,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { TOURNAMENT_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { Button } from "../ui/button";
+import TournamentPerson from "../../../public/images/tournament-person.png"
 
 export default async function TourmentsSection() {
   const { data } = await sanityFetch({
@@ -22,6 +23,13 @@ export default async function TourmentsSection() {
               Mark your calendars for our upcoming tournaments and events.
               Compete, connect, and enjoy the thrill of the game
             </p>
+            <Image
+              src={TournamentPerson}
+              height={400}
+              width={400}
+              alt=""
+              className="object-cover  hidden md:block"
+            />
           </div>
           <ScrollArea className="w-full lg:w-[60vw] min-h-[70vh] py-4">
             <div className="flex gap-12 justify-center">

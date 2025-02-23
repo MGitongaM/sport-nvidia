@@ -5,6 +5,7 @@ import { GOLFCOURSE_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
+import GolfBall from "../../../public/images/golf-ball.png"
 
 export default async function FeaturedSection() {
   const { data } = await sanityFetch({
@@ -22,6 +23,13 @@ export default async function FeaturedSection() {
               golf courses designed for every level of golfer. Play where
               champions train.
             </p>
+            <Image
+              src={GolfBall}
+              height={400}
+              width={400}
+              alt=""
+              className="object-cover hidden md:block"
+            />
           </div>
           <ScrollArea className=" w-full lg:w-[60vw] min-h-[70vh] overflow-y-visible py-4">
             <div className="flex w-max gap-12 justify-center">
