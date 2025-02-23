@@ -30,7 +30,7 @@ export const navLinks = [
 ];
 export default function NavigationSection() {
   return (
-    <NavigationMenu className="bg-green-50 ">
+    <NavigationMenu className="bg-green-50 overflow-hidden">
       <NavigationMenuList>
         <div className="flex flex-wrap md:flex-nowrap w-screen justify-between items-center px-16">
           <NavigationMenuItem>

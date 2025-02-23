@@ -6,7 +6,7 @@ import { navLinks } from "./NavigationSection";
 export default function FooterSection() {
   return (
     <>
-      <section className="min-h-[40vh]  bg-green-700 w-screen px-16">
+      <section className="min-h-[40vh]  bg-green-700 w-full px-16">
         <div className="flex flex-wrap h-full items-end justify-between py-20">
           <Link href="/">
             <Image
