@@ -386,6 +386,40 @@ export type NEWSANDUPDATETYPE_QUERYResult = Array<{
   newsUpdateDate: string | null;
   newsUpdateDetails: BlockContent | null;
 }>;
+// Variable: SINGLE_NEWSANDUPDATETYPE_QUERY
+// Query: *[_type=="newsAndUpdates" && newsUpdateSlug.current==$slug][0]{      newsUpdateFeatureImage{asset->},      newsUpdateTitle,      newsUpdateSlug,      newsUpdateExcerpt,      newsUpdateAuthor,      newsUpdateDate,      newsUpdateDetails,    }
+export type SINGLE_NEWSANDUPDATETYPE_QUERYResult = {
+  newsUpdateFeatureImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+  } | null;
+  newsUpdateTitle: string | null;
+  newsUpdateSlug: Slug | null;
+  newsUpdateExcerpt: string | null;
+  newsUpdateAuthor: string | null;
+  newsUpdateDate: string | null;
+  newsUpdateDetails: BlockContent | null;
+} | null;
 // Variable: TOURNAMENT_QUERY
 // Query: *[_type=="tournaments"]{      tournamentFeatureImage{asset->},      tournamentTitle,      tournamentSlug,      tournamentExcerpt,      tournamentAuthor,      tournamentDate,      tournamentDetails,    }
 export type TOURNAMENT_QUERYResult = Array<{
@@ -582,6 +616,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type==\"banner\"]{\n  bannerTitle,\n  bannerSubTitle,\n  bannerText,\n  bannerImage{asset->}}": BANNER_QUERYResult;
     "*[_type==\"newsAndUpdates\"]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": NEWSANDUPDATETYPE_QUERYResult;
+    "*[_type==\"newsAndUpdates\" && newsUpdateSlug.current==$slug][0]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": SINGLE_NEWSANDUPDATETYPE_QUERYResult;
     "*[_type==\"tournaments\"]{\n      tournamentFeatureImage{asset->},\n      tournamentTitle,\n      tournamentSlug,\n      tournamentExcerpt,\n      tournamentAuthor,\n      tournamentDate,\n      tournamentDetails,\n    }": TOURNAMENT_QUERYResult;
     "*[_type==\"tournaments\" && tournamentSlug.current==$tournamentSlug][0]{\n      tournamentFeatureImage{asset->},\n      tournamentTitle,\n      tournamentSlug,\n      tournamentExcerpt,\n      tournamentAuthor,\n      tournamentDate,\n      tournamentDetails,\n    }": SINGLE_TOURNAMEN_QUERYResult;
     "*[_type==\"golfCourse\"]{\n      golfCourseFeatureImage{asset->},\n      golfCourseTitle,\n      golfCourseSlug,\n      golfCourseExcerpt,\n      golfCourseAuthor,\n      golfCourseDate,\n      golfCourseDetails,\n    }": GOLFCOURSE_QUERYResult;
