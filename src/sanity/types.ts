@@ -449,6 +449,69 @@ export type TOURNAMENT_QUERYResult = Array<{
     _key: string;
   }> | null;
 }>;
+// Variable: SINGLE_TOURNAMEN_QUERY
+// Query: *[_type=="tournaments" && tournamentSlug.current==$tournamentSlug][0]{      tournamentFeatureImage{asset->},      tournamentTitle,      tournamentSlug,      tournamentExcerpt,      tournamentAuthor,      tournamentDate,      tournamentDetails,    }
+export type SINGLE_TOURNAMEN_QUERYResult = {
+  tournamentFeatureImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+  } | null;
+  tournamentTitle: string | null;
+  tournamentSlug: Slug | null;
+  tournamentExcerpt: string | null;
+  tournamentAuthor: string | null;
+  tournamentDate: string | null;
+  tournamentDetails: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal" | "Normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }> | null;
+} | null;
 // Variable: GOLFCOURSE_QUERY
 // Query: *[_type=="golfCourse"]{      golfCourseFeatureImage{asset->},      golfCourseTitle,      golfCourseSlug,      golfCourseExcerpt,      golfCourseAuthor,      golfCourseDate,      golfCourseDetails,    }
 export type GOLFCOURSE_QUERYResult = Array<{
@@ -520,6 +583,7 @@ declare module "@sanity/client" {
     "*[_type==\"banner\"]{\n  bannerTitle,\n  bannerSubTitle,\n  bannerText,\n  bannerImage{asset->}}": BANNER_QUERYResult;
     "*[_type==\"newsAndUpdates\"]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": NEWSANDUPDATETYPE_QUERYResult;
     "*[_type==\"tournaments\"]{\n      tournamentFeatureImage{asset->},\n      tournamentTitle,\n      tournamentSlug,\n      tournamentExcerpt,\n      tournamentAuthor,\n      tournamentDate,\n      tournamentDetails,\n    }": TOURNAMENT_QUERYResult;
+    "*[_type==\"tournaments\" && tournamentSlug.current==$tournamentSlug][0]{\n      tournamentFeatureImage{asset->},\n      tournamentTitle,\n      tournamentSlug,\n      tournamentExcerpt,\n      tournamentAuthor,\n      tournamentDate,\n      tournamentDetails,\n    }": SINGLE_TOURNAMEN_QUERYResult;
     "*[_type==\"golfCourse\"]{\n      golfCourseFeatureImage{asset->},\n      golfCourseTitle,\n      golfCourseSlug,\n      golfCourseExcerpt,\n      golfCourseAuthor,\n      golfCourseDate,\n      golfCourseDetails,\n    }": GOLFCOURSE_QUERYResult;
   }
 }

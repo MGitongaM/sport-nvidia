@@ -4,16 +4,9 @@ import { BANNER_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 
-export default async function HeroSection(
-//   {
-//   params,
-// }: {
-//   params: Promise<{ slug: string }>;
-// }
-) {
+export default async function HeroSection() {
   const { data: banner } = await sanityFetch({
     query: BANNER_QUERY,
-    // params: await params,
   });
   return (
     <>
@@ -21,13 +14,16 @@ export default async function HeroSection(
         <div className="relative flex flex-col min-h-[90vh]  items-start justify-center px-4 ">
           <div className="container mx-auto -mt-36">
             <div className="max-w-lg space-y-6 bg-white/40 backdrop-blur-lg px-4 py-10 rounded-lg">
-              <h1 className="text-3xl md:text-5xl font-bold text-green-900">{banner?.[0].bannerTitle}</h1>
+              <h1 className="text-3xl md:text-5xl font-bold text-green-900">
+                {banner?.[0].bannerTitle}
+              </h1>
               <p className="text-lg">
-                Join a community of passionate golfers dedicated to mastering the
-                art of golf
+                Join a community of passionate golfers dedicated to mastering
+                the art of golf
               </p>
-              <Button className="bg-white hover:bg-green-200 text-black">Join Us Today</Button>
-
+              <Button className="bg-white hover:bg-green-200 text-black">
+                Join Us Today
+              </Button>
             </div>
           </div>
         </div>

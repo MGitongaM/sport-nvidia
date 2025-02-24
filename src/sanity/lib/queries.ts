@@ -24,6 +24,15 @@ export const TOURNAMENT_QUERY = defineQuery(`*[_type=="tournaments"]{
       tournamentDate,
       tournamentDetails,
     }`);
+export const SINGLE_TOURNAMEN_QUERY=defineQuery(`*[_type=="tournaments" && tournamentSlug.current==$tournamentSlug][0]{
+      tournamentFeatureImage{asset->},
+      tournamentTitle,
+      tournamentSlug,
+      tournamentExcerpt,
+      tournamentAuthor,
+      tournamentDate,
+      tournamentDetails,
+    }`)
 export const GOLFCOURSE_QUERY = defineQuery(`*[_type=="golfCourse"]{
       golfCourseFeatureImage{asset->},
       golfCourseTitle,
