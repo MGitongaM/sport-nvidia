@@ -7,12 +7,14 @@ import { TOURNAMENT_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { Button } from "../ui/button";
 import TournamentPerson from "../../../public/images/tournament-person.png"
+import Link from "next/link";
 
 export default async function TourmentsSection() {
   const { data } = await sanityFetch({
     query: TOURNAMENT_QUERY,
   });
   return (
+    
     <>
       <section className="min-h-[80vh] my-20" id="tournaments">
         {/* <div className="flex gap-4 justify-center"> */}
@@ -57,7 +59,11 @@ export default async function TourmentsSection() {
                       {tournament.tournamentTitle}
                     </p>
                     <p>{tournament.tournamentExcerpt}</p>
-                    <Button className="w-48 my-4 bg-white hover:bg-green-200 text-black">View Tournament</Button>
+                    <Button asChild className="w-48 my-4 bg-white hover:bg-green-200 text-black">
+                      <Link href={`/events/${tournament.tournamentSlug?.current}`}>
+                      View Tournament
+                      </Link>
+                      </Button>
                   </div>
                 </div>
               ))}
