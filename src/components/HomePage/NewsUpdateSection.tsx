@@ -6,6 +6,7 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 import GolfClubs from "../../../public/images/golf-clubs.png"
+import Link from "next/link";
 
 export default async function NewsUpdateSection() {
   const { data } = await sanityFetch({
@@ -56,7 +57,11 @@ export default async function NewsUpdateSection() {
                       {newsAndUpdate.newsUpdateTitle}
                     </p>
                     <p>{newsAndUpdate.newsUpdateExcerpt}</p>
-                    <Button className="w-48 my-4 bg-white hover:bg-green-200 text-black">View Details</Button>
+                    <Button asChild className="w-48 my-4 bg-white hover:bg-green-200 text-black">
+                      <Link href={`/news-and-updates/${newsAndUpdate.newsUpdateSlug?.current}`}>
+                      View Details
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               ))}

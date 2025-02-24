@@ -15,6 +15,15 @@ export const NEWSANDUPDATETYPE_QUERY = defineQuery(`*[_type=="newsAndUpdates"]{
       newsUpdateDate,
       newsUpdateDetails,
     }`);
+export const SINGLE_NEWSANDUPDATETYPE_QUERY=defineQuery(`*[_type=="newsAndUpdates" && newsUpdateSlug.current==$slug][0]{
+      newsUpdateFeatureImage{asset->},
+      newsUpdateTitle,
+      newsUpdateSlug,
+      newsUpdateExcerpt,
+      newsUpdateAuthor,
+      newsUpdateDate,
+      newsUpdateDetails,
+    }`)
 export const TOURNAMENT_QUERY = defineQuery(`*[_type=="tournaments"]{
       tournamentFeatureImage{asset->},
       tournamentTitle,
