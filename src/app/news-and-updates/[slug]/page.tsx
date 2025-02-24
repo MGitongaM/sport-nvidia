@@ -3,6 +3,8 @@ import Image from "next/image";
 import { sanityFetch } from "@/sanity/lib/live";
 import { SINGLE_NEWSANDUPDATETYPE_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import { PortableText } from "next-sanity";
+import { components } from "@/sanity/portableTextComponents";
 
 export default async function page({
   params,
@@ -15,7 +17,7 @@ export default async function page({
   });
   return (
     <>
-      <section className="max-w-5xl mx-auto ">
+      <section className="max-w-5xl mx-auto px-4">
         <div className="mt-4">
           {data?.newsUpdateFeatureImage ? (
             <Image
@@ -45,8 +47,15 @@ export default async function page({
               {data?.newsUpdateAuthor}
             </p>
           </div>
-          <div>
-            <p className="c">{data?.newsUpdateExcerpt}</p>
+          <hr />
+          <div className="space-y-6">
+            
+            {data?.newsUpdateDetails != null &&
+            data?.newsUpdateDetails != undefined ? (
+                <div className="prose  max-w-5xl">
+                    <PortableText value={data?.newsUpdateDetails}  components={components}/>
+                </div>
+            ) : null}
           </div>
         </div>
       </section>
