@@ -52,5 +52,42 @@ export const golfCourseType = defineType({
       title: "Golf Course Details",
       type: "blockContent",
     },
+    {
+      name: "golfCourseShowCaseImage1",
+      title: "Golf Course Show Case Image 1",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: "golfCourseShowCaseImage2",
+      title: "Golf Course Show Case Image 2",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: "golfCourseEstablishedHeading",
+      title: "Golf Course Established Heading",
+      type: "string",
+    },
+    {
+      name: "golfCourseEstablishedSubText",
+      title: "Golf Course Established Sub Text",
+      type: "string",
+    },
+    {
+      name: "golfCourseEstablishedStats1",
+      title: "Golf Course Established Stats 1",
+      type: "string",
+    },
+    {
+      name: "golfCourseEstablishedStats2",
+      title: "Golf Course Established Stats 2",
+      type: "string",
+    },
+    
   ],
 });

@@ -51,3 +51,18 @@ export const GOLFCOURSE_QUERY = defineQuery(`*[_type=="golfCourse"]{
       golfCourseDate,
       golfCourseDetails,
     }`);
+    export const SINGLE_GOLFCOURSE_QUERY=defineQuery(`*[_type=="golfCourse" && golfCourseSlug.current==$slug][0]{
+      golfCourseFeatureImage{asset->},
+      golfCourseTitle,
+      golfCourseSlug,
+      golfCourseExcerpt,
+      golfCourseAuthor,
+      golfCourseDate,
+      golfCourseDetails,
+      golfCourseShowCaseImage1,
+      golfCourseShowCaseImage2,
+      golfCourseEstablishedHeading,
+      golfCourseEstablishedSubText,
+      golfCourseEstablishedStats2,
+      golfCourseEstablishedStats2,
+    }`)

@@ -120,6 +120,32 @@ export type GolfCourse = {
     _type: "image";
     _key: string;
   }>;
+  golfCourseShowCaseImage1?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  golfCourseShowCaseImage2?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  golfCourseEstablishedHeading?: string;
+  golfCourseEstablishedSubText?: string;
+  golfCourseEstablishedStats1?: string;
+  golfCourseEstablishedStats2?: string;
 };
 
 export type Tournaments = {
@@ -609,6 +635,94 @@ export type GOLFCOURSE_QUERYResult = Array<{
     _key: string;
   }> | null;
 }>;
+// Variable: SINGLE_GOLFCOURSE_QUERY
+// Query: *[_type=="golfCourse" && golfCourseSlug.current==$slug][0]{      golfCourseFeatureImage{asset->},      golfCourseTitle,      golfCourseSlug,      golfCourseExcerpt,      golfCourseAuthor,      golfCourseDate,      golfCourseDetails,      golfCourseShowCaseImage1,      golfCourseShowCaseImage2,      golfCourseEstablishedHeading,      golfCourseEstablishedSubText,      golfCourseEstablishedStats2,      golfCourseEstablishedStats2,    }
+export type SINGLE_GOLFCOURSE_QUERYResult = {
+  golfCourseFeatureImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+  } | null;
+  golfCourseTitle: string | null;
+  golfCourseSlug: Slug | null;
+  golfCourseExcerpt: string | null;
+  golfCourseAuthor: string | null;
+  golfCourseDate: string | null;
+  golfCourseDetails: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal" | "Normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }> | null;
+  golfCourseShowCaseImage1: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  golfCourseShowCaseImage2: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  golfCourseEstablishedHeading: string | null;
+  golfCourseEstablishedSubText: string | null;
+  golfCourseEstablishedStats2: string | null;
+} | null;
 
 // Query TypeMap
 import "@sanity/client";
@@ -620,5 +734,6 @@ declare module "@sanity/client" {
     "*[_type==\"tournaments\"]{\n      tournamentFeatureImage{asset->},\n      tournamentTitle,\n      tournamentSlug,\n      tournamentExcerpt,\n      tournamentAuthor,\n      tournamentDate,\n      tournamentDetails,\n    }": TOURNAMENT_QUERYResult;
     "*[_type==\"tournaments\" && tournamentSlug.current==$tournamentSlug][0]{\n      tournamentFeatureImage{asset->},\n      tournamentTitle,\n      tournamentSlug,\n      tournamentExcerpt,\n      tournamentAuthor,\n      tournamentDate,\n      tournamentDetails,\n    }": SINGLE_TOURNAMEN_QUERYResult;
     "*[_type==\"golfCourse\"]{\n      golfCourseFeatureImage{asset->},\n      golfCourseTitle,\n      golfCourseSlug,\n      golfCourseExcerpt,\n      golfCourseAuthor,\n      golfCourseDate,\n      golfCourseDetails,\n    }": GOLFCOURSE_QUERYResult;
+    "*[_type==\"golfCourse\" && golfCourseSlug.current==$slug][0]{\n      golfCourseFeatureImage{asset->},\n      golfCourseTitle,\n      golfCourseSlug,\n      golfCourseExcerpt,\n      golfCourseAuthor,\n      golfCourseDate,\n      golfCourseDetails,\n      golfCourseShowCaseImage1,\n      golfCourseShowCaseImage2,\n      golfCourseEstablishedHeading,\n      golfCourseEstablishedSubText,\n      golfCourseEstablishedStats2,\n      golfCourseEstablishedStats2,\n    }": SINGLE_GOLFCOURSE_QUERYResult;
   }
 }
