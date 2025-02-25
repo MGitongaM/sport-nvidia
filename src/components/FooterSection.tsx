@@ -17,7 +17,7 @@ export default function FooterSection() {
               className="object-contain w-64"
             />
           </Link>
-
+        <p className="-mb-20">Copyright @ 2025 by Golf All Right Reserved.</p>
           <div className="mr-48">
             <p className="font-semibold ">Navigation Links</p>
             <ul className="flex flex-col gap-2 mt-4">
