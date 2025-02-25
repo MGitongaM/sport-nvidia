@@ -1,36 +1,53 @@
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
+import { sanityFetch } from "@/sanity/lib/live";
+import { SINGLE_GOLFCOURSE_QUERY } from "@/sanity/lib/queries";
 import { QuoteIcon } from "lucide-react";
 
-export default function page() {
+export default async function page({params}:{params:Promise<{slug:string}>}) {
+  const{data}=await sanityFetch({
+    query:SINGLE_GOLFCOURSE_QUERY,
+    params:params
+  })
   return (
     <>
       <section className="container mx-auto px-4">
-        <div className="relative "></div>
-        <div className="max-w-lg space-y-6 bg-white/40 backdrop-blur-lg px-4 py-10 rounded-lg">
-          <p>welcome to</p>
-          <h1 className="text-3xl md:text-5xl font-bold text-green-900">
-            Title Heading For Hero
-          </h1>
-          <p className="text-lg">
-            Join a community of passionate golfers dedicated to mastering the
-            art of golf
-          </p>
+        <div className="relative flex flex-col min-h-[90vh]  items-start justify-center px-4">
+          <div className="max-w-lg space-y-6 bg-white/40 backdrop-blur-lg px-4 py-10 rounded-lg">
+            <p>welcome to</p>
+            <h1 className="text-3xl md:text-5xl font-bold text-green-900">
+              {data?.golfCourseTitle}
+            </h1>
+            <p className="text-lg">
+              {data?.golfCourseExcerpt}
+            </p>
+          </div>
         </div>
+        {
+          data?.golfCourseFeatureImage?(<Image
+                      src={urlFor(data.golfCourseFeatureImage)
+                        .width(1200)
+                        .height(900)
+                        .quality(80)
+                        .auto("format")
+                        .url()}
+                      height={900}
+                      width={800}
+                      alt={data.golfCourseTitle || "Hero Section Image"}
+                      className="object-cover h-[80vh] w-[90vw] rounded-lg absolute top-0 -z-10"
+                    />):null
+        }
 
         <div className="c">
           <div className="grid place-content-center max-w-2xl mx-auto text-center space-y-8">
             <p>Golf Club</p>
             <h2 className="text-3xl">
-              THE GOLF CLUB WAS ESTABLISHED IN PARIS, FRANCE, IN 1980
+              {data?.golfCourseEstablishedHeading}
             </h2>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Blanditiis, a nam? Consequuntur soluta amet blanditiis nobis
-              ullam, alias dolorem repudiandae quas. In blanditiis suscipit
-              ipsam facere nam assumenda, nisi veritatis, repellat molestias,
-              quam enim praesentium id cum. Nemo maxime, laborum veritatis, at
-              rerum, magni dignissimos quae ratione sunt architecto quis?
+              {data?.golfCourseEstablishedSubText}
             </p>
           </div>
         </div>
@@ -47,12 +64,12 @@ export default function page() {
           <div className="flex gap-12 justify-center my-20">
             <div>
               <p>
-                <span className="text-2xl">20+</span> Golf Holes
+                <span className="text-2xl">{data?.golfCourseEstablishedStats2}</span> Golf Holes
               </p>
             </div>
             <div>
               <p>
-                <span className="text-2xl">200sqm2</span> Golf Space
+                <span className="text-2xl">{data?.golfCourseEstablishedStats2}</span> Golf Space
               </p>
             </div>
           </div>

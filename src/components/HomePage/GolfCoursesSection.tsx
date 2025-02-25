@@ -6,6 +6,7 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 import GolfBall from "../../../public/images/golf-ball.png"
+import Link from "next/link";
 
 export default async function FeaturedSection() {
   const { data } = await sanityFetch({
@@ -55,7 +56,11 @@ export default async function FeaturedSection() {
                   <div className="px-4 py-4 flex flex-col gap-4 justify-between h-full bg-green-50">
                     <p className="text-lg font-semibold">{course.golfCourseTitle}</p>
                     <p>{course.golfCourseExcerpt}</p>
-                    <Button className="w-48 my-4 bg-white hover:bg-green-200 text-black">View Course Details</Button>
+                    <Button className="w-48 my-4 bg-white hover:bg-green-200 text-black">
+                      <Link href={`/golf-course/${course.golfCourseSlug?.current}`}>
+                      View Course Details
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               ))}
