@@ -6,86 +6,153 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { SINGLE_GOLFCOURSE_QUERY } from "@/sanity/lib/queries";
 import { QuoteIcon } from "lucide-react";
 
-export default async function page({params}:{params:Promise<{slug:string}>}) {
-  const{data}=await sanityFetch({
-    query:SINGLE_GOLFCOURSE_QUERY,
-    params:params
-  })
+export default async function page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { data } = await sanityFetch({
+    query: SINGLE_GOLFCOURSE_QUERY,
+    params: params,
+  });
   return (
     <>
       <section className="container mx-auto px-4">
-        <div className="relative flex flex-col min-h-[90vh]  items-start justify-center px-4">
+        {/* <div className="relative flex flex-col min-h-[90vh]  items-start justify-center px-4">
           <div className="max-w-lg space-y-6 bg-white/40 backdrop-blur-lg px-4 py-10 rounded-lg">
             <p>welcome to</p>
             <h1 className="text-3xl md:text-5xl font-bold text-green-900">
               {data?.golfCourseTitle}
             </h1>
-            <p className="text-lg">
-              {data?.golfCourseExcerpt}
-            </p>
+            <p className="text-lg">{data?.golfCourseExcerpt}</p>
           </div>
         </div>
-        {
-          data?.golfCourseFeatureImage?(<Image
-                      src={urlFor(data.golfCourseFeatureImage)
-                        .width(1200)
-                        .height(900)
-                        .quality(80)
-                        .auto("format")
-                        .url()}
-                      height={900}
-                      width={800}
-                      alt={data.golfCourseTitle || "Hero Section Image"}
-                      className="object-cover h-[80vh] w-[90vw] rounded-lg absolute top-0 -z-10"
-                    />):null
-        }
+        {data?.golfCourseFeatureImage ? (
+          <Image
+            src={urlFor(data.golfCourseFeatureImage)
+              .width(1200)
+              .height(900)
+              .quality(80)
+              .auto("format")
+              .url()}
+            height={900}
+            width={800}
+            alt={data.golfCourseTitle || "Hero Section Image"}
+            className="object-cover h-[80vh] w-[90vw] rounded-lg absolute top-0 -z-10"
+          />
+        ) : null} */}
+        {data?.golfCourseFeatureImage ? (
+          <Image
+            src={urlFor(data.golfCourseFeatureImage)
+              .width(1200)
+              .height(900)
+              .quality(80)
+              .auto("format")
+              .url()}
+            height={900}
+            width={800}
+            alt={data.golfCourseTitle || "Hero Section Image"}
+            className="object-cover h-screen md:h-[70vh]  w-[90vw] mx-auto rounded-lg mt-8 relative"
+          />
+        ) : null} 
+        <div className=" absolute top-64 md:left-40 w-72 md:w-[34vw] space-y-6 bg-white/40 backdrop-blur-lg px-4 py-10 rounded-lg mx-4">
+            <p>welcome to</p>
+            <h1 className="text-3xl md:text-5xl font-bold text-green-900">
+              {data?.golfCourseTitle}
+            </h1>
+            <p className="text-lg">{data?.golfCourseExcerpt}</p>
+          </div>
+        
 
-        <div className="c">
+
+        <div className="my-20">
           <div className="grid place-content-center max-w-2xl mx-auto text-center space-y-8">
             <p>Golf Club</p>
-            <h2 className="text-3xl">
-              {data?.golfCourseEstablishedHeading}
-            </h2>
-            <p>
-              {data?.golfCourseEstablishedSubText}
-            </p>
+            <h2 className="text-3xl">{data?.golfCourseEstablishedHeading}</h2>
+            <p>{data?.golfCourseEstablishedSubText}</p>
           </div>
         </div>
         <div className="c">
-          <div className="flex gap-4 mt-12">
-            <div className="rounded-lg bg-green-400 h-72 w-full"></div>
-            <div className="rounded-lg bg-green-300 h-72 w-full "></div>
+          <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-4 mt-12">
+            {data?.golfCourseShowCaseImage1 ? (
+              <Image
+                src={urlFor(data.golfCourseShowCaseImage1)
+                  .width(1200)
+                  .height(900)
+                  .quality(80)
+                  .auto("format")
+                  .url()}
+                height={900}
+                width={800}
+                alt={data.golfCourseTitle || "Hero Section Image"}
+                className="object-cover h-96 w-full rounded-lg -mb-12 md:-mb-0 lg:-mr-12"
+              />
+            ) : (
+              <div className="rounded-lg bg-green-400 h-72 w-full"></div>
+            )}
+            <div className="rounded-full  bg-green-500 h-40 w-40   grid place-content-center text-center border-4 border-green-200 p-8">
+              <p className="w-40">
+            Part of the AF Golf Brand
+              </p>
           </div>
-          <div className="rounded-full bg-green-500 size-48 mx-auto -mt-4 z-2000 relative grid place-content-center text-center">
-            Apart of the AF Corsa Brand
+            {data?.golfCourseShowCaseImage2 ? (
+              <Image
+                src={urlFor(data.golfCourseShowCaseImage2)
+                  .width(1200)
+                  .height(900)
+                  .quality(80)
+                  .auto("format")
+                  .url()}
+                height={900}
+                width={800}
+                alt={data.golfCourseTitle || "Hero Section Image"}
+                className="object-cover h-96 w-full rounded-lg -mt-12 md:-mt-0 lg:-ml-12 -z-10"
+              />
+            ) : (
+              <div className="rounded-lg bg-green-400 h-72 w-full"></div>
+            )}
           </div>
         </div>
-        <div className="c">
+
+        {/* stats sections */}
+        <div className="my-48 relative">
           <div className="flex gap-12 justify-center my-20">
             <div>
               <p>
-                <span className="text-2xl">{data?.golfCourseEstablishedStats2}</span> Golf Holes
+                <span className="text-2xl">
+                  {data?.golfCourseEstablishedStats1}
+                </span>{" "}
+                <span className="font-semibold text-sm">
+                Golf Holes
+                </span>
               </p>
             </div>
             <div>
               <p>
-                <span className="text-2xl">{data?.golfCourseEstablishedStats2}</span> Golf Space
+                <span className="text-2xl">
+                  {data?.golfCourseEstablishedStats2}
+                </span>{" "}
+                <span className="font-semibold text-sm">
+                m2 of Golf Space
+                </span>
               </p>
             </div>
           </div>
         </div>
-        <div className="c">
-          <div className="max-w-xl mx-auto text-center space-y-4">
+
+        {/* aramenties section  */}
+        <div className="my-40">
+          <div className="max-w-xl mx-auto text-center space-y-8 mb-12">
             <p>Aramenties to Except</p>
-            <h2 className="text-3xl">
-              LET US MAKE YOUR GOLF TRIP EXPERIENCE ONE TO REMEMBER
+            <h2 className="text-3xl capitalize">
+              let us make your golf trip experience one to remember 
             </h2>
           </div>
           <div className="">
-            <Tabs className="w-[800px] mx-auto space-y-4">
+            <Tabs className="w-full md:w-[800px] mx-auto space-y-4">
               <TabsList
                 defaultValue="1"
-                className="w-full flex justify-evenly bg-green-500"
+                className="w-full flex flex-wrap md:flex-nowrap justify-evenly bg-green-500"
               >
                 <TabsTrigger value="1">Amarment</TabsTrigger>
                 <TabsTrigger value="2">Amarment</TabsTrigger>
@@ -124,16 +191,18 @@ export default async function page({params}:{params:Promise<{slug:string}>}) {
             </Tabs>
           </div>
         </div>
+
+        {/* testimonal section */}
         <div className="c">
-          <div className="flex gap-8 mt-20">
-            <div className="c">
+          <div className="flex flex-wrap md:flex-nowrap gap-8 mt-20">
+            <div className="max-w-lg">
               <p>Testmoniols</p>
-              <h2 className="text-3xl">
-                PEOPLE SHARE THEIR EXPERIENCES ABOUT GOLF COURSE
+              <h2 className="text-3xl uppercase">
+                PEOPLE SHARE THEIR EXPERIENCES AT <span className="text-teal-700 font-semibold">{data?.golfCourseTitle}</span> 
               </h2>
             </div>
-            <div className="c">
-              <ScrollArea className="w-full lg:w-[60vw] min-h-[70vh] overflow-y-visible py-4">
+            {/* <div className="c"> */}
+              <ScrollArea className="w-full lg:w-[60vw] min-h-[70vh] overflow-y-visiblehidden py-4">
                 <div className="flex w-max gap-12 justify-center">
                   {[1, 2, 3, 4].map((_, index) => (
                     <div
@@ -157,7 +226,7 @@ export default async function page({params}:{params:Promise<{slug:string}>}) {
                 </div>
                 <ScrollBar orientation="horizontal" />
               </ScrollArea>
-            </div>
+            {/* </div> */}
           </div>
         </div>
       </section>

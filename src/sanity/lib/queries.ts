@@ -63,6 +63,6 @@ export const GOLFCOURSE_QUERY = defineQuery(`*[_type=="golfCourse"]{
       golfCourseShowCaseImage2,
       golfCourseEstablishedHeading,
       golfCourseEstablishedSubText,
-      golfCourseEstablishedStats2,
+      golfCourseEstablishedStats1,
       golfCourseEstablishedStats2,
     }`)
