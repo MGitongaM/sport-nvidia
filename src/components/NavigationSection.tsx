@@ -53,7 +53,7 @@ export default function NavigationSection() {
                     height={200}
                     width={200}
                     alt="logo"
-                    className="object-cover w-28"
+                    className="object-cover w-32"
                   />
                 </Link>
               </NavigationMenuItem>
@@ -62,7 +62,7 @@ export default function NavigationSection() {
                   <NavigationMenuItem key={link.id}>
                     <ul>
                       <Link href={link.hrefLink}>
-                        <li className="hover:text-green-500 font-semibold text-sm">
+                        <li className="hover:text-blue-500 font-semibold text-sm">
                           {link.text}
                         </li>
                       </Link>
@@ -87,22 +87,22 @@ export default function NavigationSection() {
         </Link>
         <Sheet>
           <SheetTrigger>
-            <MenuIcon className=" text-lime-300" />
+            <MenuIcon className=" text-blue-300" />
           </SheetTrigger>
-          <SheetContent className="bg-green-50">
+          <SheetContent className="bg-zinc-700">
             <SheetHeader>
               <SheetTitle></SheetTitle>
               <SheetDescription></SheetDescription>
             </SheetHeader>
             <NavigationMenu className="">
               <NavigationMenuList>
-                <div className="flex flex-col mt-10 gap-5 items-start justify-end w-full">
+                <div className="flex flex-col mt-10 gap-5 items-start justify-end w-full text-slate-300">
                   {navLinks.map((link) => (
                     <NavigationMenuItem key={link.id}>
                       <ul>
                         <Link href={link.hrefLink}>
                           <SheetClose asChild>
-                            <li className="hover:text-green-500 font-semibold text-sm ">
+                            <li className=" hover:text-green-500 font-semibold text-sm ">
                               {link.text}
                             </li>
                           </SheetClose>
