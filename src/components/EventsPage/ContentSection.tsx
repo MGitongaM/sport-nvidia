@@ -7,7 +7,9 @@ export default function ContentSection({
 }) {
   return (
     <>
-      <section className="container mx-auto min-h-screen ">
+      
+      <section className=" bg-black text-slate-300">
+        <div className="container mx-auto min-h-screen py-20">
         <div className="flex gap-4 justify-between items-start">
           <div className="w-6/12 space-y-8">
             <h2>{eventData?.tournamentTitle}</h2>
@@ -82,6 +84,8 @@ export default function ContentSection({
               </div>
             </div>
           </div>
+        </div>
+
         </div>
       </section>
     </>

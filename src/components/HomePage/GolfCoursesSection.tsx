@@ -17,7 +17,7 @@ export default async function FeaturedSection() {
       <section className="min-h-[80vh] bg-black py-20" id="golf-courses">
         <div className="flex flex-wrap md:flex-nowrap gap-2 justify-center px-4 md:px-0">
           <div className="text-start w-full lg:max-w-md mx-auto space-y-4 pl-0 md:pl-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-lime-400 ">
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-400 ">
               Sports and Activities{" "}
             </h2>
             <p className="text-slate-300">
@@ -58,7 +58,7 @@ export default async function FeaturedSection() {
                       {course.golfCourseTitle}
                     </p>
                     <p>{course.golfCourseExcerpt}</p>
-                    <Button className="w-48 my-4 bg-white hover:bg-green-200 text-black">
+                    <Button className="w-48 my-4 bg-white hover:bg-blue-200 text-black">
                       <Link
                         href={`/golf-course/${course.golfCourseSlug?.current}`}
                       >

@@ -38,7 +38,7 @@ export default async function page({
             )}
           </div>
           <div className="space-y-12 py-20">
-            <h1 className="text-3xl md:text-5xl font-bold text-lime-300">
+            <h1 className="text-3xl md:text-5xl font-bold text-blue-400">
               {data?.newsUpdateTitle}
             </h1>
             <div className="flex gap-4 text-slate-300">
@@ -50,16 +50,17 @@ export default async function page({
             </div>
             <hr />
             <div className="space-y-6">
-              
               {data?.newsUpdateDetails != null &&
               data?.newsUpdateDetails != undefined ? (
-                  <div className="prose  max-w-5xl prose-p: ">
-                      <PortableText value={data?.newsUpdateDetails}  components={components}/>
-                  </div>
+                <div className="prose  max-w-5xl prose-p:text-slate-300 prose-h1:text-slate-200 prose-h2:text-slate-200 prose-h3:text-slate-200 prose-h4:text-slate-200 prose-h5:text-slate-200 prose-h6:text-slate-200 prose-text-slate-300 prose-strong:text-slate-300 prose-ul:text-slate-300">
+                  <PortableText
+                    value={data?.newsUpdateDetails}
+                    components={components}
+                  />
+                </div>
               ) : null}
             </div>
           </div>
-
         </div>
       </section>
     </>

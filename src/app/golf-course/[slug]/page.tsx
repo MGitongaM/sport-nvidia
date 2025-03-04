@@ -35,7 +35,7 @@ export default async function page({
           ) : null}
           <div className=" absolute top-64 md:left-40 w-72 md:w-[34vw] space-y-6 bg-white/40 backdrop-blur-lg px-4 py-10 rounded-lg mx-4">
             <p>welcome to</p>
-            <h1 className="text-3xl md:text-5xl font-bold text-green-900">
+            <h1 className="text-3xl md:text-5xl font-bold text-blue-800">
               {data?.golfCourseTitle}
             </h1>
             <p className="text-lg text-black">{data?.golfCourseExcerpt}</p>
@@ -66,7 +66,7 @@ export default async function page({
               ) : (
                 <div className="rounded-lg bg-green-400 h-72 w-full"></div>
               )}
-              <div className="rounded-full  bg-green-500 h-40 w-40   grid place-content-center text-center border-4 border-green-200 z-20 p-8">
+              <div className="rounded-full  bg-blue-800 h-40 w-40   grid place-content-center text-center border-4 border-blue-200 z-20 p-8">
                 <p className="w-40">Part of the AF Golf Brand</p>
               </div>
               {data?.golfCourseShowCaseImage2 ? (
@@ -194,7 +194,7 @@ export default async function page({
                           provident fugit consequuntur sed quia.
                         </p>
                         <QuoteIcon className="" />
-                        <div className="rounded-full size-32 bg-green-200"></div>
+                        <div className="rounded-full size-32 bg-blue-200"></div>
                         <p className="font-semibold">sub text</p>
                       </div>
                     </div>
