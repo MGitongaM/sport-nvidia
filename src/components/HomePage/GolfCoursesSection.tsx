@@ -15,14 +15,14 @@ export default async function FeaturedSection() {
   return (
     <>
       <section className="min-h-[80vh] bg-black py-20" id="golf-courses">
-
         <div className="flex flex-wrap md:flex-nowrap gap-2 justify-center px-4 md:px-0">
           <div className="text-start w-full lg:max-w-md mx-auto space-y-4 pl-0 md:pl-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-lime-400 ">Explore Our Golf Courses</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-lime-400 ">
+              Sports and Activities{" "}
+            </h2>
             <p className="text-slate-300">
-              From scenic fairways to challenging greens, discover our premier
-              golf courses designed for every level of golfer. Play where
-              champions train.
+            We pride ourselves on offering a variety of sports and activities designed to suit every passion:
+
             </p>
             {/* <Image
               src={GolfBall}
@@ -54,18 +54,22 @@ export default async function FeaturedSection() {
                     />
                   ) : null}
                   <div className="px-4 py-4 flex flex-col gap-4 justify-between h-full bg-slate-400 rounded-b-lg">
-                    <p className="text-lg font-semibold">{course.golfCourseTitle}</p>
+                    <p className="text-lg font-semibold">
+                      {course.golfCourseTitle}
+                    </p>
                     <p>{course.golfCourseExcerpt}</p>
                     <Button className="w-48 my-4 bg-white hover:bg-green-200 text-black">
-                      <Link href={`/golf-course/${course.golfCourseSlug?.current}`}>
-                      View Course Details
+                      <Link
+                        href={`/golf-course/${course.golfCourseSlug?.current}`}
+                      >
+                        View Course Details
                       </Link>
                     </Button>
                   </div>
                 </div>
               ))}
             </div>
-            <ScrollBar orientation='horizontal'/>
+            <ScrollBar orientation="horizontal" />
           </ScrollArea>
         </div>
       </section>
