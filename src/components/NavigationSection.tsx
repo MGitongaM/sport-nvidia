@@ -43,7 +43,7 @@ export default function NavigationSection() {
     <>
       {/* Desktop Navigation  */}
       <div className="hidden md:block">
-        <NavigationMenu className="bg-green-50 overflow-hidden">
+        <NavigationMenu className="bg-black text-white overflow-hidden">
           <NavigationMenuList>
             <div className="flex flex-wrap md:flex-nowrap w-screen justify-between items-center px-16">
               <NavigationMenuItem>
