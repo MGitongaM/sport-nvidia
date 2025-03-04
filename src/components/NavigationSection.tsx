@@ -25,7 +25,7 @@ export const navLinks = [
   {
     id: 2,
     hrefLink: "/#golf-courses",
-    text: "Golf Courses",
+    text: "Sports & Activities",
   },
   {
     id: 3,
@@ -75,7 +75,7 @@ export default function NavigationSection() {
         </NavigationMenu>
       </div>
       {/* Mobile Navigation */}
-      <div className="flex justify-between px-4 bg-green-50 md:hidden">
+      <div className="flex justify-between px-4 bg-black md:hidden">
         <Link href="/">
           <Image
             src={logo}
@@ -87,7 +87,7 @@ export default function NavigationSection() {
         </Link>
         <Sheet>
           <SheetTrigger>
-            <MenuIcon />
+            <MenuIcon className=" text-lime-300" />
           </SheetTrigger>
           <SheetContent className="bg-green-50">
             <SheetHeader>
