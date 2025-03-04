@@ -18,8 +18,8 @@ export default async function HeroSection() {
                 {banner?.[0].bannerTitle}
               </h1>
               <p className="text-lg">
-                Join a community of passionate golfers dedicated to mastering
-                the art of golf
+                Nakuru Athletic Club (N.A.C.) is a members-only sports , social
+                club conveniently with recreational facilities.
               </p>
               <Button className="bg-white hover:bg-green-200 text-black">
                 Join Us Today
@@ -38,7 +38,7 @@ export default async function HeroSection() {
             height={900}
             width={800}
             alt={banner?.[0].bannerText || ""}
-            className="object-cover h-[80vh] w-full absolute top-0 -z-10"
+            className="object-cover h-[90vh] w-full absolute top-20 -z-10"
           />
         ) : null}
       </section>
