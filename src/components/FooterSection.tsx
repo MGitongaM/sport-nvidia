@@ -3,7 +3,7 @@ import logo from "../../public/images/transparent-logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "./NavigationSection";
-import { Facebook, Instagram, Music, X } from "lucide-react";
+import { Facebook, Instagram, MailIcon, MapIcon, Music, PhoneCallIcon, X } from "lucide-react";
 
 export const socialLinks=[
   {
@@ -31,11 +31,32 @@ export const socialLinks=[
     icon:<Music className="size-4"/>
   },
 ]
+
+export const contactLinks=[
+  {
+    id:1,
+    text:"oginga odinga, Nakuru, Kenya",
+    icon:<MapIcon className="size-4"/>,
+  },
+  {
+    id:2,
+    text:"0702 827771",
+    icon:<PhoneCallIcon className="size-4"/>,
+  },
+  {
+    id:3,
+    text:"athleticsclubnakuru@gmail.com",
+    icon:<MailIcon className="size-4"/>,
+  },
+]
+
+const currentYear= new Date().getFullYear()
+
 export default function FooterSection() {
   return (
     <>
       <section className="min-h-[40vh]  bg-zinc-900 text-slate-200 w-full px-16 pb-20">
-        <div className="flex flex-wrap h-full items-end justify-between py-20">
+        <div className="flex flex-wrap h-full items-start justify-between py-20">
           <Link href="/">
             <Image
               src={logo}
@@ -62,7 +83,7 @@ export default function FooterSection() {
             <ul className="flex flex-col gap-2 mt-4 text-sm">
               {socialLinks.map((link) => (
                 <Link href={link.hrefLink} key={link.id} target="_blank">
-                  <li className="hover:text-blue-400 flex items-center gap-1">
+                  <li className="hover:text-blue-400 flex items-center gap-2">
                     {link.icon}
                     {link.text}
                   </li>
@@ -70,8 +91,21 @@ export default function FooterSection() {
               ))}
             </ul>
           </div>
+          <div className="mr-48">
+            <p className="font-semibold ">Contact Links</p>
+            <ul className="flex flex-col gap-2 mt-4 text-sm">
+              {contactLinks.map((link) => (
+                // <Link href={link.hrefLink} key={link.id} target="_blank">
+                  <li key={link.id} className=" flex items-center gap-2">
+                    {link.icon}
+                    {link.text}
+                  </li>
+                // </Link> 
+              ))}
+            </ul>
+          </div>
         </div>
-        <p className="text-center  text-xs">Copyright @ 2025 by Nakuru Atheletics Club All Right Reserved.</p>
+        <p className="text-center  text-xs">&#169; Copyright {currentYear} Nakuru Athletic Club</p>
       </section>
     </>
   );
