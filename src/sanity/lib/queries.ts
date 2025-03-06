@@ -6,6 +6,32 @@ export const BANNER_QUERY = defineQuery(`*[_type=="banner"]{
   bannerText,
   bannerImage{asset->}}`);
 
+export const HOMEHEROCONTENT_QUERY=defineQuery(`*[_type=="homeHeroContent"]{
+  heroSectionTitle,
+  heroSectionSubTitle,
+  heroSectionText,
+  heroSectionImage,
+  }`)
+export const HOMEABOUTCONTENT_QUERY=defineQuery(`*[_type=="homeAboutContent"]{
+  aboutSectionTitle,
+  aboutSectionSubTitle,
+  aboutSectionText,
+  aboutSectionImage,
+  }`)
+export const HOMELEGACYCONTENT_QUERY=defineQuery(`*[_type=="homeLegacyContent"]{
+  legacySectionTitle,
+  legacySectionSubTitle,
+  legacySectionContent,
+  legacySectionHeadingText,
+  legacySectionImage,
+  }`)
+export const HOMESPONSORCONTENT_QUERY=defineQuery(`*[_type=="homeSponsorContent"]{
+  sponsorSectionTitle,
+  sponsorSectionSubTitle,
+  sponsorSectionText,
+  sponsorSectionImages,
+  }`)
+
 export const NEWSANDUPDATETYPE_QUERY = defineQuery(`*[_type=="newsAndUpdates"]{
       newsUpdateFeatureImage{asset->},
       newsUpdateTitle,

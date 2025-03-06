@@ -22,21 +22,21 @@ export const navLinks = [
     hrefLink: "/",
     text: "Home",
   },
-  {
-    id: 2,
-    hrefLink: "/#golf-courses",
-    text: "Sports & Activities",
-  },
-  {
-    id: 3,
-    hrefLink: "/#tournaments",
-    text: "Tournaments",
-  },
-  {
-    id: 4,
-    hrefLink: "/#news-&-updates",
-    text: "News & Updates",
-  },
+  // {
+  //   id: 2,
+  //   hrefLink: "/#golf-courses",
+  //   text: "Sports & Activities",
+  // },
+  // {
+  //   id: 3,
+  //   hrefLink: "/#tournaments",
+  //   text: "Tournaments",
+  // },
+  // {
+  //   id: 4,
+  //   hrefLink: "/#news-&-updates",
+  //   text: "News & Updates",
+  // },
 ];
 export default function NavigationSection() {
   return (
