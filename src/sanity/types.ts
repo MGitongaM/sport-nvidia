@@ -68,6 +68,99 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type HomeSponsorContent = {
+  _id: string;
+  _type: "homeSponsorContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  sponsorSectionTitle?: string;
+  sponsorSectionSubTitle?: string;
+  sponsorSectionText?: string;
+  sponsorSectionImages?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }>;
+};
+
+export type HomeLegacyContent = {
+  _id: string;
+  _type: "homeLegacyContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  legacySectionTitle?: string;
+  legacySectionSubTitle?: string;
+  legacySectionContent?: Array<{
+    legacySectionHeadingText?: string;
+    LegacySectionText?: string;
+    legacySectionImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _key: string;
+  }>;
+};
+
+export type HomeAboutContent = {
+  _id: string;
+  _type: "homeAboutContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  aboutSectionTitle?: string;
+  aboutSectionSubTitle?: string;
+  aboutSectionText?: string;
+  aboutSectionImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+};
+
+export type HomeHeroContent = {
+  _id: string;
+  _type: "homeHeroContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  heroSectionTitle?: string;
+  heroSectionSubTitle?: string;
+  heroSectionText?: string;
+  heroSectionImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+};
+
 export type GolfCourse = {
   _id: string;
   _type: "golfCourse";
@@ -344,7 +437,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | GolfCourse | Tournaments | BlockContent | NewsAndUpdates | Slug | Banner | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | HomeSponsorContent | HomeLegacyContent | HomeAboutContent | HomeHeroContent | GolfCourse | Tournaments | BlockContent | NewsAndUpdates | Slug | Banner | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: BANNER_QUERY
@@ -377,6 +470,85 @@ export type BANNER_QUERYResult = Array<{
       source?: SanityAssetSourceData;
     } | null;
   } | null;
+}>;
+// Variable: HOMEHEROCONTENT_QUERY
+// Query: *[_type=="homeHeroContent"]{  heroSectionTitle,  heroSectionSubTitle,  heroSectionText,  heroSectionImage,  }
+export type HOMEHEROCONTENT_QUERYResult = Array<{
+  heroSectionTitle: string | null;
+  heroSectionSubTitle: string | null;
+  heroSectionText: string | null;
+  heroSectionImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+}>;
+// Variable: HOMEABOUTCONTENT_QUERY
+// Query: *[_type=="homeAboutContent"]{  aboutSectionTitle,  aboutSectionSubTitle,  aboutSectionText,  aboutSectionImage,  }
+export type HOMEABOUTCONTENT_QUERYResult = Array<{
+  aboutSectionTitle: string | null;
+  aboutSectionSubTitle: string | null;
+  aboutSectionText: string | null;
+  aboutSectionImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+}>;
+// Variable: HOMELEGACYCONTENT_QUERY
+// Query: *[_type=="homeLegacyContent"]{  legacySectionTitle,  legacySectionSubTitle,  legacySectionContent,  legacySectionHeadingText,  legacySectionImage,  }
+export type HOMELEGACYCONTENT_QUERYResult = Array<{
+  legacySectionTitle: string | null;
+  legacySectionSubTitle: string | null;
+  legacySectionContent: Array<{
+    legacySectionHeadingText?: string;
+    LegacySectionText?: string;
+    legacySectionImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _key: string;
+  }> | null;
+  legacySectionHeadingText: null;
+  legacySectionImage: null;
+}>;
+// Variable: HOMESPONSORCONTENT_QUERY
+// Query: *[_type=="homeSponsorContent"]{  sponsorSectionTitle,  sponsorSectionSubTitle,  sponsorSectionText,  sponsorSectionImages,  }
+export type HOMESPONSORCONTENT_QUERYResult = Array<{
+  sponsorSectionTitle: string | null;
+  sponsorSectionSubTitle: string | null;
+  sponsorSectionText: string | null;
+  sponsorSectionImages: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }> | null;
 }>;
 // Variable: NEWSANDUPDATETYPE_QUERY
 // Query: *[_type=="newsAndUpdates"]{      newsUpdateFeatureImage{asset->},      newsUpdateTitle,      newsUpdateSlug,      newsUpdateExcerpt,      newsUpdateAuthor,      newsUpdateDate,      newsUpdateDetails,    }
@@ -730,6 +902,10 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type==\"banner\"]{\n  bannerTitle,\n  bannerSubTitle,\n  bannerText,\n  bannerImage{asset->}}": BANNER_QUERYResult;
+    "*[_type==\"homeHeroContent\"]{\n  heroSectionTitle,\n  heroSectionSubTitle,\n  heroSectionText,\n  heroSectionImage,\n  }": HOMEHEROCONTENT_QUERYResult;
+    "*[_type==\"homeAboutContent\"]{\n  aboutSectionTitle,\n  aboutSectionSubTitle,\n  aboutSectionText,\n  aboutSectionImage,\n  }": HOMEABOUTCONTENT_QUERYResult;
+    "*[_type==\"homeLegacyContent\"]{\n  legacySectionTitle,\n  legacySectionSubTitle,\n  legacySectionContent,\n  legacySectionHeadingText,\n  legacySectionImage,\n  }": HOMELEGACYCONTENT_QUERYResult;
+    "*[_type==\"homeSponsorContent\"]{\n  sponsorSectionTitle,\n  sponsorSectionSubTitle,\n  sponsorSectionText,\n  sponsorSectionImages,\n  }": HOMESPONSORCONTENT_QUERYResult;
     "*[_type==\"newsAndUpdates\"]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": NEWSANDUPDATETYPE_QUERYResult;
     "*[_type==\"newsAndUpdates\" && newsUpdateSlug.current==$slug][0]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": SINGLE_NEWSANDUPDATETYPE_QUERYResult;
     "*[_type==\"tournaments\"]{\n      tournamentFeatureImage{asset->},\n      tournamentTitle,\n      tournamentSlug,\n      tournamentExcerpt,\n      tournamentAuthor,\n      tournamentDate,\n      tournamentDetails,\n    }": TOURNAMENT_QUERYResult;
