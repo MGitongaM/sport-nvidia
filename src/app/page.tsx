@@ -6,6 +6,8 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { BANNER_QUERY } from "@/sanity/lib/queries";
 import type { Metadata } from "next";
 import AboutSection from "@/components/HomePage/AboutSection";
+import LegacySection from "@/components/HomePage/LegacySection";
+import SponsorSection from "@/components/HomePage/SponsorSection";
 
 export async function generateMetadata():Promise<Metadata>{
   const{data}=await sanityFetch({
@@ -33,9 +35,11 @@ export default function Home() {
     <main className="">
       <HeroSection />
       <AboutSection/>
-      <FeaturedSection/>
+      <LegacySection/>
+      <SponsorSection/>
+      {/* <FeaturedSection/>
       <TourmentsSection/>
-      <NewsUpdateSection/>
+      <NewsUpdateSection/> */}
     </main>
     </>
   );
