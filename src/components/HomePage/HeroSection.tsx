@@ -13,7 +13,7 @@ export default async function HeroSection() {
     <>
       <section className=" ">
         <div className="flex flex-wrap md:flex-nowrap  min-h-[80vh] lg:h-[80vh]">
-          <div className="w-full md:w-[36rem] flex flex-col justify-center gap-8 h-auto bg-black pl-10 lg:pl-20 pr-4 py-8 text-slate-300">
+          <div className="w-full md:w-[40rem] flex flex-col justify-center gap-8 h-auto bg-black pl-10 lg:pl-20 pr-4 py-8 text-slate-300">
             <h1 className="text-3xl md:text-5xl font-bold">
               {heroContent?.[0].heroSectionTitle}
             </h1>

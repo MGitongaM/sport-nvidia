@@ -8,8 +8,8 @@ export default async function VisionMissionSection() {
   return (
     <section className="bg-black">
       <div className="container mx-auto px-8 py-20 text-slate-300">
-        <div className="flex flex-wrap md:flex-nowrap justify-evenly items-center gap-8">
-          <div className="w-full md:w-[36vw] h-full md:h-[72vh] lg:h-96 bg-zinc-900 rounded-lg px-6 py-12">
+        <div className="flex flex-wrap md:flex-nowrap justify-evenly  gap-8">
+          <div className="w-full md:w-[36vw] h-full md:h-[72vh] lg:h-[58vh] bg-zinc-900 rounded-lg px-6 py-12">
             <div className="c"></div>
             <p className="text-2xl font-semibold py-12">
               {missionVision?.[0].missionTitle}{" "}
