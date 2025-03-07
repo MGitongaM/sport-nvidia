@@ -3,7 +3,7 @@ import HeroSection from "@/components/HomePage/HeroSection";
 // import NewsUpdateSection from "@/components/HomePage/NewsUpdateSection";
 // import TourmentsSection from "@/components/HomePage/EventsSection";
 import { sanityFetch } from "@/sanity/lib/live";
-import { BANNER_QUERY } from "@/sanity/lib/queries";
+import {  HOMEHEROCONTENT_QUERY } from "@/sanity/lib/queries";
 import type { Metadata } from "next";
 import AboutSection from "@/components/HomePage/AboutSection";
 import LegacySection from "@/components/HomePage/LegacySection";
@@ -12,12 +12,13 @@ import TournamentSection from "@/components/HomePage/TournamentSection";
 
 export async function generateMetadata():Promise<Metadata>{
   const{data}=await sanityFetch({
-    query:BANNER_QUERY
+    query:HOMEHEROCONTENT_QUERY
   })
-  const imageUrl=data?.[0]?.bannerImage?.asset?.url ?? ""
+  // const imageUrl=data?.[0]?.bannerImage?.asset?.url ?? ""
+  const imageUrl=data?.[0]?.heroSectionImage?.asset?.url ?? ""
   return{
-    title: "Golf Site",
-    description: "From scenic fairways to challenging greens, discover our premier golf courses designed for every level of golfer. Play where champions train. Golf Nvidia Has you covered",
+    title: "Nakuru Athletic Club",
+    description: "Nakuru Athletic Club is a premier sports and social club with a rich history of excellence, camaraderie, and community engagement.",
     openGraph:{
       images:[
         {

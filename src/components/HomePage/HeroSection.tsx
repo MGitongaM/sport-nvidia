@@ -3,6 +3,7 @@ import { Button } from "../ui/button";
 import { HOMEHEROCONTENT_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function HeroSection() {
   const { data: heroContent } = await sanityFetch({
@@ -19,8 +20,10 @@ export default async function HeroSection() {
             <p className="text-xl font-semibold">
               {heroContent?.[0].heroSectionText}
             </p>
-            <Button className="bg-white w-44 hover:bg-blue-200 text-black font-semibold">
-              Join Us Today
+            <Button asChild className="bg-white w-64 hover:bg-blue-200 text-black font-semibold">
+              <Link href={`/#tournaments`}>
+              View Upcoming Tournaments
+              </Link>
             </Button>
           </div>
           <div className=" grow bg-black">

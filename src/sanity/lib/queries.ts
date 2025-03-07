@@ -10,7 +10,7 @@ export const HOMEHEROCONTENT_QUERY=defineQuery(`*[_type=="homeHeroContent"]{
   heroSectionTitle,
   heroSectionSubTitle,
   heroSectionText,
-  heroSectionImage,
+  heroSectionImage{asset->},
   }`)
 export const HOMEABOUTCONTENT_QUERY=defineQuery(`*[_type=="homeAboutContent"]{
   aboutSectionTitle,

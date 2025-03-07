@@ -472,21 +472,34 @@ export type BANNER_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: HOMEHEROCONTENT_QUERY
-// Query: *[_type=="homeHeroContent"]{  heroSectionTitle,  heroSectionSubTitle,  heroSectionText,  heroSectionImage,  }
+// Query: *[_type=="homeHeroContent"]{  heroSectionTitle,  heroSectionSubTitle,  heroSectionText,  heroSectionImage{asset->},  }
 export type HOMEHEROCONTENT_QUERYResult = Array<{
   heroSectionTitle: string | null;
   heroSectionSubTitle: string | null;
   heroSectionText: string | null;
   heroSectionImage: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
   } | null;
 }>;
 // Variable: HOMEABOUTCONTENT_QUERY
@@ -902,7 +915,7 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type==\"banner\"]{\n  bannerTitle,\n  bannerSubTitle,\n  bannerText,\n  bannerImage{asset->}}": BANNER_QUERYResult;
-    "*[_type==\"homeHeroContent\"]{\n  heroSectionTitle,\n  heroSectionSubTitle,\n  heroSectionText,\n  heroSectionImage,\n  }": HOMEHEROCONTENT_QUERYResult;
+    "*[_type==\"homeHeroContent\"]{\n  heroSectionTitle,\n  heroSectionSubTitle,\n  heroSectionText,\n  heroSectionImage{asset->},\n  }": HOMEHEROCONTENT_QUERYResult;
     "*[_type==\"homeAboutContent\"]{\n  aboutSectionTitle,\n  aboutSectionSubTitle,\n  aboutSectionText,\n  aboutSectionImage,\n  }": HOMEABOUTCONTENT_QUERYResult;
     "*[_type==\"homeLegacyContent\"]{\n  legacySectionTitle,\n  legacySectionSubTitle,\n  legacySectionContent,\n  legacySectionHeadingText,\n  legacySectionImage,\n  }": HOMELEGACYCONTENT_QUERYResult;
     "*[_type==\"homeSponsorContent\"]{\n  sponsorSectionTitle,\n  sponsorSectionSubTitle,\n  sponsorSectionText,\n  sponsorSectionImages,\n  }": HOMESPONSORCONTENT_QUERYResult;
