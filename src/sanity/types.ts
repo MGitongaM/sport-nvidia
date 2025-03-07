@@ -68,6 +68,101 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type AboutCommunityMembershipContent = {
+  _id: string;
+  _type: "aboutCommunityMembershipContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  communityTitle?: string;
+  communityText?: string;
+  membershipTitle?: string;
+  membershipText?: string;
+};
+
+export type AboutSportsContent = {
+  _id: string;
+  _type: "aboutSportsContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  sportsSectionTitle?: string;
+  sportSectionSubTitle?: string;
+  sportSectionText?: string;
+  sportsContent?: Array<{
+    sportHeading?: string;
+    sportText?: string;
+    sportImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _key: string;
+  }>;
+};
+
+export type AboutMissionVisionContent = {
+  _id: string;
+  _type: "aboutMissionVisionContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  missionTitle?: string;
+  missionText?: string;
+  missionImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  visionTitle?: string;
+  visionText?: string;
+  visionImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+};
+
+export type AboutHeroContent = {
+  _id: string;
+  _type: "aboutHeroContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  heroSectionTitle?: string;
+  heroSectionSubTitle?: string;
+  heroSectionText?: string;
+  heroSectionImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+};
+
 export type HomeSponsorContent = {
   _id: string;
   _type: "homeSponsorContent";
@@ -437,7 +532,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | HomeSponsorContent | HomeLegacyContent | HomeAboutContent | HomeHeroContent | GolfCourse | Tournaments | BlockContent | NewsAndUpdates | Slug | Banner | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | AboutCommunityMembershipContent | AboutSportsContent | AboutMissionVisionContent | AboutHeroContent | HomeSponsorContent | HomeLegacyContent | HomeAboutContent | HomeHeroContent | GolfCourse | Tournaments | BlockContent | NewsAndUpdates | Slug | Banner | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: BANNER_QUERY
@@ -562,6 +657,101 @@ export type HOMESPONSORCONTENT_QUERYResult = Array<{
     _type: "image";
     _key: string;
   }> | null;
+}>;
+// Variable: ABOUTHEROCONTENT_QUERY
+// Query: *[_type=="aboutHeroContent"]{    heroSectionTitle,    heroSectionSubTitle,    heroSectionText,    heroSectionImage{asset->},    }
+export type ABOUTHEROCONTENT_QUERYResult = Array<{
+  heroSectionTitle: string | null;
+  heroSectionSubTitle: string | null;
+  heroSectionText: string | null;
+  heroSectionImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+  } | null;
+}>;
+// Variable: ABOUTMISSIONVISIONCONTENT_QUERY
+// Query: *[_type=="aboutMissionVisionContent"]{    missionTitle,    missionText,    missionImage,    visionTitle,    visionText,    visionImage,    }
+export type ABOUTMISSIONVISIONCONTENT_QUERYResult = Array<{
+  missionTitle: string | null;
+  missionText: string | null;
+  missionImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  visionTitle: string | null;
+  visionText: string | null;
+  visionImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+}>;
+// Variable: ABOUTSPORTSCONTENT_QUERY
+// Query: *[_type=="aboutSportsContent"]{      sportsSectionTitle,      sportSectionSubTitle,      sportSectionText,      sportsContent,      sportHeading,      sportText,      sportImage,      }
+export type ABOUTSPORTSCONTENT_QUERYResult = Array<{
+  sportsSectionTitle: string | null;
+  sportSectionSubTitle: string | null;
+  sportSectionText: string | null;
+  sportsContent: Array<{
+    sportHeading?: string;
+    sportText?: string;
+    sportImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _key: string;
+  }> | null;
+  sportHeading: null;
+  sportText: null;
+  sportImage: null;
+}>;
+// Variable: ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERY
+// Query: *[_type=="aboutCommunityMembershipContent"]{        communityTitle,        communityText,        membershipTitle,        membershipText,        }
+export type ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERYResult = Array<{
+  communityTitle: string | null;
+  communityText: string | null;
+  membershipTitle: string | null;
+  membershipText: string | null;
 }>;
 // Variable: NEWSANDUPDATETYPE_QUERY
 // Query: *[_type=="newsAndUpdates"]{      newsUpdateFeatureImage{asset->},      newsUpdateTitle,      newsUpdateSlug,      newsUpdateExcerpt,      newsUpdateAuthor,      newsUpdateDate,      newsUpdateDetails,    }
@@ -919,6 +1109,10 @@ declare module "@sanity/client" {
     "*[_type==\"homeAboutContent\"]{\n  aboutSectionTitle,\n  aboutSectionSubTitle,\n  aboutSectionText,\n  aboutSectionImage,\n  }": HOMEABOUTCONTENT_QUERYResult;
     "*[_type==\"homeLegacyContent\"]{\n  legacySectionTitle,\n  legacySectionSubTitle,\n  legacySectionContent,\n  legacySectionHeadingText,\n  legacySectionImage,\n  }": HOMELEGACYCONTENT_QUERYResult;
     "*[_type==\"homeSponsorContent\"]{\n  sponsorSectionTitle,\n  sponsorSectionSubTitle,\n  sponsorSectionText,\n  sponsorSectionImages,\n  }": HOMESPONSORCONTENT_QUERYResult;
+    "*[_type==\"aboutHeroContent\"]{\n    heroSectionTitle,\n    heroSectionSubTitle,\n    heroSectionText,\n    heroSectionImage{asset->},\n    }": ABOUTHEROCONTENT_QUERYResult;
+    "*[_type==\"aboutMissionVisionContent\"]{\n    missionTitle,\n    missionText,\n    missionImage,\n    visionTitle,\n    visionText,\n    visionImage,\n    }": ABOUTMISSIONVISIONCONTENT_QUERYResult;
+    "*[_type==\"aboutSportsContent\"]{\n      sportsSectionTitle,\n      sportSectionSubTitle,\n      sportSectionText,\n      sportsContent,\n      sportHeading,\n      sportText,\n      sportImage,\n      }": ABOUTSPORTSCONTENT_QUERYResult;
+    "*[_type==\"aboutCommunityMembershipContent\"]{\n        communityTitle,\n        communityText,\n        membershipTitle,\n        membershipText,\n        }": ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERYResult;
     "*[_type==\"newsAndUpdates\"]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": NEWSANDUPDATETYPE_QUERYResult;
     "*[_type==\"newsAndUpdates\" && newsUpdateSlug.current==$slug][0]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": SINGLE_NEWSANDUPDATETYPE_QUERYResult;
     "*[_type==\"tournaments\"]{\n      tournamentFeatureImage{asset->},\n      tournamentTitle,\n      tournamentSlug,\n      tournamentExcerpt,\n      tournamentAuthor,\n      tournamentDate,\n      tournamentDetails,\n    }": TOURNAMENT_QUERYResult;

@@ -1,34 +1,38 @@
-import aboutImg from "../../../public/images/logo.png";
-import Image from "next/image";
+import { sanityFetch } from "@/sanity/lib/live";
 
-export default function HeroSection() {
+import { ABOUTHEROCONTENT_QUERY } from "@/sanity/lib/queries";
+import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
+
+export default async function HeroSection() {
+  const { data: heroContent } = await sanityFetch({
+    query: ABOUTHEROCONTENT_QUERY,
+  });
   return (
     <section className="bg-black">
       <div className="min-h-[60vh] container mx-auto px-8  text-slate-300">
         <h1 className="text-3xl md:text-5xl font-bold text-center">
-          About Nakuru Athletic Club{" "}
+          {heroContent?.[0].heroSectionTitle}
         </h1>
         <div className="flex flex-col items-center justify-between gap-8">
           <div className="w-[30vw]">
-            <Image
-              src={aboutImg}
-              height={400}
-              width={400}
-              alt="Nakuru atheltic Club Logo"
-              className="object-contain h-64 w-full"
-            />
+            {heroContent?.[0].heroSectionImage ? (
+              <Image
+                src={urlFor(heroContent?.[0].heroSectionImage)
+                  .width(400)
+                  .height(400)
+                  .quality(80)
+                  .auto("format")
+                  .url()}
+                height={400}
+                width={400}
+                alt={"Hero Image"}
+                className="object-contain h-64 w-full"
+              />
+            ) : null}
           </div>
           <div className="w-[85vw] md:w-[60vw] space-y-20">
-            <p className="text-xl">
-              Nestled in the heart of Nakuru, the Nakuru Athletic Club (N.A.C)
-              stands as a symbol of tradition, sportsmanship, and community
-              spirit. Established in 1926, our club has been a cornerstone for
-              sports excellence, fostering talent, and creating a vibrant hub
-              for sports enthusiasts. With a rich history that spans decades,
-              NAC has grown into a premier destination for athletes, members,
-              and fans alike, dedicated to promoting the values of discipline,
-              teamwork, and resilience.
-            </p>
+            <p className="text-xl">{heroContent?.[0].heroSectionText}</p>
           </div>
         </div>
       </div>

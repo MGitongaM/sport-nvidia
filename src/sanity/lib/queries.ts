@@ -6,31 +6,66 @@ export const BANNER_QUERY = defineQuery(`*[_type=="banner"]{
   bannerText,
   bannerImage{asset->}}`);
 
-export const HOMEHEROCONTENT_QUERY=defineQuery(`*[_type=="homeHeroContent"]{
+export const HOMEHEROCONTENT_QUERY = defineQuery(`*[_type=="homeHeroContent"]{
   heroSectionTitle,
   heroSectionSubTitle,
   heroSectionText,
   heroSectionImage{asset->},
-  }`)
-export const HOMEABOUTCONTENT_QUERY=defineQuery(`*[_type=="homeAboutContent"]{
+  }`);
+export const HOMEABOUTCONTENT_QUERY = defineQuery(`*[_type=="homeAboutContent"]{
   aboutSectionTitle,
   aboutSectionSubTitle,
   aboutSectionText,
   aboutSectionImage,
-  }`)
-export const HOMELEGACYCONTENT_QUERY=defineQuery(`*[_type=="homeLegacyContent"]{
+  }`);
+export const HOMELEGACYCONTENT_QUERY =
+  defineQuery(`*[_type=="homeLegacyContent"]{
   legacySectionTitle,
   legacySectionSubTitle,
   legacySectionContent,
   legacySectionHeadingText,
   legacySectionImage,
-  }`)
-export const HOMESPONSORCONTENT_QUERY=defineQuery(`*[_type=="homeSponsorContent"]{
+  }`);
+export const HOMESPONSORCONTENT_QUERY =
+  defineQuery(`*[_type=="homeSponsorContent"]{
   sponsorSectionTitle,
   sponsorSectionSubTitle,
   sponsorSectionText,
   sponsorSectionImages,
-  }`)
+  }`);
+
+export const ABOUTHEROCONTENT_QUERY = defineQuery(`*[_type=="aboutHeroContent"]{
+    heroSectionTitle,
+    heroSectionSubTitle,
+    heroSectionText,
+    heroSectionImage{asset->},
+    }`);
+export const ABOUTMISSIONVISIONCONTENT_QUERY =
+  defineQuery(`*[_type=="aboutMissionVisionContent"]{
+    missionTitle,
+    missionText,
+    missionImage,
+    visionTitle,
+    visionText,
+    visionImage,
+    }`);
+export const ABOUTSPORTSCONTENT_QUERY =
+  defineQuery(`*[_type=="aboutSportsContent"]{
+      sportsSectionTitle,
+      sportSectionSubTitle,
+      sportSectionText,
+      sportsContent,
+      sportHeading,
+      sportText,
+      sportImage,
+      }`);
+export const ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERY =
+  defineQuery(`*[_type=="aboutCommunityMembershipContent"]{
+        communityTitle,
+        communityText,
+        membershipTitle,
+        membershipText,
+        }`);
 
 export const NEWSANDUPDATETYPE_QUERY = defineQuery(`*[_type=="newsAndUpdates"]{
       newsUpdateFeatureImage{asset->},
@@ -41,7 +76,8 @@ export const NEWSANDUPDATETYPE_QUERY = defineQuery(`*[_type=="newsAndUpdates"]{
       newsUpdateDate,
       newsUpdateDetails,
     }`);
-export const SINGLE_NEWSANDUPDATETYPE_QUERY=defineQuery(`*[_type=="newsAndUpdates" && newsUpdateSlug.current==$slug][0]{
+export const SINGLE_NEWSANDUPDATETYPE_QUERY =
+  defineQuery(`*[_type=="newsAndUpdates" && newsUpdateSlug.current==$slug][0]{
       newsUpdateFeatureImage{asset->},
       newsUpdateTitle,
       newsUpdateSlug,
@@ -49,7 +85,7 @@ export const SINGLE_NEWSANDUPDATETYPE_QUERY=defineQuery(`*[_type=="newsAndUpdate
       newsUpdateAuthor,
       newsUpdateDate,
       newsUpdateDetails,
-    }`)
+    }`);
 export const TOURNAMENT_QUERY = defineQuery(`*[_type=="tournaments"]{
       tournamentFeatureImage{asset->},
       tournamentTitle,
@@ -59,7 +95,8 @@ export const TOURNAMENT_QUERY = defineQuery(`*[_type=="tournaments"]{
       tournamentDate,
       tournamentDetails,
     }`);
-export const SINGLE_TOURNAMEN_QUERY=defineQuery(`*[_type=="tournaments" && tournamentSlug.current==$tournamentSlug][0]{
+export const SINGLE_TOURNAMEN_QUERY =
+  defineQuery(`*[_type=="tournaments" && tournamentSlug.current==$tournamentSlug][0]{
       tournamentFeatureImage{asset->},
       tournamentTitle,
       tournamentSlug,
@@ -67,7 +104,7 @@ export const SINGLE_TOURNAMEN_QUERY=defineQuery(`*[_type=="tournaments" && tourn
       tournamentAuthor,
       tournamentDate,
       tournamentDetails,
-    }`)
+    }`);
 export const GOLFCOURSE_QUERY = defineQuery(`*[_type=="golfCourse"]{
       golfCourseFeatureImage{asset->},
       golfCourseTitle,
@@ -77,7 +114,8 @@ export const GOLFCOURSE_QUERY = defineQuery(`*[_type=="golfCourse"]{
       golfCourseDate,
       golfCourseDetails,
     }`);
-    export const SINGLE_GOLFCOURSE_QUERY=defineQuery(`*[_type=="golfCourse" && golfCourseSlug.current==$slug][0]{
+export const SINGLE_GOLFCOURSE_QUERY =
+  defineQuery(`*[_type=="golfCourse" && golfCourseSlug.current==$slug][0]{
       golfCourseFeatureImage{asset->},
       golfCourseTitle,
       golfCourseSlug,
@@ -91,4 +129,4 @@ export const GOLFCOURSE_QUERY = defineQuery(`*[_type=="golfCourse"]{
       golfCourseEstablishedSubText,
       golfCourseEstablishedStats1,
       golfCourseEstablishedStats2,
-    }`)
+    }`);

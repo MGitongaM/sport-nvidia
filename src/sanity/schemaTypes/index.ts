@@ -8,6 +8,10 @@ import { homeHeroContentType } from "./homeHeroContent";
 import { homeAboutContentType } from "./homeAboutContent";
 import { homeLegacyContentType } from "./homeLegacyContent";
 import { homeSponsorContentType } from "./homeSponsors";
+import { aboutHeroContentType } from "./aboutPageSchemas/aboutHeroContent";
+import { aboutMissionVisionContentType } from "./aboutPageSchemas/abourMissionVisionContent";
+import { aboutSportsContentType } from "./aboutPageSchemas/aboutSportsContent";
+import { aboutCommunityMembershipContentType } from "./aboutPageSchemas/aboutCommunityMembership";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -20,5 +24,10 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     homeAboutContentType,
     homeLegacyContentType,
     homeSponsorContentType,
+    aboutHeroContentType,
+    aboutMissionVisionContentType,
+    aboutSportsContentType,
+    aboutCommunityMembershipContentType,
+
   ],
 };
