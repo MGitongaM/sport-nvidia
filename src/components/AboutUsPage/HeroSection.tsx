@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <section className="bg-black">
       <div className="min-h-[60vh] container mx-auto px-8  text-slate-300">
-      <h1 className="text-3xl md:text-5xl font-bold text-center">
+        <h1 className="text-3xl md:text-5xl font-bold text-center">
           About Nakuru Athletic Club{" "}
         </h1>
         <div className="flex flex-col items-center justify-between gap-8">

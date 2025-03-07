@@ -1,4 +1,5 @@
 import HeroSection from "@/components/AboutUsPage/HeroSection";
+import SportsSection from "@/components/AboutUsPage/SportsSection";
 import VisionMissionSection from "@/components/AboutUsPage/VisionMissionSection";
 
 
@@ -7,6 +8,7 @@ export default function AboutPage() {
     <main>
         <HeroSection/>
         <VisionMissionSection/>
+        <SportsSection/>
     </main>
   )
 }
