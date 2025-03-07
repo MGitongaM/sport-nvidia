@@ -12,6 +12,8 @@ import { aboutHeroContentType } from "./aboutPageSchemas/aboutHeroContent";
 import { aboutMissionVisionContentType } from "./aboutPageSchemas/abourMissionVisionContent";
 import { aboutSportsContentType } from "./aboutPageSchemas/aboutSportsContent";
 import { aboutCommunityMembershipContentType } from "./aboutPageSchemas/aboutCommunityMembership";
+import { contactContentType } from "./contactPageSchemas/contactSection";
+import { contactVisitContentType } from "./contactPageSchemas/visitSection";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -28,6 +30,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     aboutMissionVisionContentType,
     aboutSportsContentType,
     aboutCommunityMembershipContentType,
-
+    contactContentType,
+    contactVisitContentType,
   ],
 };
