@@ -68,6 +68,79 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type ContactVisitContent = {
+  _id: string;
+  _type: "contactVisitContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  vistSectionTitle?: string;
+  vistSectionSubTitle?: string;
+  vistSectionText?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "Normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+  vistSectionImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+};
+
+export type ContactContent = {
+  _id: string;
+  _type: "contactContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  contactSectionTitle?: string;
+  contactSectionSubTitle?: string;
+  contactSectionText?: string;
+  contactSectionImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+};
+
 export type AboutCommunityMembershipContent = {
   _id: string;
   _type: "aboutCommunityMembershipContent";
@@ -532,7 +605,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | AboutCommunityMembershipContent | AboutSportsContent | AboutMissionVisionContent | AboutHeroContent | HomeSponsorContent | HomeLegacyContent | HomeAboutContent | HomeHeroContent | GolfCourse | Tournaments | BlockContent | NewsAndUpdates | Slug | Banner | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | ContactVisitContent | ContactContent | AboutCommunityMembershipContent | AboutSportsContent | AboutMissionVisionContent | AboutHeroContent | HomeSponsorContent | HomeLegacyContent | HomeAboutContent | HomeHeroContent | GolfCourse | Tournaments | BlockContent | NewsAndUpdates | Slug | Banner | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: BANNER_QUERY
@@ -744,6 +817,58 @@ export type ABOUTSPORTSCONTENT_QUERYResult = Array<{
   sportHeading: null;
   sportText: null;
   sportImage: null;
+}>;
+// Variable: CONTACTCONTENT_QUERY
+// Query: *[_type=="contactContent"]{            contactSectionTitle,            contactSectionText,             }
+export type CONTACTCONTENT_QUERYResult = Array<{
+  contactSectionTitle: string | null;
+  contactSectionText: string | null;
+}>;
+// Variable: CONTACTVISTCONTENT_QUERY
+// Query: *[_type=="contactVisitContent"]{            vistSectionTitle,            vistSectionText,             vistSectionImage,            }
+export type CONTACTVISTCONTENT_QUERYResult = Array<{
+  vistSectionTitle: string | null;
+  vistSectionText: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal" | "Normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }> | null;
+  vistSectionImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
 }>;
 // Variable: ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERY
 // Query: *[_type=="aboutCommunityMembershipContent"]{        communityTitle,        communityText,        membershipTitle,        membershipText,        }
@@ -1112,6 +1237,8 @@ declare module "@sanity/client" {
     "*[_type==\"aboutHeroContent\"]{\n    heroSectionTitle,\n    heroSectionSubTitle,\n    heroSectionText,\n    heroSectionImage{asset->},\n    }": ABOUTHEROCONTENT_QUERYResult;
     "*[_type==\"aboutMissionVisionContent\"]{\n    missionTitle,\n    missionText,\n    missionImage,\n    visionTitle,\n    visionText,\n    visionImage,\n    }": ABOUTMISSIONVISIONCONTENT_QUERYResult;
     "*[_type==\"aboutSportsContent\"]{\n      sportsSectionTitle,\n      sportSectionSubTitle,\n      sportSectionText,\n      sportsContent,\n      sportHeading,\n      sportText,\n      sportImage,\n      }": ABOUTSPORTSCONTENT_QUERYResult;
+    "*[_type==\"contactContent\"]{\n            contactSectionTitle,\n            contactSectionText, \n            }": CONTACTCONTENT_QUERYResult;
+    "*[_type==\"contactVisitContent\"]{\n            vistSectionTitle,\n            vistSectionText, \n            vistSectionImage,\n            }": CONTACTVISTCONTENT_QUERYResult;
     "*[_type==\"aboutCommunityMembershipContent\"]{\n        communityTitle,\n        communityText,\n        membershipTitle,\n        membershipText,\n        }": ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERYResult;
     "*[_type==\"newsAndUpdates\"]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": NEWSANDUPDATETYPE_QUERYResult;
     "*[_type==\"newsAndUpdates\" && newsUpdateSlug.current==$slug][0]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": SINGLE_NEWSANDUPDATETYPE_QUERYResult;

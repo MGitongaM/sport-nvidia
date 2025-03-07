@@ -59,6 +59,18 @@ export const ABOUTSPORTSCONTENT_QUERY =
       sportText,
       sportImage,
       }`);
+
+export const CONTACTCONTENT_QUERY = defineQuery(`*[_type=="contactContent"]{
+            contactSectionTitle,
+            contactSectionText, 
+            }`);
+export const CONTACTVISTCONTENT_QUERY =
+  defineQuery(`*[_type=="contactVisitContent"]{
+            vistSectionTitle,
+            vistSectionText, 
+            vistSectionImage,
+            }`);
+
 export const ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERY =
   defineQuery(`*[_type=="aboutCommunityMembershipContent"]{
         communityTitle,
