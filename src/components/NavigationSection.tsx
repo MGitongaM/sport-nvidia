@@ -22,6 +22,11 @@ export const navLinks = [
     hrefLink: "/",
     text: "Home",
   },
+  {
+    id: 2,
+    hrefLink: "/about",
+    text: "About",
+  },
   // {
   //   id: 2,
   //   hrefLink: "/#golf-courses",
