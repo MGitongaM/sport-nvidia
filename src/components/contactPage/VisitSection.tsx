@@ -1,9 +1,7 @@
-import { urlFor } from "@/sanity/lib/image";
 import { sanityFetch } from "@/sanity/lib/live";
 import { CONTACTVISTCONTENT_QUERY } from "@/sanity/lib/queries";
 import { components } from "@/sanity/portableTextComponents";
 import { PortableText } from "next-sanity";
-import Image from "next/image";
 
 export default async function VisitSection() {
   const { data: visit } = await sanityFetch({
@@ -28,21 +26,15 @@ export default async function VisitSection() {
               ) : null}
             </div>
           </div>
-          <div className=" h-[50vh] w-[90vw] md:w-[50vw] bg-zinc-800 rounded-lg">
-            {visit?.[0].vistSectionImage ? (
-              <Image
-                src={urlFor(visit?.[0].vistSectionImage)
-                  .width(800)
-                  .height(900)
-                  .quality(80)
-                  .auto("format")
-                  .url()}
-                height={900}
-                width={800}
-                alt={"Hero Image"}
-                className="object-cover h-full  w-full rounded-lg "
-              />
-            ) : null}
+          <div className=" min-h-[50vh] w-[90vw] md:w-[50vw] bg-zinc-800 rounded-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.766825347891!2d36.06298137577521!3d-0.29110123534979704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18298dc186ede701%3A0x42d8dd651d754c1a!2sNakuru%20Athletics%20Club!5e0!3m2!1sen!2ske!4v1741426029782!5m2!1sen!2ske"
+              width="100%"
+              height="100%"
+              allowFullScreen
+              loading="lazy"
+              className="rounded-lg min-h-[50vh]"
+            ></iframe>
           </div>
         </div>
       </div>

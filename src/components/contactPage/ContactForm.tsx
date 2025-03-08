@@ -85,7 +85,7 @@ export default function ContactForm() {
         </div>
         <Button
           type="submit"
-          className="bg-blue-400 hover:bg-blue-500 min-w-32"
+          className="bg-blue-400 hover:bg-blue-500 min-w-32 font-semibold"
         >
           Send
         </Button>
