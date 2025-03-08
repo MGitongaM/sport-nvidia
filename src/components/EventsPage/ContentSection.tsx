@@ -13,18 +13,12 @@ export default function ContentSection({
             <div className="w-full md:w-6/12 space-y-8 px-4">
               <h2 className="text-4xl">{eventData?.tournamentTitle}</h2>
               <p className="text-lg">{eventData?.tournamentExcerpt}</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. At,
-                debitis. Quibusdam numquam, non aspernatur facere, voluptatum
-                sit explicabo magni alias assumenda labore ex perspiciatis illo
-                a incidunt cupiditate sapiente nam saepe id inventore in!
-                Similique nobis ipsum quam repellendus eligendi?
-              </p>
+
               <div className="flex  gap-">
                 <div className="w-96 h-36 bg-zinc-600 rounded-lg"></div>
                 <div className="w-96 h-36 mt-40 lg:mt-40  bg-zinc-600 rounded-lg"></div>
               </div>
-              <p>
+              {/* <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Praesentium perferendis porro facere, ab rem ea voluptatem
                 quisquam eum odio dolor. Natus, dolorem optio iste velit
@@ -50,7 +44,7 @@ export default function ContentSection({
                 deleniti iure? Culpa, recusandae ipsum! Officia, illum
                 laboriosam. Suscipit perferendis, placeat cum rerum ad hic autem
                 cupiditate natus animi sit, debitis esse.
-              </p>
+              </p> */}
             </div>
             <div className="w-full md:w-4/12 space-y-10 px-4">
               <div className=" rounded-lg border px-8 py-5">
