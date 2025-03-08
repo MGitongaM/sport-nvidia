@@ -52,14 +52,14 @@ export default function HeroSection({
               width={800}
               alt={eventData.tournamentTitle || "events background image"}
               // className="object-cover h-full w-full absolute top-0 -z-10"
-              className="object-cover h-screen md:h-[70vh]  w-[90vw] mx-auto top-4 rounded-lg pt-8 relative"
+              className="object-fill object-top h-screen md:h-[70vh]  w-[90vw] mx-auto top-4 rounded-lg pt-8 relative"
             />
           ) : (
             <div className="bg-zinc-600 rounded-lg"></div>
           )}
           <div className=" absolute top-64 md:left-40 w-72 md:w-[34vw] space-y-6 bg-white/40 backdrop-blur-lg px-4 py-10 rounded-lg mx-4">
             {/* <p>welcome to</p> */}
-            <h1 className="text-3xl md:text-5xl font-bold text-blue-800">
+            <h1 className="text-3xl md:text-5xl font-bold">
             {eventData?.tournamentTitle}
             </h1>
             <p className="text-lg text-black">{eventData?.tournamentExcerpt}</p>
