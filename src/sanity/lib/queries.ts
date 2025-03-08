@@ -73,7 +73,7 @@ export const CONTACTCONTENT_QUERY = defineQuery(`*[_type=="contactContent"]{
             }`);
 export const CONTACTVISTCONTENT_QUERY =
   defineQuery(`*[_type=="contactVisitContent"]{
-            vistSectionTitle,PV
+            vistSectionTitle,
             vistSectionText, 
             vistSectionImage,
             }`);
