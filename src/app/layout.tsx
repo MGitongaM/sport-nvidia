@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavigationSection from "@/components/NavigationSection";
 import FooterSection from "@/components/FooterSection";
+// import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "sonner";
 
 
 const geistSans = Geist({
@@ -15,19 +17,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
   title: "Golf Nvidia",
-  description: "From scenic fairways to challenging greens, discover our premier golf courses designed for every level of golfer. Play where champions train. Golf Nvidia Has you covered",
-  openGraph:{
-    images:[
+  description:
+    "From scenic fairways to challenging greens, discover our premier golf courses designed for every level of golfer. Play where champions train. Golf Nvidia Has you covered",
+  openGraph: {
+    images: [
       {
-        url:"",
-        height:800,
-        width:1200
-      }
-    ]
-  }
+        url: "",
+        height: 800,
+        width: 1200,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -40,9 +42,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NavigationSection/>
+        <NavigationSection />
         {children}
-        <FooterSection/>
+        <Toaster />
+        <FooterSection />
       </body>
     </html>
   );
