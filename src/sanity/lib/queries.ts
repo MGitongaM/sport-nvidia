@@ -60,6 +60,13 @@ export const ABOUTSPORTSCONTENT_QUERY =
       sportImage,
       }`);
 
+export const ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERY =
+  defineQuery(`*[_type=="aboutCommunityMembershipContent"]{
+              communityTitle,
+              communityText,
+              membershipTitle,
+              membershipText,
+              }`);
 export const CONTACTCONTENT_QUERY = defineQuery(`*[_type=="contactContent"]{
             contactSectionTitle,
             contactSectionText, 
@@ -71,13 +78,43 @@ export const CONTACTVISTCONTENT_QUERY =
             vistSectionImage,
             }`);
 
-export const ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERY =
-  defineQuery(`*[_type=="aboutCommunityMembershipContent"]{
-        communityTitle,
-        communityText,
-        membershipTitle,
-        membershipText,
-        }`);
+export const MEMBERSHIPHEROCONTENT_QUERY =
+  defineQuery(`*[_type=="membershipHeroContent"]{
+              heroSectionTitle,
+              heroSectionSubTitle,
+              heroSectionText,
+              heroSectionImage{asset->},
+              }`);
+
+export const MEMBERSHIPBENEFITCONTENT_QUERY =
+  defineQuery(`*[_type=="membershipBenefitContent"]{
+              benefitSectionTitle,
+              benefitSectionSubTitle,
+              benefitectionText,
+              benefitContent,
+              benefitHeading,
+              benefitText,
+              benefitImage,
+              }`);
+
+export const MEMBERSHIPCATEGORIESCONTENT_QUERY =
+  defineQuery(`*[_type=="membershipCategoriesContent"]{
+              membershipCategoriesTitle,
+              membershipCategoriesText,
+              membershipCategoriestDetails,
+              membershipCategoriesImage,
+              }`);
+export const MEMBERSHIPJOINCONTENT_QUERY =
+  defineQuery(`*[_type=="membershipJoinContent"]{
+              joinSectionTitle,
+              joinSectionSubTitle,
+              joinSectionText,
+              joinDetails,
+              }`);
+
+
+
+
 
 export const NEWSANDUPDATETYPE_QUERY = defineQuery(`*[_type=="newsAndUpdates"]{
       newsUpdateFeatureImage{asset->},
