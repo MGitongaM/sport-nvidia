@@ -29,6 +29,11 @@ export const navLinks = [
   },
   {
     id: 3,
+    hrefLink: "/news-and-updates",
+    text: "News and Updates",
+  },
+  {
+    id: 4,
     hrefLink: "/contact",
     text: "Contact Us",
   },
