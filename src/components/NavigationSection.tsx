@@ -29,16 +29,21 @@ export const navLinks = [
   },
   {
     id: 3,
+    hrefLink: "/membership",
+    text: "Membership",
+  },
+  {
+    id: 4,
     hrefLink: "/events",
     text: "Tournaments",
   },
   {
-    id: 4,
+    id: 5,
     hrefLink: "/news-and-updates",
     text: "News and Updates",
   },
   {
-    id: 5,
+    id: 6,
     hrefLink: "/contact",
     text: "Contact Us",
   },

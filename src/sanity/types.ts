@@ -68,6 +68,176 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type MembershipJoinContent = {
+  _id: string;
+  _type: "membershipJoinContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  joinSectionTitle?: string;
+  joinSectionSubTitle?: string;
+  joinSectionText?: string;
+  joinDetails?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "Normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+};
+
+export type MembershipCategoriesContent = {
+  _id: string;
+  _type: "membershipCategoriesContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  membershipCategoriesImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  membershipCategoriesTitle?: string;
+  membershipCategoriesText?: string;
+  membershipCategoriestDetails?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "Normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+};
+
+export type MembershipBenefitContent = {
+  _id: string;
+  _type: "membershipBenefitContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  benefitSectionTitle?: string;
+  benefitSectionSubTitle?: string;
+  benefitectionText?: string;
+  benefitContent?: Array<{
+    benefitHeading?: string;
+    benefitText?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "Normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+      listItem?: "bullet";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    } | {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+      _key: string;
+    }>;
+    benefitImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _key: string;
+  }>;
+};
+
+export type MembershipHeroContent = {
+  _id: string;
+  _type: "membershipHeroContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  heroSectionTitle?: string;
+  heroSectionSubTitle?: string;
+  heroSectionText?: string;
+  heroSectionImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+};
+
 export type ContactVisitContent = {
   _id: string;
   _type: "contactVisitContent";
@@ -605,7 +775,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | ContactVisitContent | ContactContent | AboutCommunityMembershipContent | AboutSportsContent | AboutMissionVisionContent | AboutHeroContent | HomeSponsorContent | HomeLegacyContent | HomeAboutContent | HomeHeroContent | GolfCourse | Tournaments | BlockContent | NewsAndUpdates | Slug | Banner | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | MembershipJoinContent | MembershipCategoriesContent | MembershipBenefitContent | MembershipHeroContent | ContactVisitContent | ContactContent | AboutCommunityMembershipContent | AboutSportsContent | AboutMissionVisionContent | AboutHeroContent | HomeSponsorContent | HomeLegacyContent | HomeAboutContent | HomeHeroContent | GolfCourse | Tournaments | BlockContent | NewsAndUpdates | Slug | Banner | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: BANNER_QUERY
@@ -818,6 +988,14 @@ export type ABOUTSPORTSCONTENT_QUERYResult = Array<{
   sportText: null;
   sportImage: null;
 }>;
+// Variable: ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERY
+// Query: *[_type=="aboutCommunityMembershipContent"]{              communityTitle,              communityText,              membershipTitle,              membershipText,              }
+export type ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERYResult = Array<{
+  communityTitle: string | null;
+  communityText: string | null;
+  membershipTitle: string | null;
+  membershipText: string | null;
+}>;
 // Variable: CONTACTCONTENT_QUERY
 // Query: *[_type=="contactContent"]{            contactSectionTitle,            contactSectionText,             }
 export type CONTACTCONTENT_QUERYResult = Array<{
@@ -870,13 +1048,175 @@ export type CONTACTVISTCONTENT_QUERYResult = Array<{
     _type: "image";
   } | null;
 }>;
-// Variable: ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERY
-// Query: *[_type=="aboutCommunityMembershipContent"]{        communityTitle,        communityText,        membershipTitle,        membershipText,        }
-export type ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERYResult = Array<{
-  communityTitle: string | null;
-  communityText: string | null;
-  membershipTitle: string | null;
-  membershipText: string | null;
+// Variable: MEMBERSHIPHEROCONTENT_QUERY
+// Query: *[_type=="membershipHeroContent"]{              heroSectionTitle,              heroSectionSubTitle,              heroSectionText,              heroSectionImage{asset->},              }
+export type MEMBERSHIPHEROCONTENT_QUERYResult = Array<{
+  heroSectionTitle: string | null;
+  heroSectionSubTitle: string | null;
+  heroSectionText: string | null;
+  heroSectionImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+  } | null;
+}>;
+// Variable: MEMBERSHIPBENEFITCONTENT_QUERY
+// Query: *[_type=="membershipBenefitContent"]{              benefitSectionTitle,              benefitSectionSubTitle,              benefitectionText,              benefitContent,              benefitHeading,              benefitText,              benefitImage,              }
+export type MEMBERSHIPBENEFITCONTENT_QUERYResult = Array<{
+  benefitSectionTitle: string | null;
+  benefitSectionSubTitle: string | null;
+  benefitectionText: string | null;
+  benefitContent: Array<{
+    benefitHeading?: string;
+    benefitText?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal" | "Normal";
+      listItem?: "bullet";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    } | {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+      _key: string;
+    }>;
+    benefitImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _key: string;
+  }> | null;
+  benefitHeading: null;
+  benefitText: null;
+  benefitImage: null;
+}>;
+// Variable: MEMBERSHIPCATEGORIESCONTENT_QUERY
+// Query: *[_type=="membershipCategoriesContent"]{              membershipCategoriesTitle,              membershipCategoriesText,              membershipCategoriestDetails,              membershipCategoriesImage,              }
+export type MEMBERSHIPCATEGORIESCONTENT_QUERYResult = Array<{
+  membershipCategoriesTitle: string | null;
+  membershipCategoriesText: string | null;
+  membershipCategoriestDetails: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal" | "Normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }> | null;
+  membershipCategoriesImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+}>;
+// Variable: MEMBERSHIPJOINCONTENT_QUERY
+// Query: *[_type=="membershipJoinContent"]{              joinSectionTitle,              joinSectionSubTitle,              joinSectionText,              joinDetails,              }
+export type MEMBERSHIPJOINCONTENT_QUERYResult = Array<{
+  joinSectionTitle: string | null;
+  joinSectionSubTitle: string | null;
+  joinSectionText: string | null;
+  joinDetails: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal" | "Normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }> | null;
 }>;
 // Variable: NEWSANDUPDATETYPE_QUERY
 // Query: *[_type=="newsAndUpdates"]{      newsUpdateFeatureImage{asset->},      newsUpdateTitle,      newsUpdateSlug,      newsUpdateExcerpt,      newsUpdateAuthor,      newsUpdateDate,      newsUpdateDetails,    }
@@ -1237,9 +1577,13 @@ declare module "@sanity/client" {
     "*[_type==\"aboutHeroContent\"]{\n    heroSectionTitle,\n    heroSectionSubTitle,\n    heroSectionText,\n    heroSectionImage{asset->},\n    }": ABOUTHEROCONTENT_QUERYResult;
     "*[_type==\"aboutMissionVisionContent\"]{\n    missionTitle,\n    missionText,\n    missionImage,\n    visionTitle,\n    visionText,\n    visionImage,\n    }": ABOUTMISSIONVISIONCONTENT_QUERYResult;
     "*[_type==\"aboutSportsContent\"]{\n      sportsSectionTitle,\n      sportSectionSubTitle,\n      sportSectionText,\n      sportsContent,\n      sportHeading,\n      sportText,\n      sportImage,\n      }": ABOUTSPORTSCONTENT_QUERYResult;
+    "*[_type==\"aboutCommunityMembershipContent\"]{\n              communityTitle,\n              communityText,\n              membershipTitle,\n              membershipText,\n              }": ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERYResult;
     "*[_type==\"contactContent\"]{\n            contactSectionTitle,\n            contactSectionText, \n            }": CONTACTCONTENT_QUERYResult;
     "*[_type==\"contactVisitContent\"]{\n            vistSectionTitle,\n            vistSectionText, \n            vistSectionImage,\n            }": CONTACTVISTCONTENT_QUERYResult;
-    "*[_type==\"aboutCommunityMembershipContent\"]{\n        communityTitle,\n        communityText,\n        membershipTitle,\n        membershipText,\n        }": ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERYResult;
+    "*[_type==\"membershipHeroContent\"]{\n              heroSectionTitle,\n              heroSectionSubTitle,\n              heroSectionText,\n              heroSectionImage{asset->},\n              }": MEMBERSHIPHEROCONTENT_QUERYResult;
+    "*[_type==\"membershipBenefitContent\"]{\n              benefitSectionTitle,\n              benefitSectionSubTitle,\n              benefitectionText,\n              benefitContent,\n              benefitHeading,\n              benefitText,\n              benefitImage,\n              }": MEMBERSHIPBENEFITCONTENT_QUERYResult;
+    "*[_type==\"membershipCategoriesContent\"]{\n              membershipCategoriesTitle,\n              membershipCategoriesText,\n              membershipCategoriestDetails,\n              membershipCategoriesImage,\n              }": MEMBERSHIPCATEGORIESCONTENT_QUERYResult;
+    "*[_type==\"membershipJoinContent\"]{\n              joinSectionTitle,\n              joinSectionSubTitle,\n              joinSectionText,\n              joinDetails,\n              }": MEMBERSHIPJOINCONTENT_QUERYResult;
     "*[_type==\"newsAndUpdates\"]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": NEWSANDUPDATETYPE_QUERYResult;
     "*[_type==\"newsAndUpdates\" && newsUpdateSlug.current==$slug][0]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": SINGLE_NEWSANDUPDATETYPE_QUERYResult;
     "*[_type==\"tournaments\"]{\n      tournamentFeatureImage{asset->},\n      tournamentTitle,\n      tournamentSlug,\n      tournamentExcerpt,\n      tournamentAuthor,\n      tournamentDate,\n      tournamentDetails,\n    }": TOURNAMENT_QUERYResult;

@@ -14,6 +14,10 @@ import { aboutSportsContentType } from "./aboutPageSchemas/aboutSportsContent";
 import { aboutCommunityMembershipContentType } from "./aboutPageSchemas/aboutCommunityMembership";
 import { contactContentType } from "./contactPageSchemas/contactSection";
 import { contactVisitContentType } from "./contactPageSchemas/visitSection";
+import { membershipHeroContentType } from "./membershipPageSchemas/membershipHeroContent";
+import { membershipBenefitContentType } from "./membershipPageSchemas/membershipBenefitContent";
+import { membershipCategoriesContentType } from "./membershipPageSchemas/membershipCategoriesContent";
+import { membershipJoinContentType } from "./membershipPageSchemas/membershipJoinContent";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -32,5 +36,10 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     aboutCommunityMembershipContentType,
     contactContentType,
     contactVisitContentType,
+    membershipHeroContentType,
+    membershipBenefitContentType,
+    membershipCategoriesContentType,
+    membershipJoinContentType,
+
   ],
 };
