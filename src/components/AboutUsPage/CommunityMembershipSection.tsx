@@ -10,19 +10,19 @@ export default async function CommunityMembershipSection() {
     <section className="bg-black pb-40">
       <div className="container mx-auto px-8 py-20 bg-zinc-800 rounded-lg text-slate-300">
         <div className="flex flex-wrap md:flex-nowrap justify-evenly  gap-8">
-          <div className="w-full md:w-[42vw] lg:w-[36vw] h-full md:h-[78vh] lg:h-[64vh] xl:h-[58vh] bg-zinc-900 rounded-lg px-6 py-12">
+          <div className="w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12">
             <div className="c"></div>
             <p className="text-2xl font-semibold py-12">
               {communityMemmbership?.[0].communityTitle}
             </p>
-            <p className="text-lg">{communityMemmbership?.[0].communityText}</p>
+            <p className="text-lg leading-8">{communityMemmbership?.[0].communityText}</p>
           </div>
-          <div className="w-full md:w-[42vw] lg:w-[36vw] h-full md:h-[78vh] lg:h-[64vh] xl:h-[48vh] bg-zinc-900 rounded-lg px-6 py-12">
+          <div className="w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12">
             <div className="c"></div>
             <p className="text-2xl font-semibold py-12">
               {communityMemmbership?.[0].membershipTitle}{" "}
             </p>
-            <p className="text-lg">
+            <p className="text-lg leading-8">
               {communityMemmbership?.[0].membershipText}
             </p>
           </div>

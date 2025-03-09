@@ -13,7 +13,7 @@ export default async function SponsorSection() {
         {sponsor?.[0].sponsorSectionTitle}
       </h2>
       <div className="w-full lg:w-[50vw] text-center mx-auto px-8 md:px-40 lg:px-8">
-        <p className="leading-8">{sponsor?.[0].sponsorSectionText}</p>
+        <p className="text-lg leading-8">{sponsor?.[0].sponsorSectionText}</p>
       </div>
       <div className="max-w-7xl mx-auto ">
         <div className="flex items-center justify-center w-full ">

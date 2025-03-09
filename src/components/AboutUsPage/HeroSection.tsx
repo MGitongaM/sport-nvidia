@@ -10,7 +10,7 @@ export default async function HeroSection() {
   });
   return (
     <section className="bg-black">
-      <div className="min-h-[60vh] container mx-auto px-8  text-slate-300">
+      <div className="min-h-[60vh] container mx-auto px-8  text-slate-300 pt-20">
         <h1 className="text-3xl md:text-5xl font-bold text-center">
           {heroContent?.[0].heroSectionTitle}
         </h1>
@@ -27,12 +27,12 @@ export default async function HeroSection() {
                 height={400}
                 width={400}
                 alt={"Hero Image"}
-                className="object-contain h-64 w-full"
+                className="object-contain h-48 mt-10 w-full"
               />
             ) : null}
           </div>
           <div className="w-[85vw] md:w-[60vw] space-y-20">
-            <p className="text-xl">{heroContent?.[0].heroSectionText}</p>
+            <p className="text-xl leading-8">{heroContent?.[0].heroSectionText}</p>
           </div>
         </div>
       </div>

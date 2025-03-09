@@ -13,15 +13,15 @@ export default async function SportsSection() {
         <h3 className="text-3xl md:text-3xl font-bold text-center">
           {sports?.[0].sportsSectionTitle}
         </h3>
-        <p className="text-xl">{sports?.[0].sportSectionText}</p>
+        <p className="text-xl leading-8">{sports?.[0].sportSectionText}</p>
       </div>
       <div className="flex flex-wrap justify-center items-center gap-8 py-10">
         {sports?.[0].sportsContent?.map((sport, index) => (
           <div
             key={index}
-            className="grid place-content-center min-h-[40vh] w-[80vw] md:w-[40vw] lg:w-[30vw] bg-zinc-900 rounded-lg px-4 py-8 space-y-4"
+            className="grid place-content-center min-h-[28rem] w-[80vw] md:w-[40vw] lg:w-[30vw] bg-zinc-800 rounded-lg px-4 py space-y-4"
           >
-            <div className=" bg-zinc-700 rounded-lg size-32 mx-auto">
+            <div className=" bg-zinc-700 rounded-lg h-36 mx-auto">
               {sport?.sportImage ? (
                 <Image
                   src={urlFor(sport.sportImage)
@@ -40,7 +40,7 @@ export default async function SportsSection() {
             <p className="text-xl font-semibold text-center">
               {sport.sportHeading}
             </p>
-            <p className="text-lg">{sport.sportText}</p>
+            <p className="text-lg leading-8 px-4">{sport.sportText}</p>
           </div>
         ))}
       </div>

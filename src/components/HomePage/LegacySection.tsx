@@ -31,7 +31,7 @@ export default async function LegacySection() {
           </div>
           <div className="w-full md:w-[50vw] space-y-8">
             <p className="text-2xl lg:text-3xl font-semibold">{legacy?.[0].legacySectionContent?.[0].legacySectionHeadingText} </p>
-            <p className="">
+            <p className="text-lg">
             {legacy?.[0].legacySectionContent?.[0].LegacySectionText}
             </p>
           </div>
@@ -57,7 +57,7 @@ export default async function LegacySection() {
             <p className="text-2xl lg:text-3xl font-semibold">
             {legacy?.[0].legacySectionContent?.[1].legacySectionHeadingText}
             </p>
-            <p className="">
+            <p className="text-lg">
             {legacy?.[0].legacySectionContent?.[1].LegacySectionText}
             </p>
           </div>

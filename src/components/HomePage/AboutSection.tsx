@@ -32,7 +32,7 @@ export default async function AboutSection() {
           ) : null}
         </div>
         <div className="w-full md:w-[50vw] bg-zinc-900 rounded-lg px-8 py-12">
-          <div className="prose prose-p:text-slate-300 prose-h1:text-slate-200 prose-h2:text-slate-200 prose-h3:text-slate-200 prose-h4:text-slate-200 prose-h5:text-slate-200 prose-h6:text-slate-200 prose-text-slate-300 prose-strong:text-slate-300 prose-ul:text-slate-300">
+          <div className="prose prose-lg prose-p:text-slate-300 prose-h1:text-slate-200 prose-h2:text-slate-200 prose-h3:text-slate-200 prose-h4:text-slate-200 prose-h5:text-slate-200 prose-h6:text-slate-200 prose-text-slate-300 prose-strong:text-slate-300 prose-ul:text-slate-300">
             {aboutContent?.[0].aboutSectionText !== undefined &&
             aboutContent?.[0].aboutSectionText !== null ? (
               <PortableText
