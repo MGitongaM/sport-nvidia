@@ -10,7 +10,7 @@ export default async function ContactSection() {
 
  
   return (
-    <section className="bg-black py-20">
+    <section className="bg-black pt-32 pb-20">
       <div className="text-slate-300 px-8">
         <div className="container mx-auto flex flex-wrap md:flex-nowrap gap-8 justify-between">
           <div className="w-full md:w-[36vw] space-y-12">

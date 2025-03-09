@@ -10,7 +10,7 @@ export default async function AllEventsSection() {
     query: TOURNAMENT_QUERY,
   });
   return (
-    <section className="bg-black py-20">
+    <section className="bg-black pt-32 pb-20">
       <div className=" mx-auto text-slate-300 px-8">
         <div className="text-center space-y-4">
           <h1 className="text-3xl md:text-5xl font-bold">Tournament Events</h1>

@@ -9,7 +9,7 @@ export default async function HeroSection() {
     query: MEMBERSHIPHEROCONTENT_QUERY,
   });
   return (
-    <section className="bg-black pt-20 pb-20">
+    <section className="bg-black pt-32 pb-20">
       <div className="min-h-[60vh] container mx-auto px-8  text-slate-300">
         <div className=" flex justify-center items-center gap-8">
           <div className=" ">

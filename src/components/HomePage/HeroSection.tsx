@@ -11,8 +11,8 @@ export default async function HeroSection() {
   });
   return (
     <>
-      <section className=" ">
-        <div className="flex flex-wrap flex-col-reverse md:flex-row md:flex-nowrap  min-h-[80vh] lg:h-[80vh]">
+      <section className="bg-black ">
+        <div className="flex flex-wrap flex-col-reverse md:flex-row md:flex-nowrap  min-h-[95vh] lg:h-[95vh] pt-20">
           <div className="w-full md:w-5/12 lg:w-[40rem] flex flex-col justify-center gap-8 h-auto bg-black pl-10 lg:pl-20 pr-4 py-8 text-slate-300">
             <h1 className="text-3xl lg:text-5xl font-bold">
               {heroContent?.[0].heroSectionTitle}

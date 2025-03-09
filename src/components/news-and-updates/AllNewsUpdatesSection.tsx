@@ -10,7 +10,7 @@ export default async function AllNewsUpdatesSection() {
     query: NEWSANDUPDATETYPE_QUERY,
   });
   return (
-    <section className="bg-black py-20">
+    <section className="bg-black pt-32 pb-20">
       <div className=" mx-auto text-slate-300 px-8">
         <div className="text-center space-y-4">
           <h1 className="text-3xl md:text-5xl font-bold">News and Updates</h1>
@@ -23,7 +23,7 @@ export default async function AllNewsUpdatesSection() {
           {data.map((newsAndUpdate, index) => (
             <div
               key={index}
-              className="flex flex-col  justify-between w-full md:w-[16rem] lg:w-[20rem] rounded-lg h-[68vh] border border-black "
+              className="flex flex-col  justify-between w-full md:w-[16rem] lg:w-[18rem] rounded-lg h-[38rem] border border-black "
             >
               {newsAndUpdate.newsUpdateFeatureImage ? (
                 <Image
@@ -36,7 +36,7 @@ export default async function AllNewsUpdatesSection() {
                   height={800}
                   width={800}
                   alt={newsAndUpdate.newsUpdateTitle || ""}
-                  className="object-cover h-96 rounded-t-md"
+                  className="object-cover h-64 rounded-t-md"
                 />
               ) : null}
               <div className="px-4 py-4 flex flex-col gap-4 justify-between h-full bg-zinc-700 rounded-b-lg">

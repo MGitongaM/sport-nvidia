@@ -22,7 +22,7 @@ export default async function TournamentSection() {
             </p>
             
           </div>
-          <ScrollArea className="w-full lg:w-[60vw] min-h-[70vh] py-4">
+          <ScrollArea className="w-full lg:w-[60vw] min-h-[70vh] py-4 ">
             <div className="flex gap-12 justify-center">
               {data.map((tournament, index) => (
                 <div
