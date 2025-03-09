@@ -10,8 +10,8 @@ export default async function LegacySection() {
   
   return (
     <section className="min-h-[80vh]  px-8 py-20 text-slate-300  bg-black">
-      <div className="container mx-auto space-y-8 bg-zinc-900 rounded-lg px-8 py-12">
-        <h2 className="text-5xl font-bold text-center">{legacy?.[0].legacySectionTitle} </h2>
+      <div className="container leading-8 mx-auto space-y-8 bg-zinc-900 rounded-lg px-8 py-12">
+        <h2 className="text-3xl lg:text-5xl font-bold text-center">{legacy?.[0].legacySectionTitle} </h2>
         <div className=" flex gap-8 flex-wrap md:flex-nowrap items-center justify-between h-full ">
           <div className="w-[50vw] grow">
             {legacy?.[0].legacySectionContent?.[0].legacySectionImage ? (
@@ -30,8 +30,8 @@ export default async function LegacySection() {
             ) : null}
           </div>
           <div className="w-full md:w-[50vw] space-y-8">
-            <p className="text-3xl font-semibold">{legacy?.[0].legacySectionContent?.[0].legacySectionHeadingText} </p>
-            <p className="text-lg">
+            <p className="text-2xl lg:text-3xl font-semibold">{legacy?.[0].legacySectionContent?.[0].legacySectionHeadingText} </p>
+            <p className="">
             {legacy?.[0].legacySectionContent?.[0].LegacySectionText}
             </p>
           </div>
@@ -54,10 +54,10 @@ export default async function LegacySection() {
             ) : null}
           </div>
           <div className="w-full md:w-[50vw] space-y-8">
-            <p className="text-3xl font-semibold">
+            <p className="text-2xl lg:text-3xl font-semibold">
             {legacy?.[0].legacySectionContent?.[1].legacySectionHeadingText}
             </p>
-            <p className="text-lg">
+            <p className="">
             {legacy?.[0].legacySectionContent?.[1].LegacySectionText}
             </p>
           </div>

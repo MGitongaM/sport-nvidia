@@ -1,4 +1,5 @@
 import { defineType } from "sanity";
+import "./blockContent"
 
 export const homeAboutContentType=defineType({
     name:"homeAboutContent",
@@ -18,7 +19,7 @@ export const homeAboutContentType=defineType({
         {
             name:"aboutSectionText",
             title:"About Section Text",
-            type:"string",
+            type:"blockContent",
         },
         {
             name:"aboutSectionImage",
