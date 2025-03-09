@@ -14,7 +14,7 @@ export default async function AllEventsSection() {
       <div className=" mx-auto text-slate-300 px-8">
         <div className="text-center space-y-4">
           <h1 className="text-3xl md:text-5xl font-bold">Tournament Events</h1>
-          <p className="c">
+          <p className="text-lg leading-8">
             Be in the loop on the upcoming games and derbies when it comes to
             nakuru rugby football team
           </p>

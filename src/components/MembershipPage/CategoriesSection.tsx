@@ -7,9 +7,9 @@ import { PortableText } from "next-sanity";
 import { components } from "@/sanity/portableTextComponents";
 
 export default async function CategoriesSection() {
-    const{data}=await sanityFetch({
-        query:MEMBERSHIPCATEGORIESCONTENT_QUERY
-    })
+  const { data } = await sanityFetch({
+    query: MEMBERSHIPCATEGORIESCONTENT_QUERY,
+  });
   return (
     <section className="bg-black py-20">
       <div className="flex flex-wrap md:flex-nowrap gap-2 justify-center px-4 md:px-0">
@@ -17,7 +17,7 @@ export default async function CategoriesSection() {
           <h2 className="text-3xl md:text-5xl font-bold  ">
             Membership Categories
           </h2>
-          <p className="text-xl">
+          <p className="text-lg leading-8">
             We offer a variety of membership options tailored to suit different
             needs and preferences:
           </p>
@@ -44,15 +44,18 @@ export default async function CategoriesSection() {
                     />
                   ) : null} */}
                 <div className="px-8 py-12 flex flex-col gap-4 justify-between h-full bg-zinc-900  text-slate-300 rounded-b-lg">
-                  <p className="text-lg font-semibold">{category.membershipCategoriesTitle}</p>
-                  {category?.membershipCategoriestDetails !==undefined &&category?.membershipCategoriestDetails !==null ?(
-                     <div className="prose  max-w-5xl prose-p:text-slate-300 prose-h1:text-slate-200 prose-h2:text-slate-200 prose-h3:text-slate-200 prose-h4:text-slate-200 prose-h5:text-slate-200 prose-h6:text-slate-200 prose-text-slate-300 prose-strong:text-slate-300 prose-ul:text-slate-300">
-                                      <PortableText
-                                        value={category?.membershipCategoriestDetails}
-                                        components={components}
-                                      />
-                                    </div>
-                  ):null}
+                  <p className="text-lg font-semibold">
+                    {category.membershipCategoriesTitle}
+                  </p>
+                  {category?.membershipCategoriestDetails !== undefined &&
+                  category?.membershipCategoriestDetails !== null ? (
+                    <div className="prose  max-w-5xl prose-p:text-slate-300 prose-h1:text-slate-200 prose-h2:text-slate-200 prose-h3:text-slate-200 prose-h4:text-slate-200 prose-h5:text-slate-200 prose-h6:text-slate-200 prose-text-slate-300 prose-strong:text-slate-300 prose-ul:text-slate-300">
+                      <PortableText
+                        value={category?.membershipCategoriestDetails}
+                        components={components}
+                      />
+                    </div>
+                  ) : null}
                 </div>
               </div>
             ))}

@@ -17,12 +17,12 @@ export default async function BenefitsSection() {
           {benefit?.[0].benefitContent?.map((benefitItem, index) => (
             <div
               key={index}
-              className="rounded-lg px-6 py-9 bg-zinc-800 space-y-6 w-full md:w-[30rem] lg:w-[28rem]"
+              className="rounded-lg px-6 py-9 bg-zinc-800 space-y-6 w-full md:w-[30rem] lg:w-[24rem] min-h-[18rem] flex flex-col items-start"
             >
-              <p className="text-2xl font-semibold">
+              <p className="text-xl font-bold text-center w-full">
                 {benefitItem.benefitHeading}
               </p>
-              <hr />
+              <div className="w-full  border border-slate-300"></div>
               {benefitItem?.benefitText !== undefined ? (
                 <div className="prose prose-p:text-slate-300 prose-h1:text-slate-200 prose-h2:text-slate-200 prose-h3:text-slate-200 prose-h4:text-slate-200 prose-h5:text-slate-200 prose-h6:text-slate-200 prose-text-slate-300 prose-strong:text-slate-300 prose-ul:text-slate-300">
                   <PortableText

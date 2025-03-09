@@ -9,7 +9,7 @@ export default async function HeroSection() {
     query: MEMBERSHIPHEROCONTENT_QUERY,
   });
   return (
-    <section className="bg-black pt-20">
+    <section className="bg-black pt-20 pb-20">
       <div className="min-h-[60vh] container mx-auto px-8  text-slate-300">
         <div className=" flex justify-center items-center gap-8">
           <div className=" ">
@@ -28,7 +28,7 @@ export default async function HeroSection() {
               />
             ) : null}
           </div>
-          <div className="w-7/12">
+          <div className="w-10/12">
             <h1 className="text-3xl md:text-5xl font-bold text-center">
               {heroContent?.[0].heroSectionTitle}
             </h1>
@@ -54,7 +54,7 @@ export default async function HeroSection() {
           </div>
         </div>
         <div className="max-w-3xl mx-auto text-balance bg-zinc-800 px-6 py-12 rounded-lg mt-16">
-          <p className="">
+          <p className="text-lg leading-8">
             {heroContent?.[0].heroSectionText}
           </p>
         </div>

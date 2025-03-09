@@ -14,7 +14,7 @@ export default async function AllNewsUpdatesSection() {
       <div className=" mx-auto text-slate-300 px-8">
         <div className="text-center space-y-4">
           <h1 className="text-3xl md:text-5xl font-bold">News and Updates</h1>
-          <p className="c">
+          <p className="text-lg leading-8">
             Stay up to date on what new developments are happing at the Nakuru
             Athletic Club
           </p>

@@ -12,12 +12,12 @@ export default async function VisitSection() {
       <div className="text-slate-300 px-8">
         <div className="container mx-auto flex flex-wrap md:flex-nowrap gap-8 justify-between">
           <div className="w-full md:w-[36vw] space-y-12">
-            <h3 className="text-3xl font-bold">
+            <h3 className="text-3xl lg:text-5xl font-bold">
               {visit?.[0].vistSectionTitle}{" "}
             </h3>
-            <div className="c">
+            <div className="">
               {visit?.[0].vistSectionText ? (
-                <div className="prose prose-p:text-slate-300 prose-h1:text-slate-200 prose-h2:text-slate-200 prose-h3:text-slate-200 prose-h4:text-slate-200 prose-h5:text-slate-200 prose-h6:text-slate-200 prose-text-slate-300 prose-strong:text-slate-300 prose-ul:text-slate-300">
+                <div className="prose prose-lg prose-p:text-slate-300 prose-h1:text-slate-200 prose-h2:text-slate-200 prose-h3:text-slate-200 prose-h4:text-slate-200 prose-h5:text-slate-200 prose-h6:text-slate-200 prose-text-slate-300 prose-strong:text-slate-300 prose-ul:text-slate-300">
                   <PortableText
                     value={visit[0].vistSectionText}
                     components={components}

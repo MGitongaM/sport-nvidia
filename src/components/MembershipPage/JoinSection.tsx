@@ -16,7 +16,7 @@ export default async function JoinSection() {
               <h2 className="text-3xl font-bold">
                 {join?.[0].joinSectionTitle}{" "}
               </h2>
-              <p className="c">{join?.[0].joinSectionText}</p>
+              <p className="text-lg leading-8">{join?.[0].joinSectionText}</p>
             </div>
             {join?.[0].joinDetails !== undefined &&
             join?.[0].joinDetails !== null ? (
