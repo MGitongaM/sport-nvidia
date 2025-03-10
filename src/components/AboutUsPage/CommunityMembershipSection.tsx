@@ -1,6 +1,7 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import { Button } from "../ui/button";
 import { ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERY } from "@/sanity/lib/queries";
+import Link from "next/link";
 
 export default async function CommunityMembershipSection() {
   const { data: communityMemmbership } = await sanityFetch({
@@ -28,8 +29,10 @@ export default async function CommunityMembershipSection() {
           </div>
         </div>
         <div className="grid place-content-center py-10">
-          <Button className="bg-white w-64 mx-auto hover:bg-blue-200 text-black font-semibold">
+          <Button asChild className="bg-white w-64 mx-auto hover:bg-blue-200 text-black font-semibold">
+            <Link href="/contact">
             Get In Touch
+            </Link>
           </Button>
         </div>
       </div>
