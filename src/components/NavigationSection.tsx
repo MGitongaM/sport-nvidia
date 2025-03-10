@@ -72,7 +72,7 @@ export default function NavigationSection() {
           <NavigationMenuList>
             <div className="flex flex-wrap md:flex-nowrap w-screen justify-between items-center px-16">
               <NavigationMenuItem >
-                <Link href="/" className=" flex items-center gap-2 w-[20rem]">
+                <Link href="/" className=" flex items-center gap-2 md:w-[20rem]">
                   <Image
                     src={logo}
                     height={200}
