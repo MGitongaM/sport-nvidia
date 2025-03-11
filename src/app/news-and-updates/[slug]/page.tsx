@@ -17,7 +17,7 @@ export default async function page({
   });
   return (
     <>
-      <section className="bg-zinc-800 pt-32">
+      <section className="bg-zinc-900 pt-32">
         <div className="max-w-5xl mx-auto px-4">
           <div className="pt-4">
             {data?.newsUpdateFeatureImage ? (
@@ -38,7 +38,7 @@ export default async function page({
             )}
           </div>
           <div className="space-y-12 py-20">
-            <h1 className="text-3xl md:text-5xl font-bold text-blue-400">
+            <h1 className="text-3xl md:text-5xl font-bold text-blue-500">
               {data?.newsUpdateTitle}
             </h1>
             <div className="flex justify-between gap-4 text-slate-300">
