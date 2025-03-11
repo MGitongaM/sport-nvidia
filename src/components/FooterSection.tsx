@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../public/images/logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import { navLinks } from "./NavigationSection";
+
 import {
   Facebook,
   Instagram,
@@ -12,6 +12,7 @@ import {
   PhoneCallIcon,
   X,
 } from "lucide-react";
+import { navLinks } from "@/StaticData/navigationLinks";
 
 export const socialLinks = [
   {
@@ -65,7 +66,7 @@ const currentYear = new Date().getFullYear();
 export default function FooterSection() {
   return (
     <>
-      <section className="min-h-[40vh]  bg-zinc-900 text-slate-200 w-full px-16 pb-20">
+      <section className="min-h-[40vh]  bg-zinc-950/90 text-slate-200 w-full px-16 pb-20">
         <div className="flex flex-wrap h-full items-center md:items-start justify-center md:justify-evenly gap-y-8 py-20">
           <Link href="/">
             <Image

@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import {
   NavigationMenu,
@@ -16,54 +17,12 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import { MenuIcon } from "lucide-react";
-export const navLinks = [
-  {
-    id: 1,
-    hrefLink: "/",
-    text: "Home",
-  },
-  {
-    id: 2,
-    hrefLink: "/about",
-    text: "About Us",
-  },
-  {
-    id: 3,
-    hrefLink: "/membership",
-    text: "Membership",
-  },
-  {
-    id: 4,
-    hrefLink: "/events",
-    text: "Tournaments",
-  },
-  {
-    id: 5,
-    hrefLink: "/news-and-updates",
-    text: "News and Updates",
-  },
-  {
-    id: 6,
-    hrefLink: "/contact",
-    text: "Contact Us",
-  },
-  // {
-  //   id: 2,
-  //   hrefLink: "/#golf-courses",
-  //   text: "Sports & Activities",
-  // },
-  // {
-  //   id: 3,
-  //   hrefLink: "/#tournaments",
-  //   text: "Tournaments",
-  // },
-  // {
-  //   id: 4,
-  //   hrefLink: "/#news-&-updates",
-  //   text: "News & Updates",
-  // },
-];
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+import { navLinks } from "@/StaticData/navigationLinks";
+
 export default function NavigationSection() {
+  const pathName = usePathname();
   return (
     <>
       {/* Desktop Navigation  */}
@@ -71,8 +30,11 @@ export default function NavigationSection() {
         <NavigationMenu className="bg-black/30 backdrop-blur-xl text-white overflow-hidden">
           <NavigationMenuList>
             <div className="flex flex-wrap md:flex-nowrap w-screen justify-between items-center px-16">
-              <NavigationMenuItem >
-                <Link href="/" className=" flex items-center gap-2 md:w-[20rem]">
+              <NavigationMenuItem>
+                <Link
+                  href="/"
+                  className=" flex items-center gap-2 md:w-[20rem]"
+                >
                   <Image
                     src={logo}
                     height={200}
@@ -90,7 +52,17 @@ export default function NavigationSection() {
                   <NavigationMenuItem key={link.id}>
                     <ul>
                       <Link href={link.hrefLink}>
-                        <li className="hover:text-blue-500 font-semibold text-sm">
+                        {/* <li className="hover:text-blue-500 font-semibold text-sm"> */}
+                        <li
+                          className={cn(
+                            // pathName == link.hrefLink
+                            // pathName.includes(link.hrefLink)
+                            (link.hrefLink === "/" && pathName === "/") ||
+                            (link.hrefLink !== "/" && pathName.includes(link.hrefLink))
+                              ? "text-blue-500 font-semibold"
+                              : "hover:text-blue-500 font-semibold text-slate-300"
+                          )}
+                        >
                           {link.text}
                         </li>
                       </Link>
@@ -113,8 +85,8 @@ export default function NavigationSection() {
             className="object-cover w-16"
           />
           <span className="font-semibold text-slate-200">
-                    Nakuru Athletic Club{" "}
-                  </span>
+            Nakuru Athletic Club{" "}
+          </span>
         </Link>
         <Sheet>
           <SheetTrigger>
