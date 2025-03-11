@@ -20,36 +20,44 @@ export const aboutSportsContentType = defineType({
       title: "Sport Section Text",
       type: "string",
     },
+    {
+      name: "sportBackgroundImage",
+      title: "Sport Background Image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
 
     {
-        name:"sportsContent",
-        title:"Sports Content",
-        type:"array",
-        of:[
+      name: "sportsContent",
+      title: "Sports Content",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
             {
-                type:"object",
-                fields:[{
-                    name:"sportHeading",
-                    title:"Sport Heading",
-                    type:"string",
-                },
-                {
-                    name:"sportText",
-                    title:"Sport Text",
-                    type:"string",
-                },
-                {
-                    name:"sportImage",
-                    title:"Sport Image",
-                    type:"image",
-                    options:{
-                        hotspot:true
-                    }
-                },
-            ]
-            }
-        ]
+              name: "sportHeading",
+              title: "Sport Heading",
+              type: "string",
+            },
+            {
+              name: "sportText",
+              title: "Sport Text",
+              type: "string",
+            },
+            {
+              name: "sportImage",
+              title: "Sport Image",
+              type: "image",
+              options: {
+                hotspot: true,
+              },
+            },
+          ],
+        },
+      ],
     },
-    
   ],
 });

@@ -26,5 +26,13 @@ export const aboutCommunityMembershipContentType = defineType({
       title: "Membership Text",
       type: "string",
     },
+    {
+      name: "communityBackgroundImage",
+      title: "Community Background Image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
   ],
 });

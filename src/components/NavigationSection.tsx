@@ -26,7 +26,7 @@ export default function NavigationSection() {
   return (
     <>
       {/* Desktop Navigation  */}
-      <div className="hidden md:block fixed z-10">
+      <div className="hidden lg:block fixed z-50">
         <NavigationMenu className="bg-black/30 backdrop-blur-xl text-white overflow-hidden">
           <NavigationMenuList>
             <div className="flex flex-wrap md:flex-nowrap w-screen justify-between items-center px-16">
@@ -75,7 +75,7 @@ export default function NavigationSection() {
         </NavigationMenu>
       </div>
       {/* Mobile Navigation */}
-      <div className="flex justify-between px-4 bg-black md:hidden">
+      <div className="flex justify-between px-4 bg-black lg:hidden">
         <Link href="/" className=" flex items-center gap-2 w-[20rem]">
           <Image
             src={logo}

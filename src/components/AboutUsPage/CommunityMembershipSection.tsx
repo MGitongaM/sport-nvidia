@@ -2,6 +2,8 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { Button } from "../ui/button";
 import { ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERY } from "@/sanity/lib/queries";
 import Link from "next/link";
+import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
 
 export default async function CommunityMembershipSection() {
   const { data: communityMemmbership } = await sanityFetch({
@@ -9,16 +11,32 @@ export default async function CommunityMembershipSection() {
   });
   return (
     <section className="bg-black pb-40">
-      <div className="container mx-auto px-8 py-20 bg-zinc-800 rounded-lg text-slate-300">
-        <div className="flex flex-wrap md:flex-nowrap justify-evenly  gap-8">
-          <div className="w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12">
+      <div className="container mx-auto px-8 py-20 bg-zinc-950 rounded-lg text-slate-300">
+        <div className="flex flex-wrap md:flex-nowrap justify-evenly  gap-8 relative">
+          <div className="z-20 w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12">
             <div className="c"></div>
             <p className="text-2xl font-semibold py-12">
               {communityMemmbership?.[0].communityTitle}
             </p>
             <p className="text-lg leading-8">{communityMemmbership?.[0].communityText}</p>
           </div>
-          <div className="w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12">
+          <div className="absolute z-0 mt-16">
+              {communityMemmbership?.[0].communityBackgroundImage ? (
+                <Image
+                  src={urlFor(communityMemmbership?.[0].communityBackgroundImage)
+                    .width(400)
+                    .height(400)
+                    .quality(80)
+                    .auto("format")
+                    .url()}
+                  height={400}
+                  width={400}
+                  alt={"Hero Image"}
+                  className="object-cover size-[56rem] md:size-[24rem] rounded-lg z-10 "
+                />
+              ) : null}
+            </div>
+          <div className="z-20 w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12">
             <div className="c"></div>
             <p className="text-2xl font-semibold py-12">
               {communityMemmbership?.[0].membershipTitle}{" "}
@@ -36,6 +54,7 @@ export default async function CommunityMembershipSection() {
           </Button>
         </div>
       </div>
+      
     </section>
   );
 }

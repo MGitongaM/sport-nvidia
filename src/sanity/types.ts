@@ -321,6 +321,17 @@ export type AboutCommunityMembershipContent = {
   communityText?: string;
   membershipTitle?: string;
   membershipText?: string;
+  communityBackgroundImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
 };
 
 export type AboutSportsContent = {
@@ -332,6 +343,17 @@ export type AboutSportsContent = {
   sportsSectionTitle?: string;
   sportSectionSubTitle?: string;
   sportSectionText?: string;
+  sportBackgroundImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   sportsContent?: Array<{
     sportHeading?: string;
     sportText?: string;
@@ -358,6 +380,17 @@ export type AboutMissionVisionContent = {
   _rev: string;
   missionTitle?: string;
   missionText?: string;
+  aboutBackgroundImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   missionImage?: {
     asset?: {
       _ref: string;
@@ -991,10 +1024,21 @@ export type ABOUTHEROCONTENT_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: ABOUTMISSIONVISIONCONTENT_QUERY
-// Query: *[_type=="aboutMissionVisionContent"]{    missionTitle,    missionText,    missionImage,    visionTitle,    visionText,    visionImage,    }
+// Query: *[_type=="aboutMissionVisionContent"]{    missionTitle,    missionText,    aboutBackgroundImage,    missionImage,    visionTitle,    visionText,    visionImage,    }
 export type ABOUTMISSIONVISIONCONTENT_QUERYResult = Array<{
   missionTitle: string | null;
   missionText: string | null;
+  aboutBackgroundImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
   missionImage: {
     asset?: {
       _ref: string;
@@ -1021,11 +1065,22 @@ export type ABOUTMISSIONVISIONCONTENT_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: ABOUTSPORTSCONTENT_QUERY
-// Query: *[_type=="aboutSportsContent"]{      sportsSectionTitle,      sportSectionSubTitle,      sportSectionText,      sportsContent,      sportHeading,      sportText,      sportImage,      }
+// Query: *[_type=="aboutSportsContent"]{      sportsSectionTitle,      sportSectionSubTitle,      sportSectionText,      sportBackgroundImage,      sportsContent,      sportHeading,      sportText,      sportImage,      }
 export type ABOUTSPORTSCONTENT_QUERYResult = Array<{
   sportsSectionTitle: string | null;
   sportSectionSubTitle: string | null;
   sportSectionText: string | null;
+  sportBackgroundImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
   sportsContent: Array<{
     sportHeading?: string;
     sportText?: string;
@@ -1047,12 +1102,23 @@ export type ABOUTSPORTSCONTENT_QUERYResult = Array<{
   sportImage: null;
 }>;
 // Variable: ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERY
-// Query: *[_type=="aboutCommunityMembershipContent"]{              communityTitle,              communityText,              membershipTitle,              membershipText,              }
+// Query: *[_type=="aboutCommunityMembershipContent"]{              communityTitle,              communityText,              membershipTitle,              membershipText,              communityBackgroundImage,              }
 export type ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERYResult = Array<{
   communityTitle: string | null;
   communityText: string | null;
   membershipTitle: string | null;
   membershipText: string | null;
+  communityBackgroundImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
 }>;
 // Variable: CONTACTCONTENT_QUERY
 // Query: *[_type=="contactContent"]{            contactSectionTitle,            contactSectionText,             }
@@ -1633,9 +1699,9 @@ declare module "@sanity/client" {
     "*[_type==\"homeLegacyContent\"]{\n  legacySectionTitle,\n  legacySectionSubTitle,\n  legacySectionContent,\n  legacySectionHeadingText,\n  legacySectionImage,\n  }": HOMELEGACYCONTENT_QUERYResult;
     "*[_type==\"homeSponsorContent\"]{\n  sponsorSectionTitle,\n  sponsorSectionSubTitle,\n  sponsorSectionText,\n  sponsorSectionImages,\n  }": HOMESPONSORCONTENT_QUERYResult;
     "*[_type==\"aboutHeroContent\"]{\n    heroSectionTitle,\n    heroSectionSubTitle,\n    heroSectionText,\n    heroSectionImage{asset->},\n    }": ABOUTHEROCONTENT_QUERYResult;
-    "*[_type==\"aboutMissionVisionContent\"]{\n    missionTitle,\n    missionText,\n    missionImage,\n    visionTitle,\n    visionText,\n    visionImage,\n    }": ABOUTMISSIONVISIONCONTENT_QUERYResult;
-    "*[_type==\"aboutSportsContent\"]{\n      sportsSectionTitle,\n      sportSectionSubTitle,\n      sportSectionText,\n      sportsContent,\n      sportHeading,\n      sportText,\n      sportImage,\n      }": ABOUTSPORTSCONTENT_QUERYResult;
-    "*[_type==\"aboutCommunityMembershipContent\"]{\n              communityTitle,\n              communityText,\n              membershipTitle,\n              membershipText,\n              }": ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERYResult;
+    "*[_type==\"aboutMissionVisionContent\"]{\n    missionTitle,\n    missionText,\n    aboutBackgroundImage,\n    missionImage,\n    visionTitle,\n    visionText,\n    visionImage,\n    }": ABOUTMISSIONVISIONCONTENT_QUERYResult;
+    "*[_type==\"aboutSportsContent\"]{\n      sportsSectionTitle,\n      sportSectionSubTitle,\n      sportSectionText,\n      sportBackgroundImage,\n      sportsContent,\n      sportHeading,\n      sportText,\n      sportImage,\n      }": ABOUTSPORTSCONTENT_QUERYResult;
+    "*[_type==\"aboutCommunityMembershipContent\"]{\n              communityTitle,\n              communityText,\n              membershipTitle,\n              membershipText,\n              communityBackgroundImage,\n              }": ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERYResult;
     "*[_type==\"contactContent\"]{\n            contactSectionTitle,\n            contactSectionText, \n            }": CONTACTCONTENT_QUERYResult;
     "*[_type==\"contactVisitContent\"]{\n            vistSectionTitle,\n            vistSectionText, \n            vistSectionImage,\n            }": CONTACTVISTCONTENT_QUERYResult;
     "*[_type==\"membershipHeroContent\"]{\n              heroSectionTitle,\n              heroSectionSubTitle,\n              heroSectionText,\n              heroSectionImage{asset->},\n              }": MEMBERSHIPHEROCONTENT_QUERYResult;

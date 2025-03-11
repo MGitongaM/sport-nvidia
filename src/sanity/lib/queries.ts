@@ -44,6 +44,7 @@ export const ABOUTMISSIONVISIONCONTENT_QUERY =
   defineQuery(`*[_type=="aboutMissionVisionContent"]{
     missionTitle,
     missionText,
+    aboutBackgroundImage,
     missionImage,
     visionTitle,
     visionText,
@@ -54,6 +55,7 @@ export const ABOUTSPORTSCONTENT_QUERY =
       sportsSectionTitle,
       sportSectionSubTitle,
       sportSectionText,
+      sportBackgroundImage,
       sportsContent,
       sportHeading,
       sportText,
@@ -66,6 +68,7 @@ export const ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERY =
               communityText,
               membershipTitle,
               membershipText,
+              communityBackgroundImage,
               }`);
 export const CONTACTCONTENT_QUERY = defineQuery(`*[_type=="contactContent"]{
             contactSectionTitle,

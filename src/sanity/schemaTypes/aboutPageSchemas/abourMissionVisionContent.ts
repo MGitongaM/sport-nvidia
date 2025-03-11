@@ -16,6 +16,14 @@ export const aboutMissionVisionContentType = defineType({
       type: "string",
     },
     {
+      name:"aboutBackgroundImage",
+      title:"About Background Image",
+      type:"image",
+      options:{
+          hotspot:true
+      }
+  },
+    {
       name: "missionImage",
       title: "Mission Image",
       type: "image",
