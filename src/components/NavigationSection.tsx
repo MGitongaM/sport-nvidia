@@ -20,6 +20,7 @@ import { MenuIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { navLinks } from "@/StaticData/navigationLinks";
+import * as motion from "motion/react-client";
 
 export default function NavigationSection() {
   const pathName = usePathname();
@@ -52,8 +53,9 @@ export default function NavigationSection() {
                   <NavigationMenuItem key={link.id}>
                     <ul>
                       <Link href={link.hrefLink}>
-                        {/* <li className="hover:text-blue-500 font-semibold text-sm"> */}
-                        <li
+                        
+                        <motion.li
+                        whileHover={{scale:1.1}}
                           className={cn(
                             // pathName == link.hrefLink
                             // pathName.includes(link.hrefLink)
@@ -64,7 +66,7 @@ export default function NavigationSection() {
                           )}
                         >
                           {link.text}
-                        </li>
+                        </motion.li>
                       </Link>
                     </ul>
                   </NavigationMenuItem>

@@ -3,6 +3,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { MEMBERSHIPHEROCONTENT_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import * as motion from "motion/react-client";
 
 export default async function HeroSection() {
   const { data: heroContent } = await sanityFetch({
@@ -14,18 +15,24 @@ export default async function HeroSection() {
         <div className=" flex justify-center items-center gap-8">
           <div className=" ">
             {heroContent?.[0].heroSectionImage ? (
-              <Image
-                src={urlFor(heroContent?.[0].heroSectionImage)
-                  .width(400)
-                  .height(400)
-                  .quality(80)
-                  .auto("format")
-                  .url()}
-                height={400}
-                width={400}
-                alt={"Hero Image"}
-                className="object-contain h-32 w-full"
-              />
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+              >
+                <Image
+                  src={urlFor(heroContent?.[0].heroSectionImage)
+                    .width(400)
+                    .height(400)
+                    .quality(80)
+                    .auto("format")
+                    .url()}
+                  height={400}
+                  width={400}
+                  alt={"Hero Image"}
+                  className="object-contain h-32 w-full"
+                />
+              </motion.div>
             ) : null}
           </div>
           <div className="w-10/12">
@@ -38,26 +45,37 @@ export default async function HeroSection() {
           </div>
           <div className="">
             {heroContent?.[0].heroSectionImage ? (
-              <Image
-                src={urlFor(heroContent?.[0].heroSectionImage)
-                  .width(400)
-                  .height(400)
-                  .quality(80)
-                  .auto("format")
-                  .url()}
-                height={400}
-                width={400}
-                alt={"Hero Image"}
-                className="object-contain h-32 w-full"
-              />
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+              >
+                <Image
+                  src={urlFor(heroContent?.[0].heroSectionImage)
+                    .width(400)
+                    .height(400)
+                    .quality(80)
+                    .auto("format")
+                    .url()}
+                  height={400}
+                  width={400}
+                  alt={"Hero Image"}
+                  className="object-contain h-32 w-full"
+                />
+              </motion.div>
             ) : null}
           </div>
         </div>
-        <div className="max-w-3xl mx-auto text-balance bg-zinc-800 px-6 py-12 rounded-lg mt-16">
+        <motion.div
+          initial={{ y: -400, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl mx-auto text-balance bg-zinc-800 px-6 py-12 rounded-lg mt-16"
+        >
           <p className="text-lg leading-8">
             {heroContent?.[0].heroSectionText}
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
