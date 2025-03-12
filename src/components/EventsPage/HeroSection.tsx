@@ -1,6 +1,7 @@
 import { urlFor } from "@/sanity/lib/image";
 import { SINGLE_TOURNAMEN_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
+import * as motion from "motion/react-client";
 
 export default function HeroSection({
   eventData,
@@ -12,19 +13,25 @@ export default function HeroSection({
       <section className="min-h-[75vh] bg-black pt-32 ">
         <div className="container mx-auto px-4">
           {eventData?.tournamentFeatureImage ? (
-            <Image
-              src={urlFor(eventData.tournamentFeatureImage)
-                .width(800)
-                .height(900)
-                .quality(80)
-                .auto("format")
-                .url()}
-              height={900}
-              width={800}
-              alt={eventData.tournamentTitle || "events background image"}
-              // className="object-fill object-top h-screen md:h-[70vh]  w-[90vw] mx-auto top-4 rounded-lg pt-8 relative"
-              className="object-cover object-top h-screen md:h-[70vh]  w-[90vw] mx-auto top-4 rounded-lg pt-8 relative"
-            />
+            <motion.div
+              initial={{ y: 200, z: -20, opacity: 0 }}
+              animate={{ y: 0, z: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Image
+                src={urlFor(eventData.tournamentFeatureImage)
+                  .width(800)
+                  .height(900)
+                  .quality(80)
+                  .auto("format")
+                  .url()}
+                height={900}
+                width={800}
+                alt={eventData.tournamentTitle || "events background image"}
+                // className="object-fill object-top h-screen md:h-[70vh]  w-[90vw] mx-auto top-4 rounded-lg pt-8 relative"
+                className="object-cover object-top h-screen md:h-[70vh]  w-[90vw] mx-auto top-4 rounded-lg pt-8 relative"
+              />
+            </motion.div>
           ) : (
             <div className="bg-zinc-600 rounded-lg"></div>
           )}
