@@ -2,6 +2,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { sanityFetch } from "@/sanity/lib/live";
 import { HOMESPONSORCONTENT_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
+import * as motion from "motion/react-client";
 
 export default async function SponsorSection() {
   const { data: sponsor } = await sanityFetch({
@@ -9,16 +10,26 @@ export default async function SponsorSection() {
   });
   return (
     <section className="min-h-[80vh] space-y-8 px-8 py-20 text-slate-300  bg-black">
-      <h2 className="text-3xl lg:text-5xl font-bold text-center">
-        {sponsor?.[0].sponsorSectionTitle}
-      </h2>
-      <div className="w-full lg:w-[50vw] text-center mx-auto px-8 md:px-40 lg:px-8">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.3 }}
+        className="w-full lg:w-[50vw] text-center mx-auto space-y-8 px-8 md:px-40 lg:px-8"
+      >
+        <h2 className="text-3xl lg:text-5xl font-bold text-center">
+          {sponsor?.[0].sponsorSectionTitle}
+        </h2>
         <p className="text-lg leading-8">{sponsor?.[0].sponsorSectionText}</p>
-      </div>
+      </motion.div>
       <div className="max-w-7xl mx-auto ">
         <div className="flex items-center justify-center w-full ">
-          {sponsor?.[0].sponsorSectionImages?.map((sponsorImg) => (
-            <>
+          {sponsor?.[0].sponsorSectionImages?.map((sponsorImg, index) => (
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1.5 }}
+              key={index}
+            >
               <Image
                 src={urlFor(sponsorImg)
                   .width(800)
@@ -31,7 +42,7 @@ export default async function SponsorSection() {
                 alt={"Nakuru Rugby Team Sponsor Image"}
                 className="object-cover size-32 rounded-full"
               />
-            </>
+            </motion.div>
           ))}
         </div>
       </div>
