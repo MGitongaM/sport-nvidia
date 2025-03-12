@@ -2,6 +2,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { ABOUTSPORTSCONTENT_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import * as motion from "motion/react-client";
 
 export default async function SportsSection() {
   const { data: sports } = await sanityFetch({
@@ -15,32 +16,48 @@ export default async function SportsSection() {
         </h3>
         <p className="text-xl leading-8">{sports?.[0].sportSectionText}</p>
       </div>
-      <div className="flex flex-wrap justify-center items-center gap-8 relative z-20 py-10">
+      <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-16 relative z-20 pt-20">
         {sports?.[0].sportsContent?.map((sport, index) => (
           <div
             key={index}
-            className="grid place-content-center min-h-[28rem] w-[80vw] md:w-[40vw] lg:w-[30vw] bg-zinc-900 rounded-lg px- py space-y-4"
+            className="grid place-content-center min-h-[28rem] w-[80vw] md:w-[40vw] lg:w-[30vw] bg-zinc-900 rounded-lg px- py space-y-4 shadow-[0px_-15px_21px_-9px_#1186ed] shadow-cyan-100"
           >
             <div className=" bg-zinc-700 rounded-lg h-36 mx-auto">
               {sport?.sportImage ? (
-                <Image
-                  src={urlFor(sport.sportImage)
-                    .width(400)
-                    .height(400)
-                    .quality(80)
-                    .auto("format")
-                    .url()}
-                  height={400}
-                  width={400}
-                  alt={"Hero Image"}
-                  className="object-cover h-full w-full rounded-lg"
-                />
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <Image
+                    src={urlFor(sport.sportImage)
+                      .width(400)
+                      .height(400)
+                      .quality(80)
+                      .auto("format")
+                      .url()}
+                    height={400}
+                    width={400}
+                    alt={"Hero Image"}
+                    className="object-cover h-full w-full rounded-lg"
+                  />
+                </motion.div>
               ) : null}
             </div>
-            <p className="text-xl font-semibold text-center">
-              {sport.sportHeading}
-            </p>
-            <p className="text-lg leading-8 px-4">{sport.sportText}</p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1.2 }}
+              viewport={{once:true}}
+              className="pt-16"
+            >
+              <p className="text-xl font-semibold text-center">
+                {sport.sportHeading}
+              </p>
+              <p className="text-lg leading-8 px-4 text-center text-balance">
+                {sport.sportText}
+              </p>
+            </motion.div>
           </div>
         ))}
       </div>
