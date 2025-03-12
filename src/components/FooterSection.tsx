@@ -13,6 +13,7 @@ import {
   X,
 } from "lucide-react";
 import { navLinks } from "@/StaticData/navigationLinks";
+import * as motion from "motion/react-client";
 
 export const socialLinks = [
   {
@@ -51,7 +52,7 @@ export const contactLinks = [
   },
   {
     id: 2,
-    text: "0702 827771",
+    text: "0702 827 771",
     icon: <PhoneCallIcon className="size-4" />,
   },
   {
@@ -82,7 +83,12 @@ export default function FooterSection() {
             <ul className="flex flex-col gap-2 mt-4 text-sm">
               {navLinks.map((link) => (
                 <Link href={link.hrefLink} key={link.id}>
-                  <li className="hover:text-blue-400">{link.text}</li>
+                  <motion.li
+                    whileHover={{ scale: 1.1 }}
+                    className="hover:text-blue-500"
+                  >
+                    {link.text}
+                  </motion.li>
                 </Link>
               ))}
             </ul>
@@ -92,10 +98,13 @@ export default function FooterSection() {
             <ul className="flex flex-col gap-2 mt-4 text-sm">
               {socialLinks.map((link) => (
                 <Link href={link.hrefLink} key={link.id} target="_blank">
-                  <li className="hover:text-blue-400 flex items-center gap-2">
+                  <motion.li
+                    whileHover={{ scale: 1.1 }}
+                    className="hover:text-blue-400 flex items-center gap-2"
+                  >
                     {link.icon}
                     {link.text}
-                  </li>
+                  </motion.li>
                 </Link>
               ))}
             </ul>
@@ -104,10 +113,14 @@ export default function FooterSection() {
             <p className="font-semibold ">Contact Links</p>
             <ul className="flex flex-col gap-2 mt-4 text-sm">
               {contactLinks.map((link) => (
-                <li key={link.id} className=" flex items-center gap-2">
+                <motion.li
+                  whileHover={{ scale: 0.9 }}
+                  key={link.id}
+                  className=" flex items-center gap-2"
+                >
                   {link.icon}
                   {link.text}
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
