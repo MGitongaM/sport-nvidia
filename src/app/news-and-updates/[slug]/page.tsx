@@ -5,6 +5,7 @@ import { SINGLE_NEWSANDUPDATETYPE_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "next-sanity";
 import { components } from "@/sanity/portableTextComponents";
+import * as motion from "motion/react-client";
 
 export default async function page({
   params,
@@ -21,18 +22,26 @@ export default async function page({
         <div className="max-w-5xl mx-auto px-4">
           <div className="pt-4">
             {data?.newsUpdateFeatureImage ? (
-              <Image
-                src={urlFor(data.newsUpdateFeatureImage)
-                  .width(1200)
-                  .height(900)
-                  .quality(80)
-                  .auto("format")
-                  .url()}
-                height={900}
-                width={800}
-                alt={data.newsUpdateTitle || "news and events background image"}
-                className="object-cover h-[50vh] w-full rounded-lg "
-              />
+              <motion.div
+                initial={{ y: 200, z: -20, opacity: 0 }}
+                animate={{ y: 0, z: 0, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+              >
+                <Image
+                  src={urlFor(data.newsUpdateFeatureImage)
+                    .width(1200)
+                    .height(900)
+                    .quality(80)
+                    .auto("format")
+                    .url()}
+                  height={900}
+                  width={800}
+                  alt={
+                    data.newsUpdateTitle || "news and events background image"
+                  }
+                  className="object-cover h-[50vh] w-full rounded-lg "
+                />
+              </motion.div>
             ) : (
               <div className=" bg-green-400 w-full h-[50vh]"></div>
             )}
@@ -42,12 +51,13 @@ export default async function page({
               {data?.newsUpdateTitle}
             </h1>
             <div className="flex justify-between gap-4 text-slate-300">
-              
               <p className="bg-zinc-700 px-4 py-2 rounded-lg text-sm">
                 <span className="font-semibold">Author:</span>
                 {data?.newsUpdateAuthor}
               </p>
-              <p className="bg-zinc-700 px-4 py-2 rounded-lg text-sm">{data?.newsUpdateDate}</p>
+              <p className="bg-zinc-700 px-4 py-2 rounded-lg text-sm">
+                {data?.newsUpdateDate}
+              </p>
             </div>
             <hr />
             <div className="space-y-6">

@@ -1,9 +1,10 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import { TOURNAMENT_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
-import { Button } from "../ui/button";
+
 import Link from "next/link";
 import Image from "next/image";
+import * as motion from "motion/react-client";
 
 export default async function AllEventsSection() {
   const { data } = await sanityFetch({
@@ -19,9 +20,27 @@ export default async function AllEventsSection() {
             nakuru rugby football team
           </p>
         </div>
-        <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-20 py-10">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.3,
+                duration: 0.8,
+              },
+            },
+          }}
+          className="flex flex-wrap justify-center items-center gap-x-10 gap-y-20 py-10"
+        >
           {data.map((tournament, index) => (
-            <div
+            <motion.div
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
               key={index}
               className="flex flex-col  justify-between w-[22rem] rounded-lg h-[46rem] border border-black "
             >
@@ -44,18 +63,19 @@ export default async function AllEventsSection() {
                   {tournament.tournamentTitle}
                 </p>
                 <p>{tournament.tournamentExcerpt}</p>
-                <Button
-                  asChild
-                  className="w-48 my-4 bg-white hover:bg-blue-200 text-black"
-                >
-                  <Link href={`/events/${tournament.tournamentSlug?.current}`}>
+
+                <Link href={`/events/${tournament.tournamentSlug?.current}`}>
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    className="w-full md:w-48 md:mr-auto px-2 py-1  bg-transparent text-black  bg-white hover:bg-blue-200 hover:text-black rounded-lg border"
+                  >
                     View Tournament
-                  </Link>
-                </Button>
+                  </motion.button>
+                </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
