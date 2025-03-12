@@ -5,6 +5,8 @@ import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 import { MEMBERSHIPCATEGORIESCONTENT_QUERY } from "@/sanity/lib/queries";
 import { PortableText } from "next-sanity";
 import { components } from "@/sanity/portableTextComponents";
+import * as motion from "motion/react-client";
+import { Shield } from "lucide-react";
 
 export default async function CategoriesSection() {
   const { data } = await sanityFetch({
@@ -13,7 +15,12 @@ export default async function CategoriesSection() {
   return (
     <section className="bg-black py-20">
       <div className="flex flex-wrap md:flex-nowrap gap-2 justify-center px-4 md:px-0">
-        <div className="text-start w-full lg:max-w-md mx-auto space-y-4 pl-0 md:pl-4 text-slate-300">
+        <motion.div
+          initial={{ x: -500, z: -10 }}
+          whileInView={{ x: 0, z: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-start w-full lg:max-w-md mx-auto space-y-4 pl-0 md:pl-4 text-slate-300"
+        >
           <h2 className="text-3xl md:text-5xl font-bold  ">
             Membership Categories
           </h2>
@@ -21,7 +28,7 @@ export default async function CategoriesSection() {
             We offer a variety of membership options tailored to suit different
             needs and preferences:
           </p>
-        </div>
+        </motion.div>
         <ScrollArea className="w-full lg:w-[60vw] min-h-[42vh] py-4">
           <div className="flex gap-12 justify-center">
             {data?.map((category, index) => (
@@ -44,7 +51,8 @@ export default async function CategoriesSection() {
                     />
                   ) : null} */}
                 <div className="px-8 py-12 flex flex-col gap-4 justify-between h-full bg-zinc-900  text-slate-300 rounded-b-lg">
-                  <p className="text-lg font-semibold">
+                  <p className="text-lg font-semibold flex items-center gap-2">
+                    <Shield className="text-blue-500" />
                     {category.membershipCategoriesTitle}
                   </p>
                   {category?.membershipCategoriestDetails !== undefined &&

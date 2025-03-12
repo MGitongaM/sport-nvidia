@@ -2,6 +2,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { MEMBERSHIPJOINCONTENT_QUERY } from "@/sanity/lib/queries";
 import { components } from "@/sanity/portableTextComponents";
 import { PortableText } from "next-sanity";
+import * as motion from "motion/react-client";
 
 export default async function JoinSection() {
   const { data: join } = await sanityFetch({
@@ -11,7 +12,11 @@ export default async function JoinSection() {
     <section className="bg-black py-20">
       <div className="container mx-auto text-slate-300 px-8">
         <div className="flex justify-evenly items-center gap-8">
-          <div className="bg-zinc-800 rounded-lg px-4 py-12">
+          <motion.div
+          initial={{y:100,  opacity: 0, scale: 0 }}
+          whileInView={{y:0, opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4 }}
+          className="bg-zinc-800 rounded-lg px-4 py-12">
             <div className="text-center space-y-4 py-10">
               <h2 className="text-3xl font-bold">
                 {join?.[0].joinSectionTitle}{" "}
@@ -27,7 +32,7 @@ export default async function JoinSection() {
                 />
               </div>
             ) : null}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

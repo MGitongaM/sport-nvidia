@@ -6,6 +6,8 @@ import { urlFor } from "@/sanity/lib/image";
 // import { Button } from "../ui/button";
 import Link from "next/link";
 import * as motion from "motion/react-client";
+
+
 export default async function TournamentSection() {
   const { data } = await sanityFetch({
     query: TOURNAMENT_QUERY,
