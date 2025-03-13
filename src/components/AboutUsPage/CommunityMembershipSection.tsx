@@ -1,9 +1,10 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import { ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERY } from "@/sanity/lib/queries";
 import Link from "next/link";
-import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
+// import Image from "next/image";
+// import { urlFor } from "@/sanity/lib/image";
 import * as motion from "motion/react-client";
+import { MessageSquarePlus, Webhook } from "lucide-react";
 
 export default async function CommunityMembershipSection() {
   const { data: communityMemmbership } = await sanityFetch({
@@ -18,17 +19,19 @@ export default async function CommunityMembershipSection() {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{once:true}}
             transition={{ duration: 0.8 }}
-            className="z-20 w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12 shadow-lg shadow-cyan-500"
+            // className="z-20 w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12 shadow-lg shadow-cyan-500"
+            className="z-20 w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12 "
           >
             <div className="c"></div>
-            <p className="text-2xl font-semibold py-12">
+            <p className="flex items-center gap-2 text-2xl font-semibold py-12">
               {communityMemmbership?.[0].communityTitle}
+              <Webhook className="text-blue-500"/>
             </p>
             <p className="text-lg leading-8">
               {communityMemmbership?.[0].communityText}
             </p>
           </motion.div>
-          <div className="absolute z-0 mt-16">
+          {/* <div className="absolute z-0 mt-16">
             {communityMemmbership?.[0].communityBackgroundImage ? (
               <Image
                 src={urlFor(communityMemmbership?.[0].communityBackgroundImage)
@@ -43,17 +46,19 @@ export default async function CommunityMembershipSection() {
                 className="object-cover size-[56rem] md:size-[24rem] rounded-lg z-10 "
               />
             ) : null}
-          </div>
+          </div> */}
           <motion.div
             initial={{ y: 200, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{once:true}}
             transition={{ duration: 0.8 }}
-            className="z-20 w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12 shadow-lg shadow-cyan-500"
+            // className="z-20 w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12 shadow-lg shadow-cyan-500"
+            className="z-20 w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12 "
           >
             <div className="c"></div>
-            <p className="text-2xl font-semibold py-12">
-              {communityMemmbership?.[0].membershipTitle}{" "}
+            <p className="flex items-center gap-2 text-2xl font-semibold py-12">
+              {communityMemmbership?.[0].membershipTitle}{" "} 
+              <MessageSquarePlus className="text-blue-500"/>
             </p>
             <p className="text-lg leading-8">
               {communityMemmbership?.[0].membershipText}

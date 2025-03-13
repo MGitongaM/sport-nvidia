@@ -20,7 +20,8 @@ export default async function SportsSection() {
         {sports?.[0].sportsContent?.map((sport, index) => (
           <div
             key={index}
-            className="grid place-content-center min-h-[28rem] w-[80vw] md:w-[40vw] lg:w-[30vw] bg-zinc-900 rounded-lg px- py space-y-4 shadow-[0px_-15px_21px_-9px_#1186ed] shadow-cyan-100"
+            // className="grid place-content-center min-h-[28rem] w-[80vw] md:w-[40vw] lg:w-[30vw] bg-zinc-900 rounded-lg px- py space-y-4 shadow-[0px_-15px_21px_-9px_#1186ed] shadow-cyan-100"
+            className="grid place-content-center min-h-[28rem] w-[80vw] md:w-[40vw] lg:w-[30vw] bg-zinc-900 rounded-lg px- py space-y-4 "
           >
             <div className=" bg-zinc-700 rounded-lg h-36 mx-auto">
               {sport?.sportImage ? (
