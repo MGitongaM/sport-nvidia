@@ -1,18 +1,18 @@
-import { sanityFetch } from "@/sanity/lib/live";
-import { CONTACTVISTCONTENT_QUERY } from "@/sanity/lib/queries";
-import { components } from "@/sanity/portableTextComponents";
-import { PortableText } from "next-sanity";
+// import { sanityFetch } from "@/sanity/lib/live";
+// import { CONTACTVISTCONTENT_QUERY } from "@/sanity/lib/queries";
+// import { components } from "@/sanity/portableTextComponents";
+// import { PortableText } from "next-sanity";
 import * as motion from "motion/react-client";
 
 export default async function VisitSection() {
-  const { data: visit } = await sanityFetch({
-    query: CONTACTVISTCONTENT_QUERY,
-  });
+  // const { data: visit } = await sanityFetch({
+  //   query: CONTACTVISTCONTENT_QUERY,
+  // });
   return (
-    <section className="bg-black py-20">
+    <section id="map" className="bg-black pb-20 pt-32">
       <div className="text-slate-300 px-8">
         <div className="container mx-auto flex flex-wrap md:flex-nowrap gap-8 justify-between">
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1, }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -31,12 +31,12 @@ export default async function VisitSection() {
                 </div>
               ) : null}
             </div>
-          </motion.div>
+          </motion.div> */}
           <motion.div
             initial={{ y: 200, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className=" min-h-[50vh] w-[90vw] md:w-[50vw] bg-zinc-800 rounded-lg"
+            transition={{ duration: 0.8, delay:0 }}
+            className=" min-h-[50vh] w-[90vw] md:w-[100vw] bg-zinc-800 rounded-lg"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.766825347891!2d36.06298137577521!3d-0.29110123534979704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18298dc186ede701%3A0x42d8dd651d754c1a!2sNakuru%20Athletics%20Club!5e0!3m2!1sen!2ske!4v1741426029782!5m2!1sen!2ske"

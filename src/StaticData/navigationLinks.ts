@@ -22,12 +22,12 @@ export const navLinks = [
     {
       id: 5,
       hrefLink: "/news-and-updates",
-      text: "News and Updates",
+      text: "News",
     },
     {
       id: 6,
       hrefLink: "/contact",
-      text: "Contact Us",
+      text: "Contact",
     },
     // {
     //   id: 2,

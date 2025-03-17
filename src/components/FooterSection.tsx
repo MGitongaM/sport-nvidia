@@ -8,6 +8,7 @@ import {
   Instagram,
   MailIcon,
   MapIcon,
+  MapPinnedIcon,
   Music,
   PhoneCallIcon,
   X,
@@ -67,7 +68,7 @@ const currentYear = new Date().getFullYear();
 export default function FooterSection() {
   return (
     <>
-      <section className="min-h-[40vh]  bg-zinc-950/90 text-slate-200 w-full px-16 pb-20">
+      <section className="min-h-[40vh]  bg-zinc-950/90 text-slate-200 w-full px-16 pb-4">
         <div className="flex flex-wrap h-full items-center md:items-start justify-center md:justify-evenly gap-y-8 py-20">
           <Link href="/">
             <Image
@@ -79,7 +80,7 @@ export default function FooterSection() {
             />
           </Link>
           <div className="mr-0 w-full md:w-auto md:mr-48">
-            <p className="font-semibold ">Navigation Links</p>
+            <p className="font-semibold ">Nakuru Athletic Club</p>
             <ul className="flex flex-col gap-2 mt-4 text-sm">
               {navLinks.map((link) => (
                 <Link href={link.hrefLink} key={link.id}>
@@ -94,7 +95,7 @@ export default function FooterSection() {
             </ul>
           </div>
           <div className="mr-0 w-full md:w-auto md:mr-48">
-            <p className="font-semibold ">Social Media Links</p>
+            <p className="font-semibold ">Social</p>
             <ul className="flex flex-col gap-2 mt-4 text-sm">
               {socialLinks.map((link) => (
                 <Link href={link.hrefLink} key={link.id} target="_blank">
@@ -110,8 +111,8 @@ export default function FooterSection() {
             </ul>
           </div>
           <div className="mr-0 w-full md:w-auto md:mr-48">
-            <p className="font-semibold ">Contact Links</p>
-            <ul className="flex flex-col gap-2 mt-4 text-sm">
+            <p className="font-semibold ">Contact</p>
+            <ul className="flex flex-col gap-2 mt-4 text-sm space-y-1">
               {contactLinks.map((link) => (
                 <motion.li
                   whileHover={{ scale: 0.9 }}
@@ -122,11 +123,16 @@ export default function FooterSection() {
                   {link.text}
                 </motion.li>
               ))}
+              <Link href="/contact#map" className="flex items-center gap-2 text-sm ">
+              <MapPinnedIcon/>
+              <li>Site Map</li>
+              </Link>
             </ul>
           </div>
         </div>
         <p className="text-center  text-xs">
-          &#169; Copyright {currentYear} Nakuru Athletic Club
+          {/* &#169; Copyright {currentYear} Nakuru Athletic Club */}
+          Nakuru Athletic Club &#169; {currentYear} - Terms & Conditions - Privacy Policy 
         </p>
       </section>
     </>
