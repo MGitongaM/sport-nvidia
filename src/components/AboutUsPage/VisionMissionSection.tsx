@@ -11,7 +11,7 @@ export default async function VisionMissionSection() {
   });
   return (
     // <section className="bg-blue-500">
-    <section className="bg-gradient-to-b from-black  to-blue-500 ">
+    <section className="bg-gradient-to-b from-blue-500 to-blue-500 ">
       <div className="container mx-auto px-8 py-28 text-slate-300">
         <div className="flex flex-wrap md:flex-nowrap justify-evenly gap-8 relative ">
           <motion.div

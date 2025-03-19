@@ -10,7 +10,8 @@ export default async function HeroSection() {
     query: ABOUTHEROCONTENT_QUERY,
   });
   return (
-    <section className="bg-black">
+    // <section className="bg-black">
+    <section className="bg-gradient-to-b from-65% from-black to- to-blue-500">
       <div className="min-h-[70vh] container mx-auto px-8  text-slate-300 pt-32">
         <h1 className="text-3xl md:text-5xl font-bold text-center">
           {heroContent?.[0].heroSectionTitle}

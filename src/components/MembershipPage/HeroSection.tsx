@@ -1,8 +1,8 @@
 import { sanityFetch } from "@/sanity/lib/live";
 
 import { MEMBERSHIPHEROCONTENT_QUERY } from "@/sanity/lib/queries";
-import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
+// import Image from "next/image";
+// import { urlFor } from "@/sanity/lib/image";
 import * as motion from "motion/react-client";
 
 export default async function HeroSection() {
@@ -10,11 +10,12 @@ export default async function HeroSection() {
     query: MEMBERSHIPHEROCONTENT_QUERY,
   });
   return (
-    <section className="bg-black pt-32 pb-20">
+    // <section className="bg-black pt-32 pb-20">
+    <section className="bg-gradient-to-b from-45% from-black to-80% to-blue-500  pt-32 pb-20">
       <div className="min-h-[60vh] container mx-auto px-8  text-slate-300">
         <div className=" flex justify-center items-center gap-8">
           <div className=" ">
-            {heroContent?.[0].heroSectionImage ? (
+            {/* {heroContent?.[0].heroSectionImage ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -33,7 +34,7 @@ export default async function HeroSection() {
                   className="object-contain h-32 w-full"
                 />
               </motion.div>
-            ) : null}
+            ) : null} */}
           </div>
           <div className="w-10/12">
             <h1 className="text-3xl md:text-5xl font-bold text-center">
@@ -44,7 +45,7 @@ export default async function HeroSection() {
             </p>
           </div>
           <div className="">
-            {heroContent?.[0].heroSectionImage ? (
+            {/* {heroContent?.[0].heroSectionImage ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -63,7 +64,7 @@ export default async function HeroSection() {
                   className="object-contain h-32 w-full"
                 />
               </motion.div>
-            ) : null}
+            ) : null} */}
           </div>
         </div>
         <motion.div

@@ -9,13 +9,14 @@ export default async function JoinSection() {
     query: MEMBERSHIPJOINCONTENT_QUERY,
   });
   return (
-    <section className="bg-black py-20">
+    // <section className="bg-black py-20">
+    <section className="bg-gradient-to-b from-blue-500 to-black py-20">
       <div className="container mx-auto text-slate-300 px-8">
         <div className="flex justify-evenly items-center gap-8">
           <motion.div
-          initial={{y:100,  opacity: 0, scale: 0 }}
-          whileInView={{y:0, opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4 }}
+          initial={{y:100,  opacity: 0, }}
+          whileInView={{y:0, opacity: 1, }}
+          transition={{ duration: 0.8 }}
           className="bg-zinc-900 rounded-lg px-4 py-12">
             <div className="text-center space-y-4 py-10">
               <h2 className="text-3xl font-bold">

@@ -13,7 +13,8 @@ export default async function CategoriesSection() {
     query: MEMBERSHIPCATEGORIESCONTENT_QUERY,
   });
   return (
-    <section className="bg-black py-20">
+    // <section className="bg-black py-20">
+    <section className="bg-blue-500 py-20">
       <div className="flex flex-wrap md:flex-nowrap gap-2 justify-center px-4 md:px-0">
         <motion.div
           initial={{ x: -500, z: -10 }}

@@ -10,7 +10,9 @@ export default async function BenefitsSection() {
     query: MEMBERSHIPBENEFITCONTENT_QUERY,
   });
   return (
-    <section className="bg-black pb-20">
+    // <section className="bg-black pb-20">
+    // <section className="bg-gradient-to-b from-5% from-black to-95% to-blue-500 pb-20">
+    <section className="bg-blue-500 pb-20">
       <div className="container mx-auto px-8 text-slate-300">
         <h3 className="text-3xl font-bold text-center">
           {benefit?.[0].benefitSectionTitle}
@@ -20,13 +22,15 @@ export default async function BenefitsSection() {
           whileInView="visible"
           viewport={{ once: false, margin: "-10%" }}
           variants={{
-            hidden: { opacity: 0 },
+            hidden: { y:100,opacity: 0 },
             visible: {
+              y:0,
               opacity: 1,
               transition: {
-                staggerChildren: 0.3,
+                // staggerChildren: 0.5,
                 duration: 0.8,
-                when: "beforeChildren",
+                ease:"linear",
+                // when: "beforeChildren",
               },
             },
           }}
@@ -35,8 +39,8 @@ export default async function BenefitsSection() {
           {benefit?.[0].benefitContent?.map((benefitItem, index) => (
             <motion.div
               variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1 },
+                hidden: {y:100, opacity: 0 },
+                visible: {y:0, opacity: 1 },
               }}
               key={index}
               className="rounded-lg px-6 py-9 bg-zinc-800 space-y-6 w-full md:w-[30rem] lg:w-[24rem] min-h-[18rem] flex flex-col items-start"
