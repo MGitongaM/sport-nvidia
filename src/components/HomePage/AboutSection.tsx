@@ -11,7 +11,8 @@ export default async function AboutSection() {
     query: HOMEABOUTCONTENT_QUERY,
   });
   return (
-    <section className="min-h-[80vh] space-y-8 px-8 py-20 text-slate-300  bg-black">
+    // <section className="min-h-[80vh] space-y-8 px-8 py-20 text-slate-300  bg-black">
+    <section className="min-h-[80vh] space-y-8 px-8 py-20 text-slate-300  bg-gradient-to-b from-black to-green-500">
       <h2 className="text-3xl lg:text-5xl font-bold text-center">
         {aboutContent?.[0].aboutSectionTitle}
       </h2>
@@ -19,8 +20,10 @@ export default async function AboutSection() {
         <div className="w-[50vw] grow">
           {aboutContent?.[0].aboutSectionImage ? (
             <motion.div
-              initial={{ x: -500, z: -10 }}
-              whileInView={{ x: 0, z: 0 }}
+              // initial={{ x: -500, z: -10 }}
+              initial={{ y: 200, z: -10 }}
+              // whileInView={{ x: 0, z: 0 }}
+              whileInView={{ y: 0, z: 0 }}
               transition={{ duration: 0.8 }}
             >
               <Image

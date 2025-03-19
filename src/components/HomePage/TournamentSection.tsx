@@ -57,7 +57,8 @@ export default async function TournamentSection() {
                   <p>{tournament.tournamentExcerpt}</p>
                   <motion.button
                     whileHover={{ scale: 1.1 }}
-                    className="px-4 py-2 bg-white w-48 hover:bg-blue-500 text-black rounded-lg"
+                    // className="px-4 py-2 bg-white w-48 hover:bg-blue-500 text-black rounded-lg"
+                    className="px-4 py-2 bg-white w-48 hover:bg-green-500 text-black rounded-lg"
                   >
                     <Link
                       href={`/events/${tournament.tournamentSlug?.current}`}

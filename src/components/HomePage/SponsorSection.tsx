@@ -9,7 +9,8 @@ export default async function SponsorSection() {
     query: HOMESPONSORCONTENT_QUERY,
   });
   return (
-    <section className="min-h-[80vh] space-y-8 px-8 py-20 text-slate-300  bg-black">
+    // <section className="min-h-[80vh] space-y-8 px-8 py-20 text-slate-300  bg-black">
+    <section className="min-h-[80vh] space-y-8 px-8 py-20 text-slate-300  bg-gradient-to-b from-black via-green-500 to-black t0">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -25,8 +26,8 @@ export default async function SponsorSection() {
         <div className="flex items-center justify-center w-full ">
           {sponsor?.[0].sponsorSectionImages?.map((sponsorImg, index) => (
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{y:100, opacity: 0 }}
+              whileInView={{y:0, opacity: 1 }}
               transition={{ duration: 1.5 }}
               key={index}
             >

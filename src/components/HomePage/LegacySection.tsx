@@ -10,12 +10,13 @@ export default async function LegacySection() {
   });
 
   return (
-    <section className="min-h-[80vh]  px-8 py-20 text-slate-300  bg-black">
+    // <section className="min-h-[80vh]  px-8 py-20 text-slate-300  bg-black">
+    <section className="min-h-[80vh]  px-8 py-20 text-slate-300  bg-gradient-to-b from-green-500 to-black">
       <div className="container leading-8 mx-auto space-y-8 bg-zinc-900 rounded-lg px-8 py-12">
-        <h2 className="text-3xl lg:text-5xl font-bold text-center">
+        <h2 className="text-3xl lg:text-5xl font-bold text-center pb-8">
           {legacy?.[0].legacySectionTitle}{" "}
         </h2>
-        <div className=" flex gap-8 flex-wrap md:flex-nowrap items-center justify-between h-full ">
+        <div className=" flex gap-8 flex-wrap md:flex-nowrap items-center justify-between h-full pb-10 ">
           <div className="w-[50vw] grow">
             {legacy?.[0].legacySectionContent?.[0].legacySectionImage ? (
               <motion.div
@@ -28,14 +29,15 @@ export default async function LegacySection() {
                     legacy?.[0].legacySectionContent?.[0].legacySectionImage
                   )
                     .width(800)
-                    .height(800)
+                    .height(450)
                     .quality(80)
                     .auto("format")
                     .url()}
-                  height={800}
+                  height={450}
                   width={800}
                   alt={"Nakuru Rugby Image"}
-                  className="object-contain min-h-[60vh] w-full rounded-lg"
+                  // className="object-contain min-h-[60vh] w-full rounded-lg"
+                  className="object-contain min-h-[20rem] w-full rounded-lg"
                 />
               </motion.div>
             ) : null}
@@ -69,14 +71,15 @@ export default async function LegacySection() {
                     legacy?.[0].legacySectionContent?.[1].legacySectionImage
                   )
                     .width(800)
-                    .height(800)
+                    .height(450)
                     .quality(80)
                     .auto("format")
                     .url()}
-                  height={800}
+                  height={450}
                   width={800}
                   alt={"Nakuru Rugby Image"}
-                  className="object-contain min-h-[60vh] w-full rounded-lg"
+                  // className="object-contain min-h-[60vh] w-full rounded-lg"
+                  className="object-contain min-h-[20rem] w-full rounded-lg"
                 />
               </motion.div>
             ) : null}

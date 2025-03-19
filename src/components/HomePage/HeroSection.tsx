@@ -27,7 +27,8 @@ export default async function HeroSection() {
             </p>
             <motion.button
               whileHover={{ scale: 1.1 }}
-              className="px-4 py-2 bg-white w-64 hover:bg-blue-500 text-black font-semibold rounded-lg"
+              // className="px-4 py-2 bg-white w-64 hover:bg-blue-500 text-black font-semibold rounded-lg"
+              className="px-4 py-2 bg-white w-64 hover:bg-green-500 text-black font-semibold rounded-lg"
             >
               <Link href={`/#tournaments`}>View Upcoming Tournaments</Link>
             </motion.button>
