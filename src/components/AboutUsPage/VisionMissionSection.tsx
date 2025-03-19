@@ -10,7 +10,8 @@ export default async function VisionMissionSection() {
     query: ABOUTMISSIONVISIONCONTENT_QUERY,
   });
   return (
-    <section className="bg-black">
+    // <section className="bg-blue-500">
+    <section className="bg-gradient-to-b from-black  to-blue-500 ">
       <div className="container mx-auto px-8 py-28 text-slate-300">
         <div className="flex flex-wrap md:flex-nowrap justify-evenly gap-8 relative ">
           <motion.div
@@ -19,12 +20,14 @@ export default async function VisionMissionSection() {
             viewport={{ margin: "-10%" }}
             transition={{ duration: 0.8 }}
             // className="z-20 w-full md:w-[38vw] h-full md:h-[72vh] lg:h-[56vh] bg-zinc-900 rounded-lg px-6 py-2 shadow-lg shadow-blue-500"
-            className="z-20 w-full md:w-[38vw] h-full md:h-[72vh] lg:h-[56vh] bg-zinc-900 rounded-lg px-6 py-2 "
+            className="z-20 w-full md:w-[38vw] h-full md:min-h-[42rem] lg:min-h-[28rem] bg-zinc-900 rounded-lg px-6 pb-10 md:py-2 "
           >
             <div className="c"></div>
             <p className="flex items-center justify-center w-full gap-2 text-2xl font-semibold py-12">
               {missionVision?.[0].missionTitle}{" "}
-              <span><Loader className="text-blue-500"/></span>
+              <span>
+                <Loader className="text-blue-500" />
+              </span>
             </p>
             <p className="text-lg leading-8">
               {missionVision?.[0].missionText}
@@ -51,13 +54,15 @@ export default async function VisionMissionSection() {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ margin: "-10%" }}
             transition={{ duration: 0.8 }}
+            className="z-20 w-full md:w-[38vw] h-full md:min-h-[42rem] lg:min-h-[28rem] bg-zinc-900 rounded-lg px-6 pb-10 md:py-2 "
             // className="z-20 w-full md:w-[38vw] h-full md:h-[72vh] lg:h-[56vh] bg-zinc-900 rounded-lg px-6 py-2 shadow-lg shadow-blue-500"
-            className="z-20 w-full md:w-[38vw] h-full md:h-[72vh] lg:h-[56vh] bg-zinc-900 rounded-lg px-6 py-2 "
           >
             <div className="c"></div>
             <p className="flex items-center justify-center w-full gap-2 text-2xl font-semibold py-12">
               {missionVision?.[0].visionTitle}{" "}
-              <span><Minimize className="text-blue-500"/></span>
+              <span>
+                <Minimize className="text-blue-500" />
+              </span>
             </p>
             <p className="text-lg leading-8">{missionVision?.[0].visionText}</p>
           </motion.div>

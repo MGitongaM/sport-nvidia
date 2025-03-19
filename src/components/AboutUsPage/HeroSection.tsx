@@ -1,8 +1,8 @@
 import { sanityFetch } from "@/sanity/lib/live";
 
 import { ABOUTHEROCONTENT_QUERY } from "@/sanity/lib/queries";
-import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
+// import Image from "next/image";
+// import { urlFor } from "@/sanity/lib/image";
 import * as motion from "motion/react-client";
 
 export default async function HeroSection() {
@@ -11,12 +11,12 @@ export default async function HeroSection() {
   });
   return (
     <section className="bg-black">
-      <div className="min-h-[60vh] container mx-auto px-8  text-slate-300 pt-32">
+      <div className="min-h-[70vh] container mx-auto px-8  text-slate-300 pt-32">
         <h1 className="text-3xl md:text-5xl font-bold text-center">
           {heroContent?.[0].heroSectionTitle}
         </h1>
-        <div className="flex flex-col items-center justify-between gap-8">
-          <div className="w-[30vw]">
+        <div className="flex flex-col items-center justify-between gap-8 py-10">
+          {/* <div className="w-[30vw]">
             {heroContent?.[0].heroSectionImage ? (
               <motion.div
                 initial={{ y: -200, opacity: 0 }}
@@ -37,7 +37,7 @@ export default async function HeroSection() {
                 />
               </motion.div>
             ) : null}
-          </div>
+          </div> */}
           <motion.div
             initial={{ y: 200, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
