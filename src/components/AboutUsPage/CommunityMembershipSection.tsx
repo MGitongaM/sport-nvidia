@@ -11,13 +11,15 @@ export default async function CommunityMembershipSection() {
     query: ABOUTCOMMUNITYMEMBERSHIPCONTENT_QUERY,
   });
   return (
-    <section className="bg-black pb-40">
+    // <section className="bg-black pb-40">
+    // <section className="bg-gradient-to-b from-blue-500 to-blue-500 pb-40">
+    <section className="bg-gradient-to-b from-blue-500 to-black pb-40">
       <div className="container mx-auto px-8 py-20 bg-zinc-950 rounded-lg text-slate-300">
         <div className="flex flex-wrap md:flex-nowrap justify-evenly  gap-8 relative">
           <motion.div
             initial={{ y: 200, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{once:true}}
+            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             // className="z-20 w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12 shadow-lg shadow-cyan-500"
             className="z-20 w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12 "
@@ -25,7 +27,7 @@ export default async function CommunityMembershipSection() {
             <div className="c"></div>
             <p className="flex items-center gap-2 text-2xl font-semibold py-12">
               {communityMemmbership?.[0].communityTitle}
-              <Webhook className="text-blue-500"/>
+              <Webhook className="text-blue-500" />
             </p>
             <p className="text-lg leading-8">
               {communityMemmbership?.[0].communityText}
@@ -50,15 +52,15 @@ export default async function CommunityMembershipSection() {
           <motion.div
             initial={{ y: 200, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{once:true}}
+            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             // className="z-20 w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12 shadow-lg shadow-cyan-500"
             className="z-20 w-full md:w-[42vw] lg:w-[36vw] h-full md:min-h-[30rem] bg-zinc-900 rounded-lg px-6 py-12 "
           >
             <div className="c"></div>
             <p className="flex items-center gap-2 text-2xl font-semibold py-12">
-              {communityMemmbership?.[0].membershipTitle}{" "} 
-              <MessageSquarePlus className="text-blue-500"/>
+              {communityMemmbership?.[0].membershipTitle}{" "}
+              <MessageSquarePlus className="text-blue-500" />
             </p>
             <p className="text-lg leading-8">
               {communityMemmbership?.[0].membershipText}
@@ -68,17 +70,16 @@ export default async function CommunityMembershipSection() {
         <motion.div
           initial={{ y: 200, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{once:true}}
+          viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.4 }}
           className="grid place-content-center py-10"
         >
-          
           <motion.button
-              whileHover={{ scale: 1.1 }}
-              className="px-4 py-2 bg-white w-64 hover:bg-blue-500 text-black font-semibold rounded-lg mt-10"
-            >
-              <Link href="/contact">Get In Touch</Link>
-            </motion.button>
+            whileHover={{ scale: 1.1 }}
+            className="px-4 py-2 bg-white w-64 hover:bg-blue-500 text-black font-semibold rounded-lg mt-10"
+          >
+            <Link href="/contact">Get In Touch</Link>
+          </motion.button>
         </motion.div>
       </div>
     </section>
