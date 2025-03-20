@@ -9,7 +9,8 @@ export default async function ContactSection() {
   });
 
   return (
-    <section className="bg-black pt-32 pb-20">
+    // <section className="bg-black pt-32 pb-20">
+    <section className="bg-gradient-to-b from-65% from-black to-blue-500 pt-32 pb-20">
       <div className="text-slate-300 px-8">
         <div className="container mx-auto flex flex-wrap md:flex-nowrap gap-8 justify-between">
           <motion.div

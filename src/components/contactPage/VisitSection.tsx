@@ -9,7 +9,8 @@ export default async function VisitSection() {
   //   query: CONTACTVISTCONTENT_QUERY,
   // });
   return (
-    <section id="map" className="bg-black pb-20 pt-8 md:pt-32">
+    // <section id="map" className="bg-black pb-20 pt-8 md:pt-32">
+    <section id="map" className="bg-gradient-to-t from-65% from-black  to-blue-500 pb-20 pt-8 md:pt-32">
       <div className="text-slate-300 px-8">
         <div className="container mx-auto flex flex-wrap md:flex-nowrap gap-8 justify-between">
           {/* <motion.div
