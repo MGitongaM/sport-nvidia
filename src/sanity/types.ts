@@ -757,6 +757,26 @@ export type Slug = {
   source?: string;
 };
 
+export type OpenGraphImage = {
+  _id: string;
+  _type: "openGraphImage";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  featuredOpenGraphImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+};
+
 export type Banner = {
   _id: string;
   _type: "banner";
@@ -837,7 +857,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | MembershipJoinContent | MembershipCategoriesContent | MembershipBenefitContent | MembershipHeroContent | ContactVisitContent | ContactContent | AboutCommunityMembershipContent | AboutSportsContent | AboutMissionVisionContent | AboutHeroContent | HomeSponsorContent | HomeLegacyContent | HomeAboutContent | HomeHeroContent | GolfCourse | Tournaments | BlockContent | NewsAndUpdates | Slug | Banner | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | MembershipJoinContent | MembershipCategoriesContent | MembershipBenefitContent | MembershipHeroContent | ContactVisitContent | ContactContent | AboutCommunityMembershipContent | AboutSportsContent | AboutMissionVisionContent | AboutHeroContent | HomeSponsorContent | HomeLegacyContent | HomeAboutContent | HomeHeroContent | GolfCourse | Tournaments | BlockContent | NewsAndUpdates | Slug | OpenGraphImage | Banner | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: BANNER_QUERY
@@ -847,6 +867,34 @@ export type BANNER_QUERYResult = Array<{
   bannerSubTitle: string | null;
   bannerText: string | null;
   bannerImage: {
+    asset: {
+      _id: string;
+      _type: "sanity.imageAsset";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      originalFilename?: string;
+      label?: string;
+      title?: string;
+      description?: string;
+      altText?: string;
+      sha1hash?: string;
+      extension?: string;
+      mimeType?: string;
+      size?: number;
+      assetId?: string;
+      uploadId?: string;
+      path?: string;
+      url?: string;
+      metadata?: SanityImageMetadata;
+      source?: SanityAssetSourceData;
+    } | null;
+  } | null;
+}>;
+// Variable: OPENGRAPHIMAGE_QUERY
+// Query: *[_type=="openGraphImage"]{    featuredOpenGraphImage{asset->}}
+export type OPENGRAPHIMAGE_QUERYResult = Array<{
+  featuredOpenGraphImage: {
     asset: {
       _id: string;
       _type: "sanity.imageAsset";
@@ -1694,6 +1742,7 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type==\"banner\"]{\n  bannerTitle,\n  bannerSubTitle,\n  bannerText,\n  bannerImage{asset->}}": BANNER_QUERYResult;
+    "*[_type==\"openGraphImage\"]{\n    featuredOpenGraphImage{asset->}}": OPENGRAPHIMAGE_QUERYResult;
     "*[_type==\"homeHeroContent\"]{\n  heroSectionTitle,\n  heroSectionSubTitle,\n  heroSectionText,\n  heroSectionImage{asset->},\n  }": HOMEHEROCONTENT_QUERYResult;
     "*[_type==\"homeAboutContent\"]{\n  aboutSectionTitle,\n  aboutSectionSubTitle,\n  aboutSectionText,\n  aboutSectionImage,\n  }": HOMEABOUTCONTENT_QUERYResult;
     "*[_type==\"homeLegacyContent\"]{\n  legacySectionTitle,\n  legacySectionSubTitle,\n  legacySectionContent,\n  legacySectionHeadingText,\n  legacySectionImage,\n  }": HOMELEGACYCONTENT_QUERYResult;
