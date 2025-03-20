@@ -5,7 +5,8 @@ export const BANNER_QUERY = defineQuery(`*[_type=="banner"]{
   bannerSubTitle,
   bannerText,
   bannerImage{asset->}}`);
-
+export const OPENGRAPHIMAGE_QUERY = defineQuery(`*[_type=="openGraphImage"]{
+    featuredOpenGraphImage{asset->}}`);
 export const HOMEHEROCONTENT_QUERY = defineQuery(`*[_type=="homeHeroContent"]{
   heroSectionTitle,
   heroSectionSubTitle,
@@ -114,10 +115,6 @@ export const MEMBERSHIPJOINCONTENT_QUERY =
               joinSectionText,
               joinDetails,
               }`);
-
-
-
-
 
 export const NEWSANDUPDATETYPE_QUERY = defineQuery(`*[_type=="newsAndUpdates"]{
       newsUpdateFeatureImage{asset->},

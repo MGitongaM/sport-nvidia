@@ -5,7 +5,8 @@ import NavigationSection from "@/components/NavigationSection";
 import FooterSection from "@/components/FooterSection";
 // import { Toaster } from "@/components/ui/sonner";
 import { Toaster } from "sonner";
-
+import { sanityFetch } from "@/sanity/lib/live";
+import { OPENGRAPHIMAGE_QUERY } from "@/sanity/lib/queries";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,20 +18,41 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Golf Nvidia",
-  description:
-    "From scenic fairways to challenging greens, discover our premier golf courses designed for every level of golfer. Play where champions train. Golf Nvidia Has you covered",
-  openGraph: {
-    images: [
-      {
-        url: "",
-        height: 800,
-        width: 1200,
-      },
-    ],
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { data } = await sanityFetch({
+    query: OPENGRAPHIMAGE_QUERY,
+  });
+  const imageUrl = data?.[0].featuredOpenGraphImage?.asset?.url ?? "";
+  return {
+    title: "Nakuru Athletic Club",
+    description:
+      "Nakuru Athletic Club (N.A.C) stands as a symbol of tradition and a cornerstone for sports excellence, fostering talent, and creating a vibrant hub for sports enthusiasts",
+    openGraph: {
+      images: [
+        {
+          url: imageUrl,
+          height: 800,
+          width: 1200,
+        },
+      ],
+    },
+  };
+}
+
+// export const metadata: Metadata = {
+//   title: "Nakuru Athletic Club",
+//   description:
+//     "Nakuru Athletic Club (N.A.C) stands as a symbol of tradition and a cornerstone for sports excellence, fostering talent, and creating a vibrant hub for sports enthusiasts",
+//   openGraph: {
+//     images: [
+//       {
+//         url: "",
+//         height: 800,
+//         width: 1200,
+//       },
+//     ],
+//   },
+// };
 
 export default function RootLayout({
   children,
