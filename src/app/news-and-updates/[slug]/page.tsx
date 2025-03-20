@@ -47,7 +47,7 @@ export default async function page({
             )}
           </div>
           <div className="space-y-12 py-20">
-            <h1 className="text-3xl md:text-5xl font-bold text-blue-500">
+            <h1 className="text-3xl md:text-5xl font-bold text-blue-300">
               {data?.newsUpdateTitle}
             </h1>
             <div className="flex justify-between gap-4 text-slate-300">
