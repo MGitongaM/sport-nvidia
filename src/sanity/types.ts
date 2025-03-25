@@ -729,6 +729,32 @@ export type BlockContent = Array<{
   _key: string;
 }>;
 
+export type NewwsUpdateHeroContent = {
+  _id: string;
+  _type: "newwsUpdateHeroContent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  newsUpdateHeroSectionTitle?: string;
+  newsUpdateHeroSectionSubTitle?: string;
+  newsUpdateHeroSectionText?: string;
+  newsUpdateHeroSectionImages?: Array<{
+    newsUpdateImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    newsUpdateTitle?: string;
+    _key: string;
+  }>;
+};
+
 export type NewsAndUpdates = {
   _id: string;
   _type: "newsAndUpdates";
@@ -860,7 +886,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | MembershipJoinContent | MembershipCategoriesContent | MembershipBenefitContent | MembershipHeroContent | ContactVisitContent | ContactContent | AboutCommunityMembershipContent | AboutSportsContent | AboutMissionVisionContent | AboutHeroContent | HomeSponsorContent | HomeLegacyContent | HomeAboutContent | HomeHeroContent | GolfCourse | Tournaments | BlockContent | NewsAndUpdates | Slug | OpenGraphImage | Banner | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | MembershipJoinContent | MembershipCategoriesContent | MembershipBenefitContent | MembershipHeroContent | ContactVisitContent | ContactContent | AboutCommunityMembershipContent | AboutSportsContent | AboutMissionVisionContent | AboutHeroContent | HomeSponsorContent | HomeLegacyContent | HomeAboutContent | HomeHeroContent | GolfCourse | Tournaments | BlockContent | NewwsUpdateHeroContent | NewsAndUpdates | Slug | OpenGraphImage | Banner | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: BANNER_QUERY
@@ -1432,6 +1458,30 @@ export type NEWSANDUPDATETYPE_QUERYResult = Array<{
   newsUpdateDate: string | null;
   newsUpdateDetails: BlockContent | null;
 }>;
+// Variable: NEWSANDUPDATEHEROCONTENT_QUERY
+// Query: *[_type=="newwsUpdateHeroContent"]{    newsUpdateHeroSectionTitle,    newsUpdateHeroSectionSubTitle,    newsUpdateHeroSectionText,    newsUpdateHeroSectionImages,    newsUpdateImage[]{newsUpdateImage{asset->{url}}},    newsUpdateTitle,    }
+export type NEWSANDUPDATEHEROCONTENT_QUERYResult = Array<{
+  newsUpdateHeroSectionTitle: string | null;
+  newsUpdateHeroSectionSubTitle: string | null;
+  newsUpdateHeroSectionText: string | null;
+  newsUpdateHeroSectionImages: Array<{
+    newsUpdateImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    newsUpdateTitle?: string;
+    _key: string;
+  }> | null;
+  newsUpdateImage: null;
+  newsUpdateTitle: null;
+}>;
 // Variable: SINGLE_NEWSANDUPDATETYPE_QUERY
 // Query: *[_type=="newsAndUpdates" && newsUpdateSlug.current==$slug][0]{      newsUpdateFeatureImage{asset->},      newsUpdateTitle,      newsUpdateSlug,      newsUpdateExcerpt,      newsUpdateAuthor,      newsUpdateDate,      newsUpdateDetails,    }
 export type SINGLE_NEWSANDUPDATETYPE_QUERYResult = {
@@ -1766,6 +1816,7 @@ declare module "@sanity/client" {
     "*[_type==\"membershipCategoriesContent\"]{\n              membershipCategoriesTitle,\n              membershipCategoriesText,\n              membershipCategoriestDetails,\n              membershipCategoriesImage,\n              }": MEMBERSHIPCATEGORIESCONTENT_QUERYResult;
     "*[_type==\"membershipJoinContent\"]{\n              joinSectionTitle,\n              joinSectionSubTitle,\n              joinSectionText,\n              joinDetails,\n              }": MEMBERSHIPJOINCONTENT_QUERYResult;
     "*[_type==\"newsAndUpdates\"]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": NEWSANDUPDATETYPE_QUERYResult;
+    "*[_type==\"newwsUpdateHeroContent\"]{\n    newsUpdateHeroSectionTitle,\n    newsUpdateHeroSectionSubTitle,\n    newsUpdateHeroSectionText,\n    newsUpdateHeroSectionImages,\n    newsUpdateImage[]{newsUpdateImage{asset->{url}}},\n    newsUpdateTitle,\n    }": NEWSANDUPDATEHEROCONTENT_QUERYResult;
     "*[_type==\"newsAndUpdates\" && newsUpdateSlug.current==$slug][0]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": SINGLE_NEWSANDUPDATETYPE_QUERYResult;
     "*[_type==\"tournaments\"]{\n      tournamentFeatureImage{asset->},\n      tournamentTitle,\n      tournamentSlug,\n      tournamentExcerpt,\n      tournamentAuthor,\n      tournamentDate,\n      tournamentDetails,\n    }": TOURNAMENT_QUERYResult;
     "*[_type==\"tournaments\" && tournamentSlug.current==$tournamentSlug][0]{\n      tournamentFeatureImage{asset->},\n      tournamentTitle,\n      tournamentSlug,\n      tournamentExcerpt,\n      tournamentAuthor,\n      tournamentDate,\n      tournamentDetails,\n    }": SINGLE_TOURNAMEN_QUERYResult;

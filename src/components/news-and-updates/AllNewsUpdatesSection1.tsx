@@ -12,13 +12,14 @@ export default async function AllNewsUpdatesSection1() {
     query: NEWSANDUPDATETYPE_QUERY,
   });
   return (
-    <section className="bg-gradient-to-b from-black via-blue-500 to-black pt-32 pb-20 min-h-screen">
+    <section className="bg-gradient-to-b from-black via-blue-500 to-black md:pt-32 pb-20 min-h-screen">
       <div className=" mx-auto text-slate-300 px-8">
         <div className="text-center space-y-4">
-          <h1 className="text-3xl md:text-5xl font-bold">News and Updates</h1>
+          {/* <h1 className="text-3xl md:text-5xl font-bold">News and Updates</h1> */}
+          {/* <h1 className="text-3xl md:text-5xl font-bold">What&apos;s Trending</h1> */}
           <p className="text-lg leading-8">
-            Stay up to date on what new developments are happing at the Nakuru
-            Athletic Club
+            {/* Stay up to date on what new developments are happing at the Nakuru
+            Athletic Club */}
           </p>
         </div>
 

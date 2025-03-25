@@ -127,6 +127,15 @@ export const NEWSANDUPDATETYPE_QUERY = defineQuery(`*[_type=="newsAndUpdates"]{
       newsUpdateDate,
       newsUpdateDetails,
     }`);
+export const NEWSANDUPDATEHEROCONTENT_QUERY =
+    defineQuery(`*[_type=="newwsUpdateHeroContent"]{
+    newsUpdateHeroSectionTitle,
+    newsUpdateHeroSectionSubTitle,
+    newsUpdateHeroSectionText,
+    newsUpdateHeroSectionImages,
+    newsUpdateImage[]{newsUpdateImage{asset->{url}}},
+    newsUpdateTitle,
+    }`);
 export const SINGLE_NEWSANDUPDATETYPE_QUERY =
   defineQuery(`*[_type=="newsAndUpdates" && newsUpdateSlug.current==$slug][0]{
       newsUpdateFeatureImage{asset->},
