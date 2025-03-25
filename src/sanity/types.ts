@@ -449,15 +449,18 @@ export type HomeSponsorContent = {
   sponsorSectionSubTitle?: string;
   sponsorSectionText?: string;
   sponsorSectionImages?: Array<{
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    sponsorImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
     };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
+    sponsorTitle?: string;
     _key: string;
   }>;
 };
@@ -1022,23 +1025,28 @@ export type HOMELEGACYCONTENT_QUERYResult = Array<{
   legacySectionImage: null;
 }>;
 // Variable: HOMESPONSORCONTENT_QUERY
-// Query: *[_type=="homeSponsorContent"]{  sponsorSectionTitle,  sponsorSectionSubTitle,  sponsorSectionText,  sponsorSectionImages,  }
+// Query: *[_type=="homeSponsorContent"]{  sponsorSectionTitle,  sponsorSectionSubTitle,  sponsorSectionText,  sponsorSectionImages,  sponsorImage[]{sponsorImage{asset->{url}}},  sponsorTitle,  }
 export type HOMESPONSORCONTENT_QUERYResult = Array<{
   sponsorSectionTitle: string | null;
   sponsorSectionSubTitle: string | null;
   sponsorSectionText: string | null;
   sponsorSectionImages: Array<{
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    sponsorImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
     };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
+    sponsorTitle?: string;
     _key: string;
   }> | null;
+  sponsorImage: null;
+  sponsorTitle: null;
 }>;
 // Variable: ABOUTHEROCONTENT_QUERY
 // Query: *[_type=="aboutHeroContent"]{    heroSectionTitle,    heroSectionSubTitle,    heroSectionText,    heroSectionImage{asset->},    }
@@ -1746,7 +1754,7 @@ declare module "@sanity/client" {
     "*[_type==\"homeHeroContent\"]{\n  heroSectionTitle,\n  heroSectionSubTitle,\n  heroSectionText,\n  heroSectionImage{asset->},\n  }": HOMEHEROCONTENT_QUERYResult;
     "*[_type==\"homeAboutContent\"]{\n  aboutSectionTitle,\n  aboutSectionSubTitle,\n  aboutSectionText,\n  aboutSectionImage,\n  }": HOMEABOUTCONTENT_QUERYResult;
     "*[_type==\"homeLegacyContent\"]{\n  legacySectionTitle,\n  legacySectionSubTitle,\n  legacySectionContent,\n  legacySectionHeadingText,\n  legacySectionImage,\n  }": HOMELEGACYCONTENT_QUERYResult;
-    "*[_type==\"homeSponsorContent\"]{\n  sponsorSectionTitle,\n  sponsorSectionSubTitle,\n  sponsorSectionText,\n  sponsorSectionImages,\n  }": HOMESPONSORCONTENT_QUERYResult;
+    "*[_type==\"homeSponsorContent\"]{\n  sponsorSectionTitle,\n  sponsorSectionSubTitle,\n  sponsorSectionText,\n  sponsorSectionImages,\n  sponsorImage[]{sponsorImage{asset->{url}}},\n  sponsorTitle,\n  }": HOMESPONSORCONTENT_QUERYResult;
     "*[_type==\"aboutHeroContent\"]{\n    heroSectionTitle,\n    heroSectionSubTitle,\n    heroSectionText,\n    heroSectionImage{asset->},\n    }": ABOUTHEROCONTENT_QUERYResult;
     "*[_type==\"aboutMissionVisionContent\"]{\n    missionTitle,\n    missionText,\n    aboutBackgroundImage,\n    missionImage,\n    visionTitle,\n    visionText,\n    visionImage,\n    }": ABOUTMISSIONVISIONCONTENT_QUERYResult;
     "*[_type==\"aboutSportsContent\"]{\n      sportsSectionTitle,\n      sportSectionSubTitle,\n      sportSectionText,\n      sportBackgroundImage,\n      sportsContent,\n      sportHeading,\n      sportText,\n      sportImage,\n      }": ABOUTSPORTSCONTENT_QUERYResult;

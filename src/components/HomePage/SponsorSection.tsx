@@ -23,29 +23,34 @@ export default async function SponsorSection() {
         <p className="text-lg leading-8">{sponsor?.[0].sponsorSectionText}</p>
       </motion.div>
       <div className="max-w-7xl mx-auto ">
-        <div className="flex items-center justify-center w-full ">
-          {sponsor?.[0].sponsorSectionImages?.map((sponsorImg, index) => (
-            <motion.div
-              initial={{y:100, opacity: 0 }}
-              whileInView={{y:0, opacity: 1 }}
-              transition={{ duration: 1.5 }}
-              viewport={{once:true}}
-              key={index}
-            >
-              <Image
-                src={urlFor(sponsorImg)
-                  .width(800)
-                  .height(800)
-                  .quality(80)
-                  .auto("format")
-                  .url()}
-                height={800}
-                width={800}
-                alt={"Nakuru Rugby Team Sponsor Image"}
-                className="object-cover size-32 rounded-full"
-              />
-            </motion.div>
-          ))}
+        <div className="flex items-center justify-center gap-12 w-full ">
+          {sponsor?.[0]?.sponsorSectionImages?.map((sponsorImag, index) =>
+            sponsorImag?.sponsorImage ? (
+              <motion.div
+                key={index}
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1.5 }}
+                viewport={{ once: true }}
+              >
+                <Image
+                  src={urlFor(sponsorImag.sponsorImage)
+                    .width(400)
+                    .height(400)
+                    .quality(80)
+                    .auto("format")
+                    .url()}
+                  height={400}
+                  width={400}
+                  alt={"Nakuru Rugby Team Sponsor Image"}
+                  className="object-fill size-32 rounded-full"
+                />
+                <p className="font-semibold text-center">
+                  {sponsorImag.sponsorTitle}
+                </p>
+              </motion.div>
+            ) : null
+          )}
         </div>
       </div>
     </section>

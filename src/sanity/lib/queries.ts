@@ -33,6 +33,8 @@ export const HOMESPONSORCONTENT_QUERY =
   sponsorSectionSubTitle,
   sponsorSectionText,
   sponsorSectionImages,
+  sponsorImage[]{sponsorImage{asset->{url}}},
+  sponsorTitle,
   }`);
 
 export const ABOUTHEROCONTENT_QUERY = defineQuery(`*[_type=="aboutHeroContent"]{
