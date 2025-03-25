@@ -12,19 +12,20 @@ export default async function AboutSection() {
   });
   return (
     // <section className="min-h-[80vh] space-y-8 px-8 py-20 text-slate-300  bg-black">
-    <section className="min-h-[80vh] space-y-8 px-8 py-20 text-slate-300  bg-gradient-to-b from-black to-green-500">
-      <h2 className="text-3xl lg:text-5xl font-bold text-center">
+    <section className="min-h-[80vh] space-y-8 px-8 py-20 text-slate-300  bg-gradient-to-b from-black to-blue-500">
+      <h2 className="text-3xl lg:text-5xl font-bold text-center pt-10">
         {aboutContent?.[0].aboutSectionTitle}
       </h2>
-      <div className="max-w-7xl mx-auto flex flex-wrap md:flex-nowrap items-center justify-between h-full ">
+      <div className="max-w-7xl mx-auto flex flex-wrap md:flex-nowrap gap-8 items-center justify-between h-full py-10 ">
         <div className="w-[50vw] grow">
           {aboutContent?.[0].aboutSectionImage ? (
             <motion.div
               // initial={{ x: -500, z: -10 }}
               initial={{ y: 200, z: -10 }}
               // whileInView={{ x: 0, z: 0 }}
-              whileInView={{ y: 0, z: 0 }}
-              transition={{ duration: 0.8 }}
+              whileInView={{ y: 0, z: 0, }}
+              viewport={{once:true}}
+              transition={{ duration: 0.8, }}
             >
               <Image
                 src={urlFor(aboutContent?.[0].aboutSectionImage)
@@ -36,7 +37,7 @@ export default async function AboutSection() {
                 height={800}
                 width={800}
                 alt={"Nakuru Rugby Team"}
-                className="object-cover h-full w-full"
+                className="object-cover h-[28rem] w-full rounded-lg"
               />
             </motion.div>
           ) : null}
@@ -50,6 +51,7 @@ export default async function AboutSection() {
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{once:true}}
             transition={{ duration: 0.8 }}
             className="prose prose-lg prose-p:text-slate-300 prose-h1:text-slate-200 prose-h2:text-slate-200 prose-h3:text-slate-200 prose-h4:text-slate-200 prose-h5:text-slate-200 prose-h6:text-slate-200 prose-text-slate-300 prose-strong:text-slate-300 prose-ul:text-slate-300"
           >

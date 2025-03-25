@@ -18,6 +18,7 @@ export default async function TournamentSection() {
         <motion.div
           initial={{ x: -500, z: -10 }}
           whileInView={{ x: 0, z: 0 }}
+          viewport={{once:true}}
           transition={{ duration: 0.8 }}
           className="text-start w-full lg:max-w-md mx-auto space-y-4 pl-0 md:pl-4 text-slate-300"
         >
@@ -58,7 +59,7 @@ export default async function TournamentSection() {
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     // className="px-4 py-2 bg-white w-48 hover:bg-blue-500 text-black rounded-lg"
-                    className="px-4 py-2 bg-white w-48 hover:bg-green-500 text-black rounded-lg"
+                    className="px-4 py-2 bg-white w-48 hover:bg-blue-500 text-black rounded-lg"
                   >
                     <Link
                       href={`/events/${tournament.tournamentSlug?.current}`}

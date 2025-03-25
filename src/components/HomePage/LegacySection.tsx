@@ -11,7 +11,7 @@ export default async function LegacySection() {
 
   return (
     // <section className="min-h-[80vh]  px-8 py-20 text-slate-300  bg-black">
-    <section className="min-h-[80vh]  px-8 py-20 text-slate-300  bg-gradient-to-b from-green-500 to-black">
+    <section className="min-h-[80vh]  px-8 py-20 text-slate-300  bg-gradient-to-b from-blue-500 to-black">
       <div className="container leading-8 mx-auto space-y-8 bg-zinc-900 rounded-lg px-8 py-12">
         <h2 className="text-3xl lg:text-5xl font-bold text-center pb-8">
           {legacy?.[0].legacySectionTitle}{" "}
@@ -22,6 +22,7 @@ export default async function LegacySection() {
               <motion.div
                 initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
+                viewport={{once:true}}
                 transition={{ duration: 1.4 }}
               >
                 <Image
@@ -45,6 +46,7 @@ export default async function LegacySection() {
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{once:true}}
             transition={{ duration: 0.7 }}
             className="w-full md:w-[50vw] space-y-8"
           >
@@ -64,6 +66,7 @@ export default async function LegacySection() {
               <motion.div
                 initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
+                viewport={{once:true}}
                 transition={{ duration: 1.4 }}
               >
                 <Image
@@ -87,6 +90,7 @@ export default async function LegacySection() {
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{once:true}}
             transition={{ duration: 0.7 }}
             className="w-full md:w-[50vw] space-y-8"
           >

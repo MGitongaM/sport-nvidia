@@ -29,6 +29,7 @@ export default async function SponsorSection() {
               initial={{y:100, opacity: 0 }}
               whileInView={{y:0, opacity: 1 }}
               transition={{ duration: 1.5 }}
+              viewport={{once:true}}
               key={index}
             >
               <Image
