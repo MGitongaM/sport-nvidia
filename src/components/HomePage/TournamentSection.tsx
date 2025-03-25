@@ -23,7 +23,8 @@ export default async function TournamentSection() {
           className="text-start w-full lg:max-w-md mx-auto space-y-4 pl-0 md:pl-4 text-slate-300"
         >
           <h2 className="text-3xl lg:text-5xl md:text-5xl font-bold  ">
-            Upcoming Tournaments
+            {/* Upcoming Tournaments */}
+            Updates
           </h2>
           <p className="text-lg leading-8">
             Mark your calendars for our upcoming tournaments and events.
@@ -59,12 +60,13 @@ export default async function TournamentSection() {
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     // className="px-4 py-2 bg-white w-48 hover:bg-blue-500 text-black rounded-lg"
-                    className="px-4 py-2 bg-white w-48 hover:bg-blue-500 text-black rounded-lg"
+                    className="px-4 py-2 bg-white w-48 hover:bg-blue-500 text-black rounded-lg font-medium"
                   >
                     <Link
                       href={`/events/${tournament.tournamentSlug?.current}`}
                     >
-                      View Tournament
+                      {/* View Tournament */}
+                      Read More
                     </Link>
                   </motion.button>
                 </div>
