@@ -43,7 +43,7 @@ export default async function SponsorSection() {
                   height={400}
                   width={400}
                   alt={"Nakuru Rugby Team Sponsor Image"}
-                  className="object-fill size-32 rounded-full"
+                  className="object-fill size-32 rounded-xl"
                 />
                 <p className="font-semibold text-center">
                   {sponsorImag.sponsorTitle}
