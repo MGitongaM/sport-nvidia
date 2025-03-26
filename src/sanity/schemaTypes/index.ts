@@ -20,6 +20,7 @@ import { membershipCategoriesContentType } from "./membershipPageSchemas/members
 import { membershipJoinContentType } from "./membershipPageSchemas/membershipJoinContent";
 import { openGraphType } from "./openGraphImagesSchemas/openGraphImages";
 import { newsUpdateHeroContentType } from "./newsUpdatesPageSchemas/newsUpdatesHeroContent";
+import { eventsHeroContentType } from "./eventsPageSchemas/eventsHeroContent";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -27,6 +28,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     openGraphType,
     newsAndUpdateType,
     newsUpdateHeroContentType,
+    eventsHeroContentType,
     blockContentType,
     tourmentType,
     golfCourseType,

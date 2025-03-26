@@ -128,13 +128,22 @@ export const NEWSANDUPDATETYPE_QUERY = defineQuery(`*[_type=="newsAndUpdates"]{
       newsUpdateDetails,
     }`);
 export const NEWSANDUPDATEHEROCONTENT_QUERY =
-    defineQuery(`*[_type=="newwsUpdateHeroContent"]{
+    defineQuery(`*[_type=="newsUpdateHeroContent"]{
     newsUpdateHeroSectionTitle,
     newsUpdateHeroSectionSubTitle,
     newsUpdateHeroSectionText,
     newsUpdateHeroSectionImages,
     newsUpdateImage[]{newsUpdateImage{asset->{url}}},
     newsUpdateTitle,
+    }`);
+export const EVENTSHEROCONTENT_QUERY =
+    defineQuery(`*[_type=="eventsHeroContent"]{
+    eventsHeroSectionTitle,
+    eventsHeroSectionSubTitle,
+    eventsHeroSectionText,
+    eventsHeroSectionImages,
+    eventsImage[]{eventsImage{asset->{url}}},
+    eventsTitle,
     }`);
 export const SINGLE_NEWSANDUPDATETYPE_QUERY =
   defineQuery(`*[_type=="newsAndUpdates" && newsUpdateSlug.current==$slug][0]{

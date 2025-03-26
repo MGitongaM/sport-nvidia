@@ -1,8 +1,8 @@
 import { defineType } from "sanity";
 
 export const newsUpdateHeroContentType = defineType({
-  name: "newwsUpdateHeroContent",
-  title: "Newws Update Hero Content",
+  name: "newsUpdateHeroContent",
+  title: "News Update Hero Content",
   type: "document",
   fields: [
     {
