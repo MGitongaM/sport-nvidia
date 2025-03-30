@@ -804,6 +804,7 @@ export type NewsAndUpdates = {
   newsUpdateAuthor?: string;
   newsUpdateDate?: string;
   newsUpdateDetails?: BlockContent;
+  newsUpdatePublishedAt?: string;
 };
 
 export type Slug = {
@@ -1451,7 +1452,7 @@ export type MEMBERSHIPJOINCONTENT_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: NEWSANDUPDATETYPE_QUERY
-// Query: *[_type=="newsAndUpdates"]{      newsUpdateFeatureImage{asset->},      newsUpdateTitle,      newsUpdateSlug,      newsUpdateExcerpt,      newsUpdateAuthor,      newsUpdateDate,      newsUpdateDetails,    }
+// Query: *[_type=="newsAndUpdates"]{      newsUpdateFeatureImage{asset->},      newsUpdateTitle,      newsUpdateSlug,      newsUpdateExcerpt,      newsUpdateAuthor,      newsUpdateDate,      newsUpdateDetails,      newsUpdatePublishedAt,    }
 export type NEWSANDUPDATETYPE_QUERYResult = Array<{
   newsUpdateFeatureImage: {
     asset: {
@@ -1483,6 +1484,7 @@ export type NEWSANDUPDATETYPE_QUERYResult = Array<{
   newsUpdateAuthor: string | null;
   newsUpdateDate: string | null;
   newsUpdateDetails: BlockContent | null;
+  newsUpdatePublishedAt: string | null;
 }>;
 // Variable: NEWSANDUPDATEHEROCONTENT_QUERY
 // Query: *[_type=="newsUpdateHeroContent"]{    newsUpdateHeroSectionTitle,    newsUpdateHeroSectionSubTitle,    newsUpdateHeroSectionText,    newsUpdateHeroSectionImages,    newsUpdateImage[]{newsUpdateImage{asset->{url}}},    newsUpdateTitle,    }
@@ -1865,7 +1867,7 @@ declare module "@sanity/client" {
     "*[_type==\"membershipBenefitContent\"]{\n              benefitSectionTitle,\n              benefitSectionSubTitle,\n              benefitectionText,\n              benefitContent,\n              benefitHeading,\n              benefitText,\n              benefitImage,\n              }": MEMBERSHIPBENEFITCONTENT_QUERYResult;
     "*[_type==\"membershipCategoriesContent\"]{\n              membershipCategoriesTitle,\n              membershipCategoriesText,\n              membershipCategoriestDetails,\n              membershipCategoriesImage,\n              }": MEMBERSHIPCATEGORIESCONTENT_QUERYResult;
     "*[_type==\"membershipJoinContent\"]{\n              joinSectionTitle,\n              joinSectionSubTitle,\n              joinSectionText,\n              joinDetails,\n              }": MEMBERSHIPJOINCONTENT_QUERYResult;
-    "*[_type==\"newsAndUpdates\"]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": NEWSANDUPDATETYPE_QUERYResult;
+    "*[_type==\"newsAndUpdates\"]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n      newsUpdatePublishedAt,\n    }": NEWSANDUPDATETYPE_QUERYResult;
     "*[_type==\"newsUpdateHeroContent\"]{\n    newsUpdateHeroSectionTitle,\n    newsUpdateHeroSectionSubTitle,\n    newsUpdateHeroSectionText,\n    newsUpdateHeroSectionImages,\n    newsUpdateImage[]{newsUpdateImage{asset->{url}}},\n    newsUpdateTitle,\n    }": NEWSANDUPDATEHEROCONTENT_QUERYResult;
     "*[_type==\"eventsHeroContent\"]{\n    eventsHeroSectionTitle,\n    eventsHeroSectionSubTitle,\n    eventsHeroSectionText,\n    eventsHeroSectionImages,\n    eventsImage[]{eventsImage{asset->{url}}},\n    eventsTitle,\n    }": EVENTSHEROCONTENT_QUERYResult;
     "*[_type==\"newsAndUpdates\" && newsUpdateSlug.current==$slug][0]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": SINGLE_NEWSANDUPDATETYPE_QUERYResult;
