@@ -5127,6 +5127,13 @@
           "name": "blockContent"
         },
         "optional": true
+      },
+      "newsUpdatePublishedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
       }
     }
   },

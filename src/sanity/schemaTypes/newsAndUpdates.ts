@@ -52,5 +52,15 @@ export const newsAndUpdateType = defineType({
       title: "News Update Details",
       type: "blockContent",
     },
+    {
+      name: "newsUpdatePublishedAt",
+      title: "News Update Published At",
+      type: "datetime",
+      options: {
+        dateFormat: "YYYY-MM-DD",
+        timeFormat: "HH:mm",
+      },
+      initialValue: () => new Date().toISOString(),
+    },
   ],
 });

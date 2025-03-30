@@ -126,6 +126,7 @@ export const NEWSANDUPDATETYPE_QUERY = defineQuery(`*[_type=="newsAndUpdates"]{
       newsUpdateAuthor,
       newsUpdateDate,
       newsUpdateDetails,
+      newsUpdatePublishedAt,
     }`);
 export const NEWSANDUPDATEHEROCONTENT_QUERY =
     defineQuery(`*[_type=="newsUpdateHeroContent"]{

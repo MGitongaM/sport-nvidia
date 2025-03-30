@@ -11,6 +11,16 @@ export default async function AllNewsUpdatesSection1() {
   const { data } = await sanityFetch({
     query: NEWSANDUPDATETYPE_QUERY,
   });
+  // const sortedData=data.sort((a,b)=> new Date(b.newsUpdatePublishedAt) - new Date(a.newsUpdatePublishedAt))
+  const sortedData = data.sort((a, b) => {
+    if (!a.newsUpdatePublishedAt) return 1; // Push nulls to end
+    if (!b.newsUpdatePublishedAt) return -1; // Keep valid dates first
+
+    return (
+      new Date(b.newsUpdatePublishedAt).getTime() -
+      new Date(a.newsUpdatePublishedAt).getTime()
+    );
+  });
   return (
     <section className="bg-gradient-to-b from-black via-blue-500 to-black md:pt-32 pb-20 min-h-screen">
       <div className=" mx-auto text-slate-300 px-8">
@@ -25,7 +35,8 @@ export default async function AllNewsUpdatesSection1() {
 
         <ScrollArea className="min-h-[0vh]">
           <div className="flex  justify-evenly items-center gap-8 pt-20 pb-4">
-            {data.map((newsAndUpdate, index) => (
+            {/* {data.map((newsAndUpdate, index) => ( */}
+            {sortedData.map((newsAndUpdate, index) => (
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -35,12 +46,7 @@ export default async function AllNewsUpdatesSection1() {
                 className=" w-[17rem] sm:w-[20rem] md:w-96"
               >
                 {newsAndUpdate.newsUpdateFeatureImage ? (
-                  <motion.div
-                  // initial={{ x: 200, z: -20, opacity: 0 }}
-                  // animate={{ x: 0, z: 0, opacity: 1 }}
-                  // transition={{ duration: 0.8 }}
-                  //   className="min-h-[20rem] "
-                  >
+                  <div>
                     <Image
                       src={urlFor(newsAndUpdate.newsUpdateFeatureImage)
                         .width(800)
@@ -53,7 +59,7 @@ export default async function AllNewsUpdatesSection1() {
                       alt={newsAndUpdate.newsUpdateTitle || ""}
                       className="object-cover h-72 w-full rounded-t-md"
                     />
-                  </motion.div>
+                  </div>
                 ) : null}
                 <div className="px-4 py-3 flex flex-col gap-1 justify-between h-72 pb-6 rounded-b-md bg-zinc-800 ">
                   <p className="text-lg font-semibold text-blue-300">
