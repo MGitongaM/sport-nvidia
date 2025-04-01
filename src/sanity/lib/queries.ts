@@ -129,7 +129,7 @@ export const NEWSANDUPDATETYPE_QUERY = defineQuery(`*[_type=="newsAndUpdates"]{
       newsUpdatePublishedAt,
     }`);
 export const NEWSANDUPDATEHEROCONTENT_QUERY =
-    defineQuery(`*[_type=="newsUpdateHeroContent"]{
+  defineQuery(`*[_type=="newsUpdateHeroContent"]{
     newsUpdateHeroSectionTitle,
     newsUpdateHeroSectionSubTitle,
     newsUpdateHeroSectionText,
@@ -138,7 +138,7 @@ export const NEWSANDUPDATEHEROCONTENT_QUERY =
     newsUpdateTitle,
     }`);
 export const EVENTSHEROCONTENT_QUERY =
-    defineQuery(`*[_type=="eventsHeroContent"]{
+  defineQuery(`*[_type=="eventsHeroContent"]{
     eventsHeroSectionTitle,
     eventsHeroSectionSubTitle,
     eventsHeroSectionText,
@@ -174,6 +174,16 @@ export const SINGLE_TOURNAMEN_QUERY =
       tournamentAuthor,
       tournamentDate,
       tournamentDetails,
+      tournamentsHomeTeamImage{asset->{url}},
+      tournamentsRivalTeamImage{asset->{url}},
+      tournamentsStartDate,
+      tournamentsEndDate,
+      tournamentsOpeningHours,
+      tournamentsVenue,
+      tournamentsAddress,
+      tournamentsEmail,
+      tournamentsPhoneNumber,
+      tournamentPublishedAt,
     }`);
 export const GOLFCOURSE_QUERY = defineQuery(`*[_type=="golfCourse"]{
       golfCourseFeatureImage{asset->},

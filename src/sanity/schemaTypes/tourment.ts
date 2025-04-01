@@ -52,5 +52,66 @@ export const tourmentType = defineType({
       title: "Tournament Details",
       type: "blockContent",
     },
+    {
+      name: "tournamentsHomeTeamImage",
+      title: "Tournaments Home Image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: "tournamentsRivalTeamImage",
+      title: "Tournaments Rival Image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: "tournamentsStartDate",
+      title: "Tournaments Start Date",
+      type: "date",
+    },
+    {
+      name: "tournamentsEndDate",
+      title: "Tournaments End Date",
+      type: "date",
+    },
+    {
+      name: "tournamentsOpeningHours",
+      title: "Tournaments Opening Hours",
+      type: "datetime",
+    },
+    {
+      name: "tournamentsVenue",
+      title: "Tournaments Venue",
+      type: "string",
+    },
+    {
+      name: "tournamentsAddress",
+      title: "Tournaments Address",
+      type: "string",
+    },
+    {
+      name: "tournamentsEmail",
+      title: "Tournaments Email",
+      type: "string",
+    },
+    {
+      name: "tournamentsPhoneNumber",
+      title: "Tournaments Phone Number",
+      type: "string",
+    },
+    {
+      name: "tournamentPublishedAt",
+      title: "Tournament Published At",
+      type: "datetime",
+      options: {
+        dateFormat: "YYYY-MM-DD",
+        timeFormat: "HH:mm",
+      },
+      initialValue: () => new Date().toISOString(),
+    },
   ],
 });

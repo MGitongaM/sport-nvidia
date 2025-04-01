@@ -20,13 +20,13 @@ export default function HeroSection({
             >
               <Image
                 src={urlFor(eventData.tournamentFeatureImage)
-                  .width(800)
-                  .height(900)
+                  .width(1200)
+                  .height(1200)
                   .quality(80)
                   .auto("format")
                   .url()}
-                height={900}
-                width={800}
+                height={1200}
+                width={1200}
                 alt={eventData.tournamentTitle || "events background image"}
                 // className="object-fill object-top h-screen md:h-[70vh]  w-[90vw] mx-auto top-4 rounded-lg pt-8 relative"
                 className="object-cover object-top h-screen md:h-[70vh]  w-[90vw] mx-auto top-4 rounded-lg pt-8 relative"
@@ -35,7 +35,7 @@ export default function HeroSection({
           ) : (
             <div className="bg-zinc-600 rounded-lg"></div>
           )}
-          <div className=" absolute top-64 md:left-40 w-72 md:w-[34vw] space-y-6 bg-white/40 backdrop-blur-lg px-4 py-10 rounded-lg mx-4">
+          <div className=" absolute top-64 md:left-40 w-72 md:w-[34vw] space-y-6 bg-blue-500/40 backdrop-blur-lg px-4 py-10 rounded-lg mx-4">
             {/* <p>welcome to</p> */}
             <h1 className="text-3xl lg:text-5xl font-bold">
               {eventData?.tournamentTitle}

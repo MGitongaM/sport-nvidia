@@ -696,6 +696,36 @@ export type Tournaments = {
     _type: "image";
     _key: string;
   }>;
+  tournamentsHomeTeamImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  tournamentsRivalTeamImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  tournamentsStartDate?: string;
+  tournamentsEndDate?: string;
+  tournamentsOpeningHours?: string;
+  tournamentsVenue?: string;
+  tournamentsAddress?: string;
+  tournamentsEmail?: string;
+  tournamentsPhoneNumber?: string;
+  tournamentPublishedAt?: string;
 };
 
 export type BlockContent = Array<{
@@ -1632,7 +1662,7 @@ export type TOURNAMENT_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: SINGLE_TOURNAMEN_QUERY
-// Query: *[_type=="tournaments" && tournamentSlug.current==$tournamentSlug][0]{      tournamentFeatureImage{asset->},      tournamentTitle,      tournamentSlug,      tournamentExcerpt,      tournamentAuthor,      tournamentDate,      tournamentDetails,    }
+// Query: *[_type=="tournaments" && tournamentSlug.current==$tournamentSlug][0]{      tournamentFeatureImage{asset->},      tournamentTitle,      tournamentSlug,      tournamentExcerpt,      tournamentAuthor,      tournamentDate,      tournamentDetails,      tournamentsHomeTeamImage{asset->{url}},      tournamentsRivalTeamImage{asset->{url}},      tournamentsStartDate,      tournamentsEndDate,      tournamentsOpeningHours,      tournamentsVenue,      tournamentsAddress,      tournamentsEmail,      tournamentsPhoneNumber,      tournamentPublishedAt,    }
 export type SINGLE_TOURNAMEN_QUERYResult = {
   tournamentFeatureImage: {
     asset: {
@@ -1693,6 +1723,24 @@ export type SINGLE_TOURNAMEN_QUERYResult = {
     _type: "image";
     _key: string;
   }> | null;
+  tournamentsHomeTeamImage: {
+    asset: {
+      url: string | null;
+    } | null;
+  } | null;
+  tournamentsRivalTeamImage: {
+    asset: {
+      url: string | null;
+    } | null;
+  } | null;
+  tournamentsStartDate: string | null;
+  tournamentsEndDate: string | null;
+  tournamentsOpeningHours: string | null;
+  tournamentsVenue: string | null;
+  tournamentsAddress: string | null;
+  tournamentsEmail: string | null;
+  tournamentsPhoneNumber: string | null;
+  tournamentPublishedAt: string | null;
 } | null;
 // Variable: GOLFCOURSE_QUERY
 // Query: *[_type=="golfCourse"]{      golfCourseFeatureImage{asset->},      golfCourseTitle,      golfCourseSlug,      golfCourseExcerpt,      golfCourseAuthor,      golfCourseDate,      golfCourseDetails,    }
@@ -1872,7 +1920,7 @@ declare module "@sanity/client" {
     "*[_type==\"eventsHeroContent\"]{\n    eventsHeroSectionTitle,\n    eventsHeroSectionSubTitle,\n    eventsHeroSectionText,\n    eventsHeroSectionImages,\n    eventsImage[]{eventsImage{asset->{url}}},\n    eventsTitle,\n    }": EVENTSHEROCONTENT_QUERYResult;
     "*[_type==\"newsAndUpdates\" && newsUpdateSlug.current==$slug][0]{\n      newsUpdateFeatureImage{asset->},\n      newsUpdateTitle,\n      newsUpdateSlug,\n      newsUpdateExcerpt,\n      newsUpdateAuthor,\n      newsUpdateDate,\n      newsUpdateDetails,\n    }": SINGLE_NEWSANDUPDATETYPE_QUERYResult;
     "*[_type==\"tournaments\"]{\n      tournamentFeatureImage{asset->},\n      tournamentTitle,\n      tournamentSlug,\n      tournamentExcerpt,\n      tournamentAuthor,\n      tournamentDate,\n      tournamentDetails,\n    }": TOURNAMENT_QUERYResult;
-    "*[_type==\"tournaments\" && tournamentSlug.current==$tournamentSlug][0]{\n      tournamentFeatureImage{asset->},\n      tournamentTitle,\n      tournamentSlug,\n      tournamentExcerpt,\n      tournamentAuthor,\n      tournamentDate,\n      tournamentDetails,\n    }": SINGLE_TOURNAMEN_QUERYResult;
+    "*[_type==\"tournaments\" && tournamentSlug.current==$tournamentSlug][0]{\n      tournamentFeatureImage{asset->},\n      tournamentTitle,\n      tournamentSlug,\n      tournamentExcerpt,\n      tournamentAuthor,\n      tournamentDate,\n      tournamentDetails,\n      tournamentsHomeTeamImage{asset->{url}},\n      tournamentsRivalTeamImage{asset->{url}},\n      tournamentsStartDate,\n      tournamentsEndDate,\n      tournamentsOpeningHours,\n      tournamentsVenue,\n      tournamentsAddress,\n      tournamentsEmail,\n      tournamentsPhoneNumber,\n      tournamentPublishedAt,\n    }": SINGLE_TOURNAMEN_QUERYResult;
     "*[_type==\"golfCourse\"]{\n      golfCourseFeatureImage{asset->},\n      golfCourseTitle,\n      golfCourseSlug,\n      golfCourseExcerpt,\n      golfCourseAuthor,\n      golfCourseDate,\n      golfCourseDetails,\n    }": GOLFCOURSE_QUERYResult;
     "*[_type==\"golfCourse\" && golfCourseSlug.current==$slug][0]{\n      golfCourseFeatureImage{asset->},\n      golfCourseTitle,\n      golfCourseSlug,\n      golfCourseExcerpt,\n      golfCourseAuthor,\n      golfCourseDate,\n      golfCourseDetails,\n      golfCourseShowCaseImage1,\n      golfCourseShowCaseImage2,\n      golfCourseEstablishedHeading,\n      golfCourseEstablishedSubText,\n      golfCourseEstablishedStats1,\n      golfCourseEstablishedStats2,\n    }": SINGLE_GOLFCOURSE_QUERYResult;
   }
